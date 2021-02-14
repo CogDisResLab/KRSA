@@ -1,0 +1,342 @@
+---
+classoption: 12pt
+header-includes:
+- \usepackage[document]{ragged2e}
+- \usepackage[T1]{fontenc}
+- \usepackage[utf8]{inputenc}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead{}
+- \fancyhead[LO,LE]{\today}
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+```{r libraries&functions, include=FALSE}
+# loading Libraries ----
+library(tidyverse)
+library(KRSA)
+library(broom)
+library(pheatmap)
+library(gt)
+
+theme_set(theme_bw())
+
+
+# functions -----
+'%ni%' <- Negate('%in%')
+
+
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+```
+
+
+```{r, echo=F,out.width = "200px",out.width="200px", fig.align='center'}
+#knitr::include_graphics("../../../../SupFiles/images/ut_collegeofmedicine-logo.png")
+```
+
+
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+\hfill\break
+```{r, echo=F,out.width = "200px",out.width="200px", fig.align='center'}
+#knitr::include_graphics("images/UT-logo.png")
+#knitr::include_graphics("images/ut_collegeofmedicine-logo.png")
+```
+
+\hfill\break  
+\centering  
+\fontfamily{qpl}\selectfont
+\LARGE\textbf{Kinase Array Report (STK)}  
+
+\footnotesize{The Cognitive Disorders Research Laboratory (CDRL)}  
+
+\scriptsize{The Department of Neurosciences at the University of Toledo Medical Center} 
+
+\fontfamily{cmr}\selectfont
+\normalsize
+\justify
+
+***
+
+\newpage
+
+
+### Introduction 
+
+#### Background
+The Pamstation12 instrument provides a profiling of kinase activity of cell or tissue samples. The device is loaded with either serine/threonine or tyrosine microarray chips. Each chip has 4 wells so four samples can be loaded on a single chip, and the Pamstation12 can accommodate 3 chips per run. The microarray represents 144 (STK chip) or 196 (PTK chip) reporter peptides that can be phosphorylated by serine/threonine or tyrosine kinases. The device measures the degree of the phosphorylation in real time by detecting fluorescently labeled antibodies at different exposure times. The list of peptides present in each microarray can be viewed here: [STK chip](https://pamgene.com/wp-content/uploads/2020/09/STK-144-PamChip-87102.pdf), [PTK chip](https://pamgene.com/wp-content/uploads/2020/09/PTK-196-PamChip-86402.pdf)
+
+\newpage
+ 
+
+
+
+```{r, echo=F,out.width = "400px",out.width="450px", fig.align='center'}
+#knitr::include_graphics("../../../../SupFiles/images/pamgene_workflow.png")
+#knitr::include_graphics("../../../../SupFiles/images/pamgene_detectionFig.png")
+```
+
+\newpage  
+
+#### Samples Info  
+
+
+#### Run Design
+Designing the placement of the samples on the chips and arrays is important to consider due to the variability across different chips and batches. During the run some wells are subject to fail and their data cannot be analyzed and shown below as red.
+
+```{r design, echo=F, fig.width=3, fig.height=3, fig.align="center"}
+tt <- tibble(
+  num = rep(c(3.5,2.5,1.5,0.5),3),
+  chips = rep(c(2,5,8),each=4),
+  colr = c(rep(1,12)),
+  nms = rep(c("No_ATP", "0.025", "0.0025", "0.00025"), 3)
+)
+rundes <- ggplot() +
+  geom_rect(aes(xmin=1, xmax=3, ymin=0,ymax=4), fill="gray30") +
+  geom_rect(aes(xmin=4, xmax=6, ymin=0,ymax=4), fill="gray30") +
+  geom_rect(aes(xmin=7, xmax=9, ymin=0,ymax=4), fill="gray30") +
+  xlim(0,10) + 
+  theme_void() 
+
+rundes + geom_point(data = tt, aes(chips, num,color=factor(colr)), size = 13, show.legend = F) +
+  geom_text(data = tt, aes(chips,num,label = nms), size = 2) +
+  scale_color_manual(values=c("green3", "red3"))
+```
+
+\newpage
+
+## Results  
+
+#### Image Anlaysis
+The first step of analyzing the run is to convert the images taken by the PamStation of each array at different exposure times to numrical values This is done by the Bionavigator software developed by Pamgene. The software recognizes the grid of the array with the aid of the searching algorithm (Pamgrid) to correctly identify each spot on the array. The numbers produced by this software represent the median value of the foreground pixels minus the median value of the background pixels to produce the median signal minus background (Median_SigmBg).
+
+#### Data Tidying and Modeling  
+The raw data is then transformed to be tidy for an easier analysis, modeling, and visualizing [Wickham's tidy data paper](http://vita.had.co.nz/papers/tidy-data.html). In order to combine the values from different exposure times into a single value, a simple linear regression model of the *Medain_SigmBg* as a function of exposure time is fitted. The slope of of the model fit and $R^2$ are then used for quality control and samples comparison. The slope is also scaled by multiplying by 100 and log2 transformed (*Slope_Transformed *).
+
+
+```{r read data, include=FALSE}
+
+
+tidydata <- krsa_read("../inst/extdata/example_Median_SigmBg.txt", "../inst/extdata/example_Signal_Saturation.txt")
+
+
+krsa_qc_steps(tidydata) -> tidydata
+
+
+tidydata %>% filter(!SignalSaturation>0.05) -> tidydata
+
+chipCov <- readRDS("../../../../SupFiles/STKchipCoverage.rds")
+
+KRSA_file <- read.table("../../../../SupFiles/testingsubsREAL_Eduard_2017_Fixed_KA.txt", header = TRUE, sep = "\t", as.is=T, quote = "\"", check.names=FALSE, stringsAsFactors=FALSE)
+
+tidydata %>% mutate(Signal = ifelse(Signal < 1, 1, Signal)) -> tidydata
+
+# PW @ all times
+tidydata %>% dplyr::filter(Cycle == 124, ExposureTime == 200) %>% 
+   dplyr::select(SampleName, Peptide ,Signal, Group) -> Dataset_PW_C1_200 
+
+# end level @ all times
+tidydata %>% dplyr::filter(Cycle == 124) %>% 
+  dplyr::select(SampleName,Peptide ,ExposureTime, Signal, Chip, Group) -> Dataset_PW_C1 
+
+
+```
+
+```{r model, warning=F,include=FALSE}
+
+  
+Dataset_PW_C1_200  %>%filter(Group == "0.025") %>% 
+  select(-Group) %>% 
+  spread(key = SampleName, value = Signal) %>% 
+  dplyr::filter_at( vars(-Peptide) , all_vars(. >= 5)) %>% 
+      dplyr::filter(Peptide %ni% c("pVASP_150_164", "pTY3H_64_78", "ART_025_CXGLRRWSLGGLRRWSL")) %>%
+  pull(Peptide) -> ppPassAll  
+
+Dataset_PW_C1 %>% dplyr::filter(Peptide %in% ppPassAll) %>% 
+  nest(-SampleName, -Peptide,-Group, -Chip) %>%
+  group_by(SampleName, Peptide) %>% 
+  mutate(
+    fit = map(data,~ lm(Signal ~ ExposureTime + 0, data = .x)),
+    coefs = map(fit, tidy),
+    summary = map(fit, glance),
+    #.default argument to replace NA/NaN values
+    slope = map_dbl(coefs,pluck,2,.default = 0),
+    r.seq = map_dbl(summary, "r.squared")
+  ) %>% 
+  select(Group, Chip,SampleName, Peptide, slope, r.seq) -> Dataset_PW_C1_Fit
+
+#Dataset_PW_C1_Fit %>% mutate(slope = ifelse(slope < 1, 1, slope)) -> Dataset_PW_C1_Fit
+
+Dataset_PW_C1_Fit %>% mutate(slope = log2(slope*100)) -> Dataset_PW_C1_Fit
+
+
+Dataset_PW_C1_Fit %>% mutate(slope = ifelse(slope < 0, 0, slope)) -> Dataset_PW_C1_Fit
+
+
+
+
+Dataset_PW_C1_Fit %>% group_by(Chip, Peptide) %>% mutate(Mean = mean(slope)) %>% 
+  ungroup() %>% mutate(slope = slope/Mean) -> Dataset_PW_C1_Fit_2
+
+  
+Dataset_PW_C1_Fit %>%  
+  select(SampleName, Peptide, r.seq) %>% spread(SampleName, r.seq) %>% 
+  filter_at( vars(-Peptide) , all_vars(. >= 0.8)) %>% 
+  pull(Peptide) -> ppPassR2
+
+Dataset_PW_C1_Fit %>% filter(Peptide %in% ppPassR2) %>% 
+  group_by(Group, Peptide) %>%
+  summarise(slope =  EnvStats::geoMean(slope),r.seq=EnvStats::geoMean(r.seq)) -> Dataset_PW_C1_FitGrouped
+
+
+
+Dataset_PW_C1_200  %>% select(-Group) -> Dataset_PW_C1_200
+
+```
+
+#### Global Signal Intensity  
+For a global signal intensity across all samples/groups, a heatmap is constructed based on the *Slope_Transformed* values. This heatmap represents all  the peptides present on the chip except the positive/internal controls (*pVASP_150_164*, *pTY3H_64_78*, *ART_025_CXGLRRWSLGGLRRWSL*). The heatmap is scaled by row to highlight the peptides signals differences across the samples. A hierarchical unsupervised clustering is applied both on the peptides and the samples to potentially group similar signatures. 
+
+
+
+```{r heatmap, warning=F,include=FALSE}
+
+# Create matrix for the heatmaps
+
+Dataset_PW_C1_FitGrouped %>% dplyr::filter(Peptide %in% ppPassR2) %>% select(Peptide, Group, slope) %>% spread(key = Group, value = slope) %>% mutate(NoATPComp = No_ATP_0.025 >=	`0.025`, LowCom = `0.00025` >= `0.025`) %>% 
+  filter(NoATPComp == T | LowCom==T) %>% pull(Peptide) -> higherPeps
+
+Dataset_PW_C1_Fit %>% dplyr::filter(Peptide %in% ppPassR2, !Peptide %in% higherPeps) %>% 
+  select(Peptide, SampleName, slope) %>% spread(key = SampleName, value = slope) %>%
+  column_to_rownames("Peptide") %>% as.matrix() -> HM_matrix2_logged_r2Passed
+
+
+Dataset_PW_C1_Fit_2 %>% dplyr::filter(Peptide %in% ppPassR2, !Peptide %in% higherPeps) %>% 
+  select(Peptide, SampleName, slope) %>% spread(key = SampleName, value = slope) %>%
+  column_to_rownames("Peptide") %>% as.matrix() -> HM_matrix2_logged_r2Passed_2
+
+Dataset_PW_C1_FitGrouped %>% dplyr::filter(Peptide %in% ppPassR2, !Peptide %in% higherPeps) %>% 
+  select(Peptide, Group, slope) %>% spread(key = Group, value = slope) %>%
+  column_to_rownames("Peptide") %>% as.matrix() -> HM_matrix2_logged_r2Passed_Grouped
+
+
+```
+
+```{r heatmapPlot, echo=F,fig.height=6, fig.width=6, fig.align="center"}
+
+# Produce heatmaps
+
+Dataset_PW_C1_Fit %>% filter(!Peptide %in% higherPeps) %>% 
+  group_by(Group, Peptide) %>% summarise(SD = sd(slope), repMean = mean(slope), CV = SD/repMean) %>% 
+  ggplot(aes(repMean, CV)) + geom_point() + 
+  geom_smooth(method = "loess",aes(color = Group)) + facet_wrap(~Group, scales = "free") +
+  ylim(0,1) + labs(title = "CV Plot All Peptides", 
+                   subtitle = "All Samples") 
+
+
+Dataset_PW_C1_Fit_2 %>% filter(!Peptide %in% higherPeps) %>%
+  group_by(Group, Peptide) %>% summarise(SD = sd(slope), repMean = mean(slope), CV = SD/repMean) %>% 
+  ggplot(aes(repMean, CV)) + geom_point() + 
+  geom_smooth(method = "loess",aes(color = Group)) + facet_wrap(~Group, scales = "free") +
+  ylim(0,1) + labs(title = "CV Plot All Peptides", 
+                   subtitle = "All Samples") 
+
+tidydata %>% select(SampleName, Group) %>%distinct()  %>% 
+  column_to_rownames("SampleName") -> SamplesAnnotation
+
+
+dd <- dist(t(HM_matrix2_logged_r2Passed))
+pheatmap::pheatmap(HM_matrix2_logged_r2Passed, clustering_distance_cols = dd, 
+                   scale = "row", 
+                   clustering_method = "ward.D2",
+                   annotation_col = SamplesAnnotation,
+                   color = colorRampPalette(c("yellow", "white", "red"))(n = 50), 
+                   fontsize_row = 5,
+                   main = "All Samples (scaled by row)"
+                   )
+
+
+dd <- dist(t(HM_matrix2_logged_r2Passed_2))
+pheatmap::pheatmap(HM_matrix2_logged_r2Passed_2, clustering_distance_cols = dd,
+                   scale = "row",
+                   annotation_col = SamplesAnnotation,
+                   clustering_method = "ward.D2",
+                   color = colorRampPalette(c("yellow", "white", "red"))(n = 50),
+                   fontsize_row = 5,
+                   main = "All Samples (normalized by chip)"
+                   )
+
+
+dd <- dist(t(HM_matrix2_logged_r2Passed_Grouped))
+
+pheatmap::pheatmap(HM_matrix2_logged_r2Passed_Grouped, clustering_distance_cols = dd,
+                   scale = "row",
+                   clustering_method = "ward.D2",
+                   color = colorRampPalette(c("yellow", "white", "red"))(n = 50),
+                   fontsize_row = 5,
+                   main = "Grouped (geo-mean)"
+                   )
+
+
+Dataset_PW_C1_Fit %>% dplyr::filter(Peptide %in% ppPassR2) %>%
+  ggplot(aes(SampleName, slope)) + geom_violin(aes(fill = Group), show.legend = F) +
+  geom_point(size = 1.5)+ geom_line(aes(group = Peptide), alpha = 1/2) +
+  facet_wrap(~Chip, scales = "free", nrow = 2, ncol = 2) + labs(
+    x = "",
+    y = "Signal Intensity",
+    title = "Global Signal Intensity By Chip"
+  ) + theme(
+    axis.text.x = element_text(size = 6)
+
+  )
+
+my_comparisons <- list(c("No_ATP", "0.025"), c("No_ATP", "0.0025"), c("No_ATP", "0.00025"))
+
+ggplot(Dataset_PW_C1_Fit, aes(Group, slope)) +
+  stat_summary(fun.data = min.mean.sd.max, geom = "boxplot", aes(fill = Group),  show.legend = F) +
+  geom_point(alpha = .5) +
+  facet_wrap(~Chip) + stat_compare_means(comparisons = my_comparisons, paired = F, method = "wilcox.test") +
+  theme_bw() + labs(y = "Signal", x = "") + theme(
+    axis.text.x = element_text(size = 6)
+  )
+
+
+pamgene_data <- read_tsv("../pamgene/QT-out_20-11-11-11-32-37.tsv") %>% rename(Peptide = ID) %>%
+  filter(Peptide %in% ppPassR2)
+
+Dataset_PW_C1_Fit %>% dplyr::filter(Peptide %in% ppPassR2) %>% select(Peptide, SampleName, slope) %>% spread(key = SampleName, value = slope) %>% bind_cols(pamgene_data) -> combined_datasets
+
+ggscatter(combined_datasets, x = "0.025_1", y = "S100_logTransformed_710296314_PIM1_400_0.025000000372529", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          title = "Chip 1",
+          xlab = "Toledo 0.025_1", ylab = "PamGene 0.025")
+
+ggscatter(combined_datasets, x = "0.025_2", y = "S100_logTransformed_710296314_PIM1_400_0.025000000372529", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          title = "Chip 2",
+          xlab = "Toledo 0.025_2", ylab = "PamGene 0.025")
+
+ggscatter(combined_datasets, x = "0.025_3", y = "S100_logTransformed_710296314_PIM1_400_0.025000000372529", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          title = "Chip 3",
+          xlab = "Toledo 0.025", ylab = "PamGene 0.025")
+
+
+
+cor.test(combined_datasets$`0.025_1`, combined_datasets$S100_logTransformed_710296314_PIM1_400_0.025000000372529)
+cor.test(combined_datasets$`0.025_2`, combined_datasets$S100_logTransformed_710296314_PIM1_400_0.025000000372529)
+cor.test(combined_datasets$`0.025_3`, combined_datasets$S100_logTransformed_710296314_PIM1_400_0.025000000372529)
+
+
+```
+

@@ -1,0 +1,48 @@
+#' Read crosstab format files exported from bioNavigator and tidy them
+#'
+#' This function takes in a BPNList object and returns a BPNList object
+#'
+#' @param signal_file path to median signal minus background file (Median_SigmBg)
+#' @param signal_saturation path to signal saturation file (Signal_Saturation)
+#'
+#' @return tbl_df
+#'
+#' @import dplyr
+#' @export
+#'
+#' @examples
+#' TRUE
+
+krsa_read <- function(signal_file, signal_saturation) {
+  # Read Files and return tidy tbl
+  # Created 2020-02-14
+  # Last Updated 2020-02-14
+
+
+  sig_df <- parse_BN_crosstabFile(signal_file, "Signal")
+
+  if(missing(signal_saturation)) {
+
+    sig_df
+
+  } else {
+
+    sig_sat <- parse_BN_crosstabFile(signal_saturation, "SignalSaturation")
+
+    if(identical(dim(sig_df), dim(sig_sat))) {
+      rowsIDs <- nrow(sig_df)
+
+      sig_df %>% mutate(ID = rep(1:rowsIDs)) -> sig_df
+      sig_sat %>% mutate(ID = rep(1:rowsIDs)) -> sig_sat
+
+      combined_tidy <- left_join(sig_df, select(sig_sat, ID, SignalSaturation), by = "ID")
+
+      select(combined_tidy, -ID)
+    }
+
+    else {stop("Dims are not equal")}
+
+  }
+
+
+}
