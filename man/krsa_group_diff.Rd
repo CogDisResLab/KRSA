@@ -2,28 +2,26 @@
 % Please edit documentation in R/krsa_group_diff.R
 \name{krsa_group_diff}
 \alias{krsa_group_diff}
-\title{Read crosstab format files exported from bioNavigator and tidy them}
+\title{Calculates LFC based on modeled pw data and grouping}
 \usage{
-krsa_group_diff(data, case, ctl, peps, byChip = F, chips = c(1, 2, 3))
+krsa_group_diff(data, groups, peps, byChip = T, Barcodes = NULL)
 }
 \arguments{
-\item{data}{krsa tidy data}
+\item{data}{modeled pw data}
 
-\item{case}{case sample names vector}
-
-\item{ctl}{control samples vector}
+\item{groups}{a vector. format: (case, control)}
 
 \item{peps}{peptide list}
 
-\item{byChip}{T or F}
+\item{byChip}{T or F, to calculate per chip}
 
-\item{chips}{chips vector}
+\item{Barcodes}{(optional) Barcodes vector}
 }
 \value{
 LFC krsa table
 }
 \description{
-This function takes in a BPNList object and returns a BPNList object
+This function takes in the modeled pw data, groups, peptides, and an option to perform the calculation per chip (byChip)
 }
 \examples{
 TRUE

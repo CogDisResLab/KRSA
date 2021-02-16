@@ -1,7 +1,7 @@
 Package: KRSA
 Type: Package
 Title: KRSA: Kinome Random Sampling Analyzer
-Version: 1.0.0
+Version: 0.9.0
 Author: Khaled Alganem
 Maintainer: Khaled Alganem <khaled.a.alganem@gmail.com>
 Description: KRSA: Kinome Random Sampling Analyzer
@@ -14,13 +14,12 @@ Imports:
     readr,
     stringr,
     purrr,
-    base,
-    methods,
     rlang,
-    stats,
     dplyr,
     pheatmap,
     EnvStats
-Depends: tidyverse
+Depends: 
+    tidyverse,
+    R (>= 2.10)
 LazyData: true
 RoxygenNote: 7.1.1

@@ -1,6 +1,6 @@
 #' Parse BN crosstab files
 #'
-#' This function takes in a BPNList object and returns a BPNList object
+#' TODO
 #'
 #' @param file_path path to BN crosstab file
 #' @param type Name of the value

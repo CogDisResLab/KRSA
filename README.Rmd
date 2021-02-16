@@ -6,6 +6,12 @@ output:
     variant: markdown_github
 ---
 
+## Installation
+
+``` r
+# install.packages("devtools")
+devtools::install_github("kalganem/KRSA")
+```
 
 ## KRSA
 
@@ -17,9 +23,6 @@ More info on the PamStation12 platform can be found here: [PamGene]("https://pam
 ## Access
 
 KRSA preprint is available here: [Paper]("https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1").
-
-The web application is freely accessible here: [Link]("")
-
 
 
 ## Workflow

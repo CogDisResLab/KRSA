@@ -1,3 +1,10 @@
+## Installation
+
+``` r
+# install.packages("devtools")
+devtools::install_github("kalganem/KRSA")
+```
+
 ## KRSA
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that
@@ -17,8 +24,6 @@ More info on the PamStation12 platform can be found here:
 
 KRSA preprint is available here:
 [Paper](%22https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1%22).
-
-The web application is freely accessible here: [Link](%22%22)
 
 ## Workflow
 

@@ -15,7 +15,7 @@ parse_BN_crosstabFile(file_path, type = c("Signal", "SignalSaturation"))
 tbl_df
 }
 \description{
-This function takes in a BPNList object and returns a BPNList object
+TODO
 }
 \examples{
 TRUE

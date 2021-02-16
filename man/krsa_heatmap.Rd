@@ -2,24 +2,35 @@
 % Please edit documentation in R/krsa_heatmap.R
 \name{krsa_heatmap}
 \alias{krsa_heatmap}
-\title{Read crosstab format files exported from bioNavigator and tidy them}
+\title{Generates a heatmap based on the modeled pw data}
 \usage{
-krsa_heatmap(data, samples, peptides, scaled = "row")
+krsa_heatmap(
+  data,
+  peptides,
+  samples = NULL,
+  groups = NULL,
+  scaled = "row",
+  ...
+)
 }
 \arguments{
-\item{data}{krsa tidy data}
-
-\item{samples}{sample names}
+\item{data}{modeled pw data}
 
 \item{peptides}{peptide list}
 
-\item{scaled}{argument in pheatmap}
+\item{samples}{(optional) sample names}
+
+\item{groups}{(optional) group names}
+
+\item{scaled}{argument in pheatmap to scale per row}
+
+\item{...}{to pass to the pheatmap function}
 }
 \value{
 pheatmap object
 }
 \description{
-This function takes in a BPNList object and returns a BPNList object
+This function takes in the modeled pw data, peptides and produces and pheatmap
 }
 \examples{
 TRUE

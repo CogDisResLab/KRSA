@@ -15,7 +15,7 @@ krsa_read(signal_file, signal_saturation)
 tbl_df
 }
 \description{
-This function takes in a BPNList object and returns a BPNList object
+This function takes in paths to the median signal minus background (Median_SigmBg) and signal saturation (Signal_Saturation) files and parse and tidy them
 }
 \examples{
 TRUE

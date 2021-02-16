@@ -1,18 +1,16 @@
-#' Read crosstab format files exported from bioNavigator and tidy them
+#' Calculates LFC based on modeled pw data and grouping
 #'
-#' This function takes in a BPNList object and returns a BPNList object
+#' This function takes in the modeled pw data, groups, peptides, and an option to perform the calculation per chip (byChip)
 #'
-#' @param data krsa tidy data
-#' @param case case sample names vector
-#' @param ctl control samples vector
+#' @param data modeled pw data
+#' @param groups a vector. format: (case, control)
 #' @param peps peptide list
-#' @param byChip T or F
-#' @param chips chips vector
+#' @param byChip T or F, to calculate per chip
+#' @param Barcodes (optional) Barcodes vector
 #'
 #' @return LFC krsa table
 #'
 #' @import dplyr
-#' @import EnvStats
 #'
 #' @export
 #'
@@ -20,18 +18,17 @@
 #' TRUE
 
 
-krsa_group_diff  <- function(data,case, ctl, peps, byChip = F, chips = c(1,2,3)) {
-  data %>% filter(Group %in% c(case, ctl), Peptide %in% peps) %>%
-    {if (byChip == T) {filter(.,Chip %in% chips)} else . } %>%
-    {if (byChip == T) {group_by(.,Chip, Peptide)} else group_by(., Peptide)} %>%
-    summarise(FC = slope[Group == case]/slope[Group == ctl],
-              LFC = slope[Group == case] - slope[Group == ctl],
-              FCEd = log2(slope[Group == case])/log2(slope[Group == ctl]),
-              FCP = FC * 100,
-              ChangePercentage = ((slope[Group == case]- slope[Group == ctl])/slope[Group == ctl])*100
-    ) %>% ungroup() %>% {if (byChip == T) {
-      group_by(.,Peptide) %>% mutate(totalMean = mean(FC),totalMeanLFC = mean(LFC),
-                                     totalGeoMean = EnvStats::geoMean(FC)) %>%
-        ungroup() %>% mutate(totalGeoMeanLFC = log2(totalGeoMean))
+krsa_group_diff  <- function(data, groups, peps, byChip = T, Barcodes = NULL) {
+  data %>% filter(Group %in% groups, Peptide %in% peps) %>%
+    {if (byChip == T) {group_by(.,Barcode, Peptide)} else group_by(., Peptide, Group)} %>%
+    {if (byChip == T) summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]]) else {
+      summarise(.,slope=mean(slope)) %>% ungroup(.) %>%
+        group_by(.,Peptide) %>%
+        summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]])
+    }} %>%
+    ungroup(.) %>%
+    {if (byChip == T) {
+      group_by(.,Peptide) %>% mutate(.,totalMeanLFC = mean(LFC)) %>%
+        ungroup(.)
     } else .}
 }
