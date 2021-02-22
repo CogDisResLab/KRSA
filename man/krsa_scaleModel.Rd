@@ -2,20 +2,20 @@
 % Please edit documentation in R/krsa_scaleModel.R
 \name{krsa_scaleModel}
 \alias{krsa_scaleModel}
-\title{TODO}
+\title{Fits, scales, transforms, and normalize kinome array data}
 \usage{
 krsa_scaleModel(df, pep)
 }
 \arguments{
-\item{df}{krsa tidy data}
+\item{df}{kinome array data tidy data}
 
 \item{pep}{Peptide List}
 }
 \value{
-df
+list of scaled , normlaized and grouped modeled data
 }
 \description{
-TODO
+Runs a linear model on the tidy kinome array data of the signal as a function of exposure time. It also scales, transforms, and normalize kinome array data based on the barcode
 }
 \examples{
 TRUE

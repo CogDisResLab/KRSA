@@ -2,22 +2,24 @@
 % Please edit documentation in R/krsa_sampling.R
 \name{krsa_sampling}
 \alias{krsa_sampling}
-\title{TODO}
+\title{Performs random sampling of peptides and mappped kinases}
 \usage{
-krsa_sampling(x, CovFile, file, sum_num)
+krsa_sampling(x, CovFile, map, sum_num)
 }
 \arguments{
-\item{data}{krsa data_modeled$scaled}
+\item{x}{number of iterations}
 
-\item{samples}{sample names}
+\item{CovFile}{kinase coverage df}
 
-\item{lfc_thr}{LFC cutoff for plot}
+\item{map}{kinase-substrate mapping df}
+
+\item{sum_num}{number of peptides to resample}
 }
 \value{
-ggplot
+count of kinases hits to random peptides
 }
 \description{
-TODO
+This function takes number of iterations, coverage file, kinase-substrate mapping df, and the length of the set of peptides to resample
 }
 \examples{
 TRUE

@@ -78,6 +78,7 @@ knitr::include_graphics("images/pamgene_detectionFig.png")
 #### Samples Info  
 
 
+
 #### Run Design
 Designing the placement of the samples on the chips and arrays is important to consider due to the variability across different chips and batches. During the run some wells are subject to fail and their data cannot be analyzed and shown below as red.
 
@@ -138,6 +139,7 @@ krsa_extractEndPoint(data, chipType) -> data_pw
 
 # 
 krsa_filter_lowPeps(data_pw_200, 5) -> ppPassAll
+
 krsa_scaleModel(data_pw, ppPassAll) -> data_modeled
   
 krsa_filter_nonLinear(data_modeled$scaled, 0.8) -> ppPassR2

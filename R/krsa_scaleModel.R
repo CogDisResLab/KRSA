@@ -1,11 +1,11 @@
-#' TODO
+#' Fits, scales, transforms, and normalize kinome array data
 #'
-#' TODO
+#' Runs a linear model on the tidy kinome array data of the signal as a function of exposure time. It also scales, transforms, and normalize kinome array data based on the barcode
 #'
-#' @param df krsa tidy data
+#' @param df kinome array data tidy data
 #' @param pep Peptide List
 #'
-#' @return df
+#' @return list of scaled , normlaized and grouped modeled data
 #'
 #' @import dplyr
 #'
@@ -17,6 +17,7 @@
 krsa_scaleModel <- function(df, pep) {
 
   df %>% filter(Peptide %in% pep) %>%
+    select(SampleName, Peptide, Group, Barcode, Signal, ExposureTime) %>%
     nest(-SampleName, -Peptide,-Group, -Barcode) %>%
     group_by(SampleName, Peptide) %>%
     mutate(

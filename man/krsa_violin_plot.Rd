@@ -4,7 +4,14 @@
 \alias{krsa_violin_plot}
 \title{TODO}
 \usage{
-krsa_violin_plot(data, peptides, facet, samples = NULL, groups = NULL)
+krsa_violin_plot(
+  data,
+  peptides,
+  facet_factor,
+  facet = T,
+  samples = NULL,
+  groups = NULL
+)
 }
 \arguments{
 \item{data}{krsa data_modeled$scaled}

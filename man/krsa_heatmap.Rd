@@ -4,14 +4,7 @@
 \alias{krsa_heatmap}
 \title{Generates a heatmap based on the modeled pw data}
 \usage{
-krsa_heatmap(
-  data,
-  peptides,
-  samples = NULL,
-  groups = NULL,
-  scaled = "row",
-  ...
-)
+krsa_heatmap(data, peptides, samples = NULL, groups = NULL, ...)
 }
 \arguments{
 \item{data}{modeled pw data}
@@ -22,9 +15,9 @@ krsa_heatmap(
 
 \item{groups}{(optional) group names}
 
-\item{scaled}{argument in pheatmap to scale per row}
-
 \item{...}{to pass to the pheatmap function}
+
+\item{scaled}{argument in pheatmap to scale per row}
 }
 \value{
 pheatmap object

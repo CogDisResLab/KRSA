@@ -20,7 +20,7 @@
 #' @examples
 #' TRUE
 
-krsa_heatmap <- function(data, peptides,samples = NULL,groups = NULL, scaled = "row", ...) {
+krsa_heatmap <- function(data, peptides,samples = NULL,groups = NULL, ...) {
 
   data %>%
     filter(Peptide %in% peptides) %>%
@@ -38,8 +38,6 @@ krsa_heatmap <- function(data, peptides,samples = NULL,groups = NULL, scaled = "
 
   dd <- dist(scale(t(HM_matrix2_test1)))
   pheatmap::pheatmap(HM_matrix2_test1, clustering_distance_cols = dd,
-                     scale = scaled,
-                     clustering_method = "ward.D2",
                      annotation_col = SamplesAnnotation,
                      color = colorRampPalette(c("yellow", "white", "red"))(n = 50),
                      fontsize_row = 5,
