@@ -4,7 +4,7 @@
 \alias{krsa_heatmap_grouped}
 \title{Generates a grouped heatmap}
 \usage{
-krsa_heatmap_grouped(data, peptides, groups = NULL, scaled = "row", ...)
+krsa_heatmap_grouped(data, peptides, groups = NULL, ...)
 }
 \arguments{
 \item{data}{grouped modeled pw data}
