@@ -16,16 +16,32 @@
 #' @examples
 #' TRUE
 
-krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr) {
+krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip =  T) {
 
-  lfc_table$colMean <- cut(lfc_table$totalMeanLFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
-  lfc_table$colFC <- cut(lfc_table$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("black", "gray", "black"))
+  if(byChip == T) {
+    lfc_table$colMean <- cut(lfc_table$totalMeanLFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
+    lfc_table$colFC <- cut(lfc_table$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("black", "gray", "black"))
+  }
+  else {
+    lfc_table$colFC <- cut(lfc_table$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
+  }
 
   chipCov %>% filter(Kin %in% kinases) %>% rename(Peptide = "Substrates") -> KinHitPeps
 
-  left_join(KinHitPeps, lfc_table, by = "Peptide") %>%
-    filter(!is.na(totalMeanLFC)) %>%
-    select(Kin, Peptide,LFC, colFC, Barcode) %>% distinct() %>%
+  left_join(KinHitPeps, lfc_table, by = "Peptide") -> combined_data
+
+  if(byChip == T) {
+    combined_data %>%
+      filter(!is.na(totalMeanLFC)) %>%
+      select(Kin, Peptide,LFC, colFC, Barcode) %>% distinct() -> combined_data
+  }
+  else {
+    combined_data %>%
+      select(Kin, Peptide,LFC, colFC) %>% distinct() -> combined_data
+  }
+
+
+  combined_data %>%
     ggplot(aes(Kin, LFC)) + geom_jitter(aes(color = colFC), position = position_jitter(width = .1), show.legend = F) +
     geom_hline(yintercept = lfc_thr,linetype="dashed") +
     geom_hline(yintercept = -1 * lfc_thr,linetype="dashed") +
@@ -35,6 +51,8 @@ krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr) {
       axis.text.x = element_text(size = 4, angle = 30)
     ) +
     scale_colour_identity() +
-    facet_wrap(~Barcode) +
-    theme_bw()
+    theme_bw() -> gg
+
+  if(byChip == T) {gg + facet_wrap(~Barcode)} else gg
+
 }

@@ -4,7 +4,7 @@
 \alias{krsa_reverse_krsa_plot}
 \title{Generates the reverse krsa plot (to examine kinase activity)}
 \usage{
-krsa_reverse_krsa_plot(chipCov, lfc_table, kinases, lfc_thr)
+krsa_reverse_krsa_plot(chipCov, lfc_table, kinases, lfc_thr, byChip = T)
 }
 \arguments{
 \item{chipCov}{chipCov df for eaither STK or PTK}

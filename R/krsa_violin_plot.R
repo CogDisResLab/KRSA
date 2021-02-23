@@ -31,7 +31,6 @@ krsa_violin_plot <- function(data, peptides,facet_factor,facet = T,samples = NUL
 
     ) + theme_bw() -> gg
 
-  {if(facet == T) facet_wrap(facet_factor, scales = "free")}
   if(facet == T) {gg + facet_wrap(facet_factor, scales = "free")}
   else {gg}
 

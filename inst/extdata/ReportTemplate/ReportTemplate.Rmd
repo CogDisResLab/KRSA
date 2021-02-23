@@ -227,7 +227,7 @@ krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups =
 
 #### B vs A   
 ```{r, echo=F, fig.align="center", fig.height=8,fig.width=6}
-krsa_waterfall(diff_df, 0.2)
+krsa_waterfall(diff_df, 0.2, byChip = F)
 ```
 \newpage  
 
@@ -314,7 +314,7 @@ krsa_zscores_plot(AvgZTable2)
 
 #### B vs A 
 ```{r, echo=F, warning=F, fig.align="center"}
-krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2)
+krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
 ```
 \newpage
 

@@ -4,7 +4,7 @@
 \alias{krsa_waterfall}
 \title{TODO}
 \usage{
-krsa_waterfall(data, lfc_thr)
+krsa_waterfall(data, lfc_thr, byChip = T)
 }
 \arguments{
 \item{data}{krsa data_modeled$scaled}
