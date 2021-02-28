@@ -4,9 +4,20 @@
 \alias{krsa}
 \title{TODO}
 \usage{
-krsa(y, itr = 2000, seed = 123, return_count = F)
+krsa(
+  y,
+  itr = 2000,
+  seed = 123,
+  return_count = F,
+  map_file = KRSA_file,
+  cov_file = chipCov
+)
 }
 \arguments{
+\item{map_file}{kinase-substrate mapping file}
+
+\item{cov_file}{LFC cutoff for plot}
+
 \item{data}{krsa data_modeled$scaled}
 
 \item{samples}{sample names}
