@@ -5,9 +5,8 @@
 #' @param df krsa raw tidy data
 #' @param type chip type
 #'
-#' @return df
+#' @return end point signals df
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -16,8 +15,9 @@
 
 krsa_extractEndPoint <- function(df, type = c("STK", "PTK")) {
 
-  df %>% filter(
+  df %>%
+    dplyr::filter(
     if (type == "STK") {Cycle == 124} else {Cycle == 94}) %>%
-    select(SampleName,Peptide ,ExposureTime, Signal, Barcode, Group)
+    dplyr::select(SampleName,Peptide ,ExposureTime, Signal, Barcode, Group)
 
 }

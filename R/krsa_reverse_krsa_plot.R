@@ -6,10 +6,9 @@
 #' @param lfc_table the LFC table
 #' @param kinases vector of kinases
 #' @param lfc_thr LFC threshold
+#' @param byChip will facet by Barcode
 #'
 #' @return vector
-#'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -26,33 +25,38 @@ krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip 
     lfc_table$colFC <- cut(lfc_table$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
   }
 
-  chipCov %>% filter(Kin %in% kinases) %>% rename(Peptide = "Substrates") -> KinHitPeps
+  chipCov %>%
+    dplyr::filter(Kin %in% kinases) %>%
+    dplyr::rename(Peptide = "Substrates") -> KinHitPeps
 
-  left_join(KinHitPeps, lfc_table, by = "Peptide") -> combined_data
+  dplyr::left_join(KinHitPeps, lfc_table, by = "Peptide") -> combined_data
 
   if(byChip == T) {
     combined_data %>%
-      filter(!is.na(totalMeanLFC)) %>%
-      select(Kin, Peptide,LFC, colFC, Barcode) %>% distinct() -> combined_data
+      dplyr::filter(!is.na(totalMeanLFC)) %>%
+      dplyr::select(Kin, Peptide,LFC, colFC, Barcode) %>%
+      dplyr::distinct() -> combined_data
   }
   else {
     combined_data %>%
-      select(Kin, Peptide,LFC, colFC) %>% distinct() -> combined_data
+      dplyr::select(Kin, Peptide,LFC, colFC) %>%
+      dplyr::distinct() -> combined_data
   }
 
 
   combined_data %>%
-    ggplot(aes(Kin, LFC)) + geom_jitter(aes(color = colFC), position = position_jitter(width = .1), show.legend = F) +
-    geom_hline(yintercept = lfc_thr,linetype="dashed") +
-    geom_hline(yintercept = -1 * lfc_thr,linetype="dashed") +
-    labs(y = "Log2 Fold Change",
+    ggplot2::ggplot(aes(Kin, LFC)) +
+    ggplot2::geom_jitter(aes(color = colFC), position = ggplot2::position_jitter(width = .1), show.legend = F) +
+    ggplot2::geom_hline(yintercept = lfc_thr,linetype="dashed") +
+    ggplot2::geom_hline(yintercept = -1 * lfc_thr,linetype="dashed") +
+    ggplot2::labs(y = "Log2 Fold Change",
          x= "") +
-    theme(
-      axis.text.x = element_text(size = 4, angle = 30)
+    ggplot2::theme(
+      axis.text.x = ggplot2::element_text(size = 4, angle = 30)
     ) +
-    scale_colour_identity() +
-    theme_bw() -> gg
+    ggplot2::scale_colour_identity() +
+    ggplot2::theme_bw() -> gg
 
-  if(byChip == T) {gg + facet_wrap(~Barcode)} else gg
+  if(byChip == T) {gg + ggplot2::facet_wrap(~Barcode)} else gg
 
 }

@@ -27,7 +27,7 @@ krsa_quick_filter(
 \item{groups}{group names}
 }
 \value{
-vector
+vector of peptides
 }
 \description{
 This function takes in pw data max exposure, modeled pw data, signal threshold, R2 threshold, and samples and groups names (optional) and returns peptides that passed these conditions

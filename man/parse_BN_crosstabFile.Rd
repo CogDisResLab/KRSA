@@ -2,20 +2,20 @@
 % Please edit documentation in R/parse_BN_crosstabFile.R
 \name{parse_BN_crosstabFile}
 \alias{parse_BN_crosstabFile}
-\title{Parse BN crosstab files}
+\title{Parse bionavigator crosstab files}
 \usage{
 parse_BN_crosstabFile(file_path, type = c("Signal", "SignalSaturation"))
 }
 \arguments{
 \item{file_path}{path to BN crosstab file}
 
-\item{type}{Name of the value}
+\item{type}{Name of the value (either Signal or SignalSaturation)}
 }
 \value{
 tbl_df
 }
 \description{
-TODO
+Main function that parses bionavigator crosstab view files. Takes in path to file and type (either Signal or SignalSaturation)
 }
 \examples{
 TRUE

@@ -10,8 +10,6 @@
 #'
 #' @return LFC krsa table
 #'
-#' @import dplyr
-#'
 #' @export
 #'
 #' @examples
@@ -19,16 +17,18 @@
 
 
 krsa_group_diff  <- function(data, groups, peps, byChip = T, Barcodes = NULL) {
-  data %>% filter(Group %in% groups, Peptide %in% peps) %>%
-    {if (byChip == T) {group_by(.,Barcode, Peptide)} else group_by(., Peptide, Group)} %>%
-    {if (byChip == T) summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]]) else {
-      summarise(.,slope=mean(slope)) %>% ungroup(.) %>%
-        group_by(.,Peptide) %>%
-        summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]])
+  data %>%
+    dplyr::filter(Group %in% groups, Peptide %in% peps) %>%
+    {if (byChip == T) {dplyr::group_by(.,Barcode, Peptide)} else dplyr::group_by(., Peptide, Group)} %>%
+    {if (byChip == T) dplyr::summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]]) else {
+      dplyr::summarise(.,slope=mean(slope)) %>% ungroup(.) %>%
+        dplyr::group_by(.,Peptide) %>%
+        dplyr::summarise(.,LFC = slope[Group == groups[1]] - slope[Group == groups[2]])
     }} %>%
-    ungroup(.) %>%
+    dplyr::ungroup(.) %>%
     {if (byChip == T) {
-      group_by(.,Peptide) %>% mutate(.,totalMeanLFC = mean(LFC)) %>%
-        ungroup(.)
+      dplyr::group_by(.,Peptide) %>%
+        dplyr::mutate(.,totalMeanLFC = mean(LFC)) %>%
+        dplyr::ungroup(.)
     } else .}
 }

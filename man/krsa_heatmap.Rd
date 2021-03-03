@@ -16,8 +16,6 @@ krsa_heatmap(data, peptides, samples = NULL, groups = NULL, ...)
 \item{groups}{(optional) group names}
 
 \item{...}{to pass to the pheatmap function}
-
-\item{scaled}{argument in pheatmap to scale per row}
 }
 \value{
 pheatmap object

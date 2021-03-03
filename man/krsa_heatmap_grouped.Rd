@@ -13,13 +13,13 @@ krsa_heatmap_grouped(data, peptides, groups = NULL, ...)
 
 \item{groups}{(optional) group names}
 
-\item{scaled}{argument in pheatmap}
+\item{...}{arguments passed to pheatmap()}
 }
 \value{
 pheatmap object
 }
 \description{
-This function takes in the grouped modeled pw data, peptides and produces and pheatmap
+This function takes in the grouped modeled pw data, peptides and produces a pheatmap object
 }
 \examples{
 TRUE

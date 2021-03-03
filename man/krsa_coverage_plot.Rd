@@ -14,7 +14,7 @@ krsa_coverage_plot(chipCov, Ztable, chipType = c("STK", "PTK"))
 \item{chipType}{type of chip, either STK or PTK}
 }
 \value{
-ggplot
+ggplot object
 }
 \description{
 This function takes in the chipCov map, Z score table, and chip type to produce a coverage plot (Percentage of total coverage of kinases on chip)

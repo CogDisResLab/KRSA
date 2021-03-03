@@ -12,7 +12,7 @@ krsa_scaleModel(df, pep)
 \item{pep}{Peptide List}
 }
 \value{
-list of scaled , normlaized and grouped modeled data
+list of scaled , normalized and grouped modeled data
 }
 \description{
 Runs a linear model on the tidy kinome array data of the signal as a function of exposure time. It also scales, transforms, and normalize kinome array data based on the barcode

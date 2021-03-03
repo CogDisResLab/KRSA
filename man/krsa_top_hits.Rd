@@ -2,20 +2,20 @@
 % Please edit documentation in R/krsa_top_hits.R
 \name{krsa_top_hits}
 \alias{krsa_top_hits}
-\title{TODO}
+\title{Extracts top kinase hits based on a Z cutoff}
 \usage{
 krsa_top_hits(zTable, z_thr)
 }
 \arguments{
-\item{zTable}{krsa data_modeled$scaled}
+\item{zTable}{Z score table from krsa()}
 
 \item{z_thr}{Z score cutoff}
 }
 \value{
-vector
+vector of top kinases
 }
 \description{
-TODO
+Take in Z score table and extract top kinases based on a Z score cutoff
 }
 \examples{
 TRUE

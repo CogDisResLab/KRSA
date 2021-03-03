@@ -2,18 +2,18 @@
 % Please edit documentation in R/krsa_show_peptides.R
 \name{krsa_show_peptides}
 \alias{krsa_show_peptides}
-\title{TODO}
+\title{Determine number of peptides inside lists}
 \usage{
 krsa_show_peptides(sigPeps_list)
 }
 \arguments{
-\item{sigPeps_list}{krsa data_modeled$scaled}
+\item{sigPeps_list}{list of significant peptides}
 }
 \value{
-vector
+tibble with length of peptide sets
 }
 \description{
-TODO
+Takes in list of significant peptides and calculates length of each set
 }
 \examples{
 TRUE

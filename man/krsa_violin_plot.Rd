@@ -2,7 +2,7 @@
 % Please edit documentation in R/krsa_violin_plot.R
 \name{krsa_violin_plot}
 \alias{krsa_violin_plot}
-\title{TODO}
+\title{Generates violin plots based on peptides signals intensities}
 \usage{
 krsa_violin_plot(
   data,
@@ -14,17 +14,23 @@ krsa_violin_plot(
 )
 }
 \arguments{
-\item{data}{krsa data_modeled$scaled}
+\item{data}{the scaled dataset from krsa_scaleModel}
 
 \item{peptides}{vector of peptides}
 
-\item{samples}{sample names}
+\item{facet_factor}{Column used to facet by. Will be used in facet_wrap(). Needs argument facet to be True.}
+
+\item{facet}{boolean to facet the plot by a variable}
+
+\item{samples}{(optional) a vector of sample names}
+
+\item{groups}{(optional) a vector of group names}
 }
 \value{
-vector
+ggplot figure
 }
 \description{
-TODO
+Takes in the scaled dataset from krsa_scaleModel() and plot violin figures using ggplot2
 }
 \examples{
 TRUE

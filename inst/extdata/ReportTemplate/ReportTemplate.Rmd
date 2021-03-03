@@ -17,8 +17,6 @@ output:
 # loading Libraries ----
 library(tidyverse)
 library(KRSA)
-library(broom)
-library(pheatmap)
 library(gt)
 library(knitr)
 library(furrr)
@@ -213,7 +211,7 @@ After applying the *Filtering Parameters* for this group comparison, only *`r le
 
 ```{r,echo=F, fig.align="center", fig.height=6, fig.width=6}
 
-krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
+krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1, scale = "row")
 
 ```
 \newpage  
@@ -227,7 +225,7 @@ krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups =
 
 #### B vs A   
 ```{r, echo=F, fig.align="center", fig.height=8,fig.width=6}
-krsa_waterfall(diff_df, 0.2, byChip = F)
+krsa_waterfall(diff_df, 0.2, byChip = T)
 ```
 \newpage  
 
@@ -251,13 +249,13 @@ krsa(sigPeps$meanLFC$`0.2`, return_count = T) -> fin
 kable(head(fin$KRSA_Table,25), digits = 3)
 
 # save file
-#fin$KRSA_Table %>% write_delim("acrossChip_KRSA_FullTable_comp1.txt", delim = "\")
+#fin$KRSA_Table %>% write_delim("acrossChip_KRSA_FullTable_comp1.txt", delim = "\t")
 
 bothways <- c(pull(head(fin$KRSA_Table, 10), Kinase), pull(tail(fin$KRSA_Table, 10), Kinase))
 
 krsa_histogram_plot(fin$KRSA_Table, fin$count_mtx, bothways)
 
-library(future)
+# open multiple R sessions to run faster
 plan(multisession)
 
 future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
@@ -283,14 +281,14 @@ df %>%
   select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable
 
 # save file
-#AvgZTable %>% write_delim("acrossChip_KRSA_Table_comp1.txt", delim = "\")
+#AvgZTable %>% write_delim("acrossChip_KRSA_Table_comp1.txt", delim = "\t")
 
 df %>% 
   filter(!grepl("mean", method)) %>% 
   select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable2
 
 # save file
-#AvgZTable %>% write_delim("withinChip_KRSA_Table_comp1.txt", delim = "\")
+#AvgZTable %>% write_delim("withinChip_KRSA_Table_comp1.txt", delim = "\t")
 
 krsa_top_hits(AvgZTable2, 2) -> kinases_hits
 krsa_top_hits(AvgZTable2, 1.75)
@@ -328,9 +326,9 @@ krsa_coverage_plot(chipCov, AvgZTable2, chipType)
 
 #### B vs A   
 ```{r , echo=F, fig.align="center", fig.height=10,fig.width=10, message=FALSE}
-library(igraph)
 
 krsa_ball_model(kinases_hits, AvgZTable2, 10, 2.5, 4.8)
+
 
 ```
 

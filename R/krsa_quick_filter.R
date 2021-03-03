@@ -9,9 +9,7 @@
 #' @param samples sample names
 #' @param groups group names
 #'
-#' @return vector
-#'
-#' @import dplyr
+#' @return vector of peptides
 #'
 #' @export
 #'
@@ -22,7 +20,8 @@ krsa_quick_filter <- function(data,data2, signal_threshold,r2_threshold,samples 
 
   krsa_filter_lowPeps(data, signal_threshold, samples, groups) -> p
 
-  data2 %>% filter(Peptide %in% p) %>%
+  data2 %>%
+    dplyr::filter(Peptide %in% p) %>%
     krsa_filter_nonLinear(r2_threshold, samples, groups) -> p2
 
   krsa_filter_ref_pep(p2) -> p3

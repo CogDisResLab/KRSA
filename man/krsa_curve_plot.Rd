@@ -16,7 +16,7 @@ krsa_curve_plot(data, peptides, samples = NULL, groups = NULL)
 \item{groups}{(optional) group names}
 }
 \value{
-ggplot
+ggplot object
 }
 \description{
 This function takes in the PW data (that includes all exposure times), list of peptides, and optional arguments of samples or groups names vector

@@ -9,7 +9,6 @@
 #'
 #' @return count of kinases hits to random peptides
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -19,10 +18,11 @@
 
 krsa_sampling <- function(x,CovFile,map,sum_num) {
   CovFile %>%
-    group_by(Kin) %>%
-    summarise(
+    dplyr::group_by(Kin) %>%
+    dplyr::summarise(
       counts = sum(Substrates %in% sample(map$Substrates,sum_num))
-    ) %>% mutate(itr = x) -> res
+    ) %>%
+    dplyr::mutate(itr = x) -> res
 
   return(res)
 }

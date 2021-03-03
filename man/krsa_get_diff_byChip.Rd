@@ -2,20 +2,22 @@
 % Please edit documentation in R/krsa_get_diff_byChip.R
 \name{krsa_get_diff_byChip}
 \alias{krsa_get_diff_byChip}
-\title{TODO}
+\title{Extract differential peptides based on LFC cutoff by chip/barcode}
 \usage{
 krsa_get_diff_byChip(data, col, lfc_thr)
 }
 \arguments{
-\item{data}{krsa tidy data}
+\item{data}{LFC table}
 
-\item{col}{case sample names vector}
+\item{col}{LFC column name}
+
+\item{lfc_thr}{LFC cutoffs}
 }
 \value{
 peptides
 }
 \description{
-TODO
+This function takes in the LFC table, column name, and an LFC cutoff to extracts differentially phosphorylated peptides per chip/barcode
 }
 \examples{
 TRUE

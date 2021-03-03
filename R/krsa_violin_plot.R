@@ -1,15 +1,17 @@
-#' TODO
+#' Generates violin plots based on peptides signals intensities
 #'
-#' TODO
+#' Takes in the scaled dataset from krsa_scaleModel() and plot violin figures using ggplot2
 #'
-#' @param data krsa data_modeled$scaled
-#' @param samples sample names
+#' @param data the scaled dataset from krsa_scaleModel
 #' @param peptides vector of peptides
+#' @param facet_factor Column used to facet by. Will be used in facet_wrap(). Needs argument facet to be True.
+#' @param facet boolean to facet the plot by a variable
+#' @param samples (optional) a vector of sample names
+#' @param groups (optional) a vector of group names
 #'
-#' @return vector
 #'
-#' @import dplyr
-#' @import rlang
+#' @return ggplot figure
+#'
 #'
 #' @export
 #'
@@ -18,20 +20,22 @@
 
 krsa_violin_plot <- function(data, peptides,facet_factor,facet = T,samples = NULL, groups = NULL) {
 
-  data %>% dplyr::filter(Peptide %in% peptides) %>%
-    {if(!is.null(samples)) filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) filter(.,Group %in% groups) else .} %>%
-    ggplot(aes(SampleName, slope)) + geom_violin(aes(fill = Group), show.legend = F) +
-    geom_point(size = 1.5)+ geom_line(aes(group = Peptide), alpha = 1/2) +
-    labs(
+  data %>%
+    dplyr::filter(Peptide %in% peptides) %>%
+    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
+    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
+    ggplot2::ggplot(aes(SampleName, slope)) +
+    ggplot2::geom_violin(aes(fill = Group), show.legend = F) +
+    ggplot2::geom_point(size = 1.5)+
+    ggplot2::geom_line(aes(group = Peptide), alpha = 1/2) +
+    ggplot2::labs(
       x = "",
       y = "Signal Intensity"
-    ) + theme(
-      axis.text.x = element_text(size = 6)
+    ) +
+    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 6)) +
+    ggplot2::theme_bw() -> gg
 
-    ) + theme_bw() -> gg
-
-  if(facet == T) {gg + facet_wrap(facet_factor, scales = "free")}
+  if(facet == T) {gg + ggplot2::facet_wrap(facet_factor, scales = "free")}
   else {gg}
 
 }

@@ -9,8 +9,6 @@
 #'
 #' @return vector
 #'
-#' @import dplyr
-#'
 #' @export
 #'
 #' @examples
@@ -19,12 +17,12 @@
 krsa_filter_nonLinear <- function(data, threshold,samples = NULL, groups = NULL) {
 
   data %>%
-    {if(!is.null(samples)) filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) filter(.,Group %in% groups) else .} %>%
-    select(SampleName, Peptide, r.seq) %>%
-    spread(SampleName, r.seq) %>%
-    filter_at( vars(-Peptide) , all_vars(. >= threshold)) %>%
-    pull(Peptide) -> p
+    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
+    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
+    dplyr::select(SampleName, Peptide, r.seq) %>%
+    tidyr::spread(SampleName, r.seq) %>%
+    dplyr::filter_at( vars(-Peptide) , dplyr::all_vars(. >= threshold)) %>%
+    dplyr::pull(Peptide) -> p
 
 
 

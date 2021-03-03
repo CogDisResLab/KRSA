@@ -14,7 +14,7 @@ krsa_cv_plot(data, peptides, samples = NULL)
 \item{samples}{sample names}
 }
 \value{
-ggplot
+ggplot object
 }
 \description{
 This function takes in the modeled pw data, list of peptides, and sample names (optional)

@@ -1,14 +1,12 @@
-#' TODO
+#' Extract differential peptides based on LFC cutoff by chip/barcode
 #'
-#' TODO
+#' This function takes in the LFC table, column name, and an LFC cutoff to extracts differentially phosphorylated peptides per chip/barcode
 #'
-#' @param data krsa tidy data
-#' @param col case sample names vector
-#' @lfc_thr LFC cutoffs
+#' @param data LFC table
+#' @param col LFC column name
+#' @param lfc_thr LFC cutoffs
 #'
 #' @return peptides
-#'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -18,5 +16,5 @@
 
 krsa_get_diff_byChip <- function(data, col, lfc_thr) {
   x<- split(data, data$Barcode)
-  map(x, krsa_get_diff, {{ col }}, lfc_thr)
+  purrr::map(x, krsa_get_diff, {{ col }}, lfc_thr)
 }

@@ -7,7 +7,6 @@
 #'
 #' @return tbl_df
 #'
-#' @import dplyr
 #' @export
 #'
 #' @examples
@@ -32,12 +31,12 @@ krsa_read <- function(signal_file, signal_saturation) {
     if(identical(dim(sig_df), dim(sig_sat))) {
       rowsIDs <- nrow(sig_df)
 
-      sig_df %>% mutate(ID = rep(1:rowsIDs)) -> sig_df
-      sig_sat %>% mutate(ID = rep(1:rowsIDs)) -> sig_sat
+      sig_df %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_df
+      sig_sat %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_sat
 
-      combined_tidy <- left_join(sig_df, select(sig_sat, ID, SignalSaturation), by = "ID")
+      combined_tidy <- dplyr::left_join(sig_df, dplyr::select(sig_sat, ID, SignalSaturation), by = "ID")
 
-      select(combined_tidy, -ID)
+      dplyr::select(combined_tidy, -ID)
     }
 
     else {stop("Dims are not equal")}

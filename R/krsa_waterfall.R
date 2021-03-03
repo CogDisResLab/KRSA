@@ -1,14 +1,13 @@
-#' TODO
+#' Generates a waterfall figure based on the LFC table
 #'
-#' TODO
+#' Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a ggplot.
 #'
-#' @param data krsa data_modeled$scaled
-#' @param samples sample names
+#' @param data LFC table
 #' @param lfc_thr LFC cutoff for plot
+#' @param byChip boolean Select T if the LFC is based on a byChip analysis
 #'
 #' @return ggplot
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -26,32 +25,34 @@ krsa_waterfall <- function(data, lfc_thr, byChip =  T) {
     data$colFC <- cut(data$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
   }
 
-  ggplot(data) -> gg
+  ggplot2::ggplot(data) -> gg
 
   if(byChip == T) {
     gg <- gg +
-      geom_point(aes(LFC, reorder(Peptide,LFC)), color = data$colFC, size = 0.75) +
-      geom_point(aes(totalMeanLFC, reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 1.2) +
-      geom_line(aes(LFC, reorder(Peptide,totalMeanLFC)), alpha = 1/3)
+      ggplot2::geom_point(aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 0.75) +
+      ggplot2::geom_point(aes(totalMeanLFC, stats::reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 1.2) +
+      ggplot2::geom_line(aes(LFC, stats::reorder(Peptide,totalMeanLFC)), alpha = 1/3)
   }
 
   else {
     gg <- gg +
-      geom_segment( aes(x=0, xend=LFC, y=reorder(Peptide,LFC), yend=reorder(Peptide,LFC)), color="grey") +
-      geom_point(aes(LFC, reorder(Peptide,LFC)), color = data$colFC, size = 2)
+      ggplot2::geom_segment( aes(x=0, xend= LFC, y= stats::reorder(Peptide,LFC), yend= stats::reorder(Peptide,LFC)), color="grey") +
+      ggplot2::geom_point(aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 2)
   }
 
 
 
 
   gg +
-    geom_vline(xintercept = 0) +
-    geom_vline(xintercept = -1 * lfc_thr,linetype="dashed") +
-    geom_vline(xintercept = lfc_thr,linetype="dashed")+
-    labs(x = "Log2 Fold Change",
+    ggplot2::geom_vline(xintercept = 0) +
+    ggplot2::geom_vline(xintercept = -1 * lfc_thr,linetype="dashed") +
+    ggplot2::geom_vline(xintercept = lfc_thr,linetype="dashed")+
+    ggplot2::labs(x = "Log2 Fold Change",
          y=""
     ) +
-    theme(plot.title  = element_text(size = 7),
-          axis.text.y = element_text(size= 5)
-    ) + theme_bw()
+    ggplot2::theme(
+      plot.title  = ggplot2::element_text(size = 7),
+      axis.text.y = ggplot2::element_text(size= 5)
+    ) +
+    ggplot2::theme_bw()
 }

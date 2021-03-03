@@ -10,7 +10,7 @@ krsa_filter_ref_pep(peptides)
 \item{peptides}{list of peptides}
 }
 \value{
-vector
+vector of peptides
 }
 \description{
 This function takes in a list of peptides and filter out the ref peptides

@@ -2,10 +2,10 @@
 % Please edit documentation in R/krsa.R
 \name{krsa}
 \alias{krsa}
-\title{TODO}
+\title{Main KRSA function. It performs the random sampling analysis and generates a Z score table and a count matrix}
 \usage{
 krsa(
-  y,
+  peptides,
   itr = 2000,
   seed = 123,
   return_count = F,
@@ -14,21 +14,23 @@ krsa(
 )
 }
 \arguments{
-\item{map_file}{kinase-substrate mapping file}
+\item{peptides}{a vector of the peptides that are considered "hits"}
 
-\item{cov_file}{LFC cutoff for plot}
+\item{itr}{number of iterations for the random sampling (default  = 2000)}
 
-\item{data}{krsa data_modeled$scaled}
+\item{seed}{seed number (default  = 123)}
 
-\item{samples}{sample names}
+\item{return_count}{boolean to return the kinase count matrix}
 
-\item{lfc_thr}{LFC cutoff for plot}
+\item{map_file}{kinase-substrate dataframe}
+
+\item{cov_file}{kinase coverage dataframe}
 }
 \value{
-ggplot
+Z score tibble or list if return_count = TRUE
 }
 \description{
-TODO
+Takes in a vector of the peptides that are considered "hits" and kinase-substrate and coverage dataframes and returns the Z score table
 }
 \examples{
 TRUE

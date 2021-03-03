@@ -6,14 +6,11 @@
 #' @param peptides peptide list
 #' @param samples (optional) sample names
 #' @param groups (optional) group names
-#' @param scaled argument in pheatmap to scale per row
 #' @param ... to pass to the pheatmap function
 #'
 #'
 #' @return pheatmap object
 #'
-#' @import dplyr
-#' @import pheatmap
 #'
 #' @export
 #'
@@ -23,23 +20,23 @@
 krsa_heatmap <- function(data, peptides,samples = NULL,groups = NULL, ...) {
 
   data %>%
-    filter(Peptide %in% peptides) %>%
-    {if(!is.null(samples)) filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) filter(.,Group %in% groups) else .} %>%
-    select(Peptide, SampleName, slope) %>%
-    spread(key = SampleName, value = slope) %>%
+    dplyr::filter(Peptide %in% peptides) %>%
+    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
+    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
+    dplyr::select(Peptide, SampleName, slope) %>%
+    tidyr::spread(key = SampleName, value = slope) %>%
     column_to_rownames("Peptide") %>%
     as.matrix() -> HM_matrix2_test1
 
   data %>%
-    select(SampleName, Group) %>%
-    distinct() %>%
+    dplyr::select(SampleName, Group) %>%
+    dplyr::distinct() %>%
     column_to_rownames("SampleName") -> SamplesAnnotation
 
-  dd <- dist(scale(t(HM_matrix2_test1)))
+  dd <- stats::dist(scale(t(HM_matrix2_test1)))
   pheatmap::pheatmap(HM_matrix2_test1, clustering_distance_cols = dd,
                      annotation_col = SamplesAnnotation,
-                     color = colorRampPalette(c("yellow", "white", "red"))(n = 50),
+                     color = grDevices::colorRampPalette(c("yellow", "white", "red"))(n = 50),
                      fontsize_row = 5,
                      ...
   ) -> p1

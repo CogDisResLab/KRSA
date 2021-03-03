@@ -5,9 +5,8 @@
 #' @param df krsa raw tidy data
 #' @param type chip type
 #'
-#' @return df
+#' @return end point data at max exposure df
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -16,10 +15,10 @@
 
 krsa_extractEndPointMaxExp <- function(df, type = c("STK", "PTK")) {
 
-  df %>% filter(
+  df %>% dplyr::filter(
     if (type == "STK") {Cycle == 124} else {Cycle == 94},
                 ExposureTime == 200) %>%
-    select(SampleName, Peptide ,Signal, Group)
+    dplyr::select(SampleName, Peptide ,Signal, Group)
 
 
 }

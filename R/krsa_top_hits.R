@@ -1,13 +1,11 @@
-#' TODO
+#' Extracts top kinase hits based on a Z cutoff
 #'
-#' TODO
+#' Take in Z score table and extract top kinases based on a Z score cutoff
 #'
-#' @param zTable krsa data_modeled$scaled
+#' @param zTable Z score table from krsa()
 #' @param z_thr Z score cutoff
 #'
-#' @return vector
-#'
-#' @import dplyr
+#' @return vector of top kinases
 #'
 #' @export
 #'
@@ -17,9 +15,11 @@
 
 krsa_top_hits <- function(zTable,z_thr) {
   zTable %>%
-    select(Kinase, AvgZ) %>% distinct() %>%
-    filter(abs(AvgZ) >= z_thr) %>%
-    pull(Kinase) %>% unique()
+    dplyr::select(Kinase, AvgZ) %>%
+    dplyr::distinct() %>%
+    dplyr::filter(abs(AvgZ) >= z_thr) %>%
+    dplyr::pull(Kinase) %>%
+    unique()
 }
 
 

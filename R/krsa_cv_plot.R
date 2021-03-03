@@ -6,9 +6,8 @@
 #' @param peptides peptide list
 #' @param samples sample names
 #'
-#' @return ggplot
+#' @return ggplot object
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -17,12 +16,17 @@
 
 krsa_cv_plot <- function(data, peptides,samples = NULL) {
 
-  data %>% filter(Peptide %in% peptides) %>%
-    {if(!is.null(samples)) filter(.,SampleName %in% samples) else .} %>%
-    group_by(Group, Peptide) %>%
-    summarise(SD = sd(slope), repMean = mean(slope), CV = SD/repMean) %>%
-    ggplot(aes(repMean, CV)) + geom_point() +
-    geom_smooth(method = "loess",aes(color = Group)) + facet_wrap(~Group, scales = "free") +
-    ylim(0,1) + labs(title = "CV Plot") + theme_bw()
+  data %>%
+    dplyr::filter(Peptide %in% peptides) %>%
+    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
+    dplyr::group_by(Group, Peptide) %>%
+    dplyr::summarise(SD = stats::sd(slope), repMean = mean(slope), CV = SD/repMean) %>%
+    ggplot2::ggplot(aes(.data$repMean, .data$CV)) +
+    ggplot2::geom_point() +
+    ggplot2::geom_smooth(method = "loess",aes(color = Group)) +
+    ggplot2::facet_wrap(~Group, scales = "free") +
+    ggplot2::ylim(0,1) +
+    ggplot2::labs(title = "CV Plot") +
+    ggplot2::theme_bw()
 
 }

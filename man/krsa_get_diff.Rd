@@ -10,12 +10,14 @@ krsa_get_diff(data, col, lfc_thr)
 \item{data}{LFC table}
 
 \item{col}{LFC column name}
+
+\item{lfc_thr}{LFC cutoffs}
 }
 \value{
 peptides
 }
 \description{
-This function takes in the LFC table, column name, and LFC cutoff
+This function takes in the LFC table, column name, and an LFC cutoff to extracts differentially phosphorylated peptides
 }
 \examples{
 TRUE

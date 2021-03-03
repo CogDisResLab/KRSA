@@ -19,4 +19,5 @@ This function takes in the raw data and QC pre-processes it (deals with negative
 }
 \examples{
 TRUE
+
 }

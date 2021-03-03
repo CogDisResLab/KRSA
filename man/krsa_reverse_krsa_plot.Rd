@@ -14,6 +14,8 @@ krsa_reverse_krsa_plot(chipCov, lfc_table, kinases, lfc_thr, byChip = T)
 \item{kinases}{vector of kinases}
 
 \item{lfc_thr}{LFC threshold}
+
+\item{byChip}{will facet by Barcode}
 }
 \value{
 vector

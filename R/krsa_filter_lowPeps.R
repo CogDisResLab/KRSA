@@ -9,7 +9,6 @@
 #'
 #' @return vector
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -19,12 +18,12 @@
 krsa_filter_lowPeps <- function(data, threshold,samples = NULL, groups = NULL) {
 
   data %>%
-    {if(!is.null(samples)) filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) filter(.,Group %in% groups) else .} %>%
-    select(-Group) %>%
-    pivot_wider(names_from = SampleName, values_from = Signal) %>%
-    dplyr::filter_at( vars(-Peptide) , all_vars(. >= threshold)) %>%
-    pull(Peptide) -> p
+    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
+    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
+    dplyr::select(-Group) %>%
+    tidyr::pivot_wider(names_from = SampleName, values_from = Signal) %>%
+    dplyr::filter_at( vars(-Peptide) , dplyr::all_vars(. >= threshold)) %>%
+    dplyr::pull(Peptide) -> p
 
   message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
 

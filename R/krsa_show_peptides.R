@@ -1,12 +1,11 @@
-#' TODO
+#' Determine number of peptides inside lists
 #'
-#' TODO
+#' Takes in list of significant peptides and calculates length of each set
 #'
-#' @param sigPeps_list krsa data_modeled$scaled
+#' @param sigPeps_list list of significant peptides
 #'
-#' @return vector
+#' @return tibble with length of peptide sets
 #'
-#' @import dplyr
 #'
 #' @export
 #'
@@ -15,12 +14,13 @@
 
 
 krsa_show_peptides <- function(sigPeps_list) {
-  map_df(sigPeps_list, pluckPeptides) %>% mutate(Method = names(sigPeps_list)) %>%
-    select(2,1)
+  purrr::map_df(sigPeps_list, pluckPeptides) %>%
+    dplyr::mutate(Method = names(sigPeps_list)) %>%
+    dplyr::select(2,1)
 }
 
 pluckPeptides <- function(x) {
-  tibble(NumberOfPeptides = length(x)
+  dplyr::tibble(NumberOfPeptides = length(x)
   )
 }
 

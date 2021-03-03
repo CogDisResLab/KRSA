@@ -4,9 +4,7 @@
 #'
 #' @param peptides list of peptides
 #'
-#' @return vector
-#'
-#' @import dplyr
+#' @return vector of peptides
 #'
 #' @export
 #'

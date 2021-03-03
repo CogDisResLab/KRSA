@@ -2,22 +2,22 @@
 % Please edit documentation in R/krsa_waterfall.R
 \name{krsa_waterfall}
 \alias{krsa_waterfall}
-\title{TODO}
+\title{Generates a waterfall figure based on the LFC table}
 \usage{
 krsa_waterfall(data, lfc_thr, byChip = T)
 }
 \arguments{
-\item{data}{krsa data_modeled$scaled}
+\item{data}{LFC table}
 
 \item{lfc_thr}{LFC cutoff for plot}
 
-\item{samples}{sample names}
+\item{byChip}{boolean Select T if the LFC is based on a byChip analysis}
 }
 \value{
 ggplot
 }
 \description{
-TODO
+Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a ggplot.
 }
 \examples{
 TRUE

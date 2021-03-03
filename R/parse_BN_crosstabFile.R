@@ -1,13 +1,12 @@
-#' Parse BN crosstab files
+#' Parse bionavigator crosstab files
 #'
-#' TODO
+#' Main function that parses bionavigator crosstab view files. Takes in path to file and type (either Signal or SignalSaturation)
 #'
 #' @param file_path path to BN crosstab file
-#' @param type Name of the value
+#' @param type Name of the value (either Signal or SignalSaturation)
 #'
 #' @return tbl_df
 #'
-#' @import dplyr
 #' @export
 #'
 #' @examples
@@ -18,7 +17,7 @@ parse_BN_crosstabFile <- function(file_path, type = c("Signal", "SignalSaturatio
   # Created 2020-02-14
   # Last Updated 2020-02-14
 
-  df <- read.csv(file_path,
+  df <- utils::read.csv(file_path,
                  sep = "\t", header = F, stringsAsFactors = F)
 
   meta_rows <- which(df[,1] == "")
@@ -40,25 +39,23 @@ parse_BN_crosstabFile <- function(file_path, type = c("Signal", "SignalSaturatio
   colnames(df3) <- meta_info[, 1]
   cbind(df3,df2) -> df4
 
-  df4 %>% pivot_longer(cols = (length(meta_rows)+1):ncol(.), names_to = "Peptide", values_to = type) -> tidydata
+  df4 %>%
+    tidyr::pivot_longer(cols = (length(meta_rows)+1):ncol(.), names_to = "Peptide", values_to = type) -> tidydata
 
   tidydata$`Exposure time` <- as.numeric(tidydata$`Exposure time`)
   tidydata$Cycle <- as.numeric(tidydata$Cycle)
 
   if(type == "Signal") {
     tidydata$Signal <- as.numeric(tidydata$Signal)
-
   }
 
   else {
     tidydata$SignalSaturation <- as.numeric(tidydata$SignalSaturation)
   }
 
-
-  tidydata %>% dplyr::rename(SampleName = `Sample name`,ExposureTime = `Exposure time`) -> tidydata
-
+  tidydata %>%
+    dplyr::rename(SampleName = `Sample name`,ExposureTime = `Exposure time`) -> tidydata
 
   return(tidydata)
-
 
 }

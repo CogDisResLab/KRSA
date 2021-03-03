@@ -2,7 +2,7 @@
 % Please edit documentation in R/krsa_zscores_plot.R
 \name{krsa_zscores_plot}
 \alias{krsa_zscores_plot}
-\title{TODO}
+\title{Generates a waterfall figure based on the Z score table}
 \usage{
 krsa_zscores_plot(Ztable)
 }
@@ -10,10 +10,10 @@ krsa_zscores_plot(Ztable)
 \item{Ztable}{Z score table}
 }
 \value{
-vector
+ggplot object
 }
 \description{
-TODO
+Takes in the Z score table and generates a waterfall plot using a ggplot.
 }
 \examples{
 TRUE

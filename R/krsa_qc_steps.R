@@ -7,17 +7,18 @@
 #'
 #' @return df
 #'
-#' @import dplyr
 #'
 #' @export
 #'
 #' @examples
 #' TRUE
+#'
 
 krsa_qc_steps <- function(df, sat_qc = T) {
 
-  df %>% mutate(Signal = ifelse(Signal < 1, 1, Signal)) %>%
-    {if (sat_qc == T) {filter(.,!SignalSaturation>0.05)} else .}
+  df %>%
+    dplyr::mutate(Signal = ifelse(Signal < 1, 1, Signal)) %>%
+    {if (sat_qc == T) {dplyr::filter(.,!SignalSaturation>0.05)} else .}
 
 
 }
