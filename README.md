@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 devtools::install_github("kalganem/KRSA")
 ```
 
-## KRSA
+## KRSA <img src='figures/krsa_logo_v3.png' align="right" height="280" />
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that
 automates many of the steps required to analyze
