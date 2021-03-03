@@ -2,6 +2,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Build
+Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.travis-ci.com/kalganem/KRSA)
 <!-- badges: end -->
 
 ## Installation
