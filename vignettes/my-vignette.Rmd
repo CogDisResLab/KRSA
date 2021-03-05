@@ -18,8 +18,9 @@ knitr::opts_chunk$set(
 library(KRSA)
 library(tidyverse)
 library(knitr)
-library(gt)
-library(furrr)
+
+#library(gt) # can be used to view tables
+#library(furrr) # can be used for parallel computing 
 ```
 
 ### Introduction 
@@ -250,12 +251,17 @@ bothways <- c(pull(head(fin$KRSA_Table, 10), Kinase), pull(tail(fin$KRSA_Table, 
 # Use these kinase to generate histogram plots for each selected kinase
 krsa_histogram_plot(fin$KRSA_Table, fin$count_mtx, bothways)
 
+
+# For parallel computing, load the furrr package:
+
 # opens multiple R sessions to run faster
-plan(multisession)
+#plan(multisession)
 
-# Run the KRSa function across the different sets of peptides
-future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
+# Run the KRSA function across the different sets of peptides using the furrr package for parallel computing
+#future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
 
+# Run KRSA function across the different sets of peptides
+map(sigPeps_total, krsa) -> mutiple_krsa_outputs
 
 # Tidy output
 df <- data.frame(matrix(unlist(mutiple_krsa_outputs), ncol = max(lengths(mutiple_krsa_outputs)), byrow = TRUE))
@@ -296,7 +302,7 @@ krsa_top_hits(AvgZTable2, 2) -> kinases_hits
 #krsa_top_hits(AvgZTable2, 1.5)
 
 # Show the number of peptides per each set in atable
-krsa_show_peptides(sigPeps_total) %>% gt()
+krsa_show_peptides(sigPeps_total)
 
 ```
 \newpage 

@@ -4,6 +4,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Build
 Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.travis-ci.com/kalganem/KRSA)
+
 <!-- badges: end -->
 
 ## Installation
@@ -13,7 +14,7 @@ Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.
 devtools::install_github("kalganem/KRSA")
 ```
 
-## KRSA <img src='figures/krsa_logo_v3.png' align="right" height="280" />
+## KRSA <img src="figures/krsa_logo_v3.png" align="right" height="280"/>
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that
 automates many of the steps required to analyze
@@ -33,9 +34,29 @@ More info on the PamStation12 platform can be found here:
 KRSA preprint is available here:
 [Paper](%22https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1%22).
 
+KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
+
 ## Workflow
 
 ![KRSA Workflow](figures/workflow.jpg)
+
+## Random Sampling Approach
+
+###### Running Random Sampling
+
+<p align="center">
+<img src="figures/rand_sampling_DMPK.gif"/>
+</p>
+
+<br /> <br />
+
+###### Calculating Mean, Standard Deviations, and Z Scores
+
+<p align="center">
+<img src="figures/rand_explain_new.png"/>
+</p>
+
+<br /><br />
 
 ## Input Files
 

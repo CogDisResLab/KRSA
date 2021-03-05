@@ -29,6 +29,8 @@ More info on the PamStation12 platform can be found here: [PamGene](%22https://p
 
 KRSA preprint is available here: [Paper](%22https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1%22).
 
+KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
+
 ## Workflow
 
 ![KRSA Workflow](figures/workflow.jpg)
