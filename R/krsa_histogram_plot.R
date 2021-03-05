@@ -2,8 +2,8 @@
 #'
 #' This function takes in Z score table, and count matrix (an output from krsa()) and generates distribution histograms for a list of kinases
 #'
-#' @param data count matrix from krsa()
-#' @param data2 Z score table from krsa()
+#' @param data Z score table from krsa()
+#' @param data2 count matrix from krsa()
 #' @param kinases a vector of kinases
 #'
 #' @return ggplot object

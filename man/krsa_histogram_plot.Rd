@@ -7,9 +7,9 @@
 krsa_histogram_plot(data, data2, kinases)
 }
 \arguments{
-\item{data}{count matrix from krsa()}
+\item{data}{Z score table from krsa()}
 
-\item{data2}{Z score table from krsa()}
+\item{data2}{count matrix from krsa()}
 
 \item{kinases}{a vector of kinases}
 }
