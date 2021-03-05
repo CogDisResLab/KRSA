@@ -16,11 +16,11 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(KRSA)
-library(tidyverse)
 library(knitr)
+library(tidyverse)
 
-#library(gt) # can be used to view tables
-#library(furrr) # can be used for parallel computing 
+library(gt) # can be used to view tables
+library(furrr) # can be used for parallel computing 
 ```
 
 ### Introduction 
@@ -98,7 +98,7 @@ krsa_extractEndPoint(data, chipType) -> data_pw
 
 ```
 
-```{r model, warning=F,include=FALSE}
+```{r model, warning=F,include=FALSE, cache=TRUE}
 
 # Filter out peptides with low signals
 krsa_filter_lowPeps(data_pw_200, 5) -> ppPassAll
@@ -123,7 +123,7 @@ krsa_filter_ref_pep(ppPassR2) -> new_pep
 For a global signal intensity across all samples/groups, a heatmap is constructed based on the *Slope_Transformed* values. This heatmap represents all the peptides present on the chip except the positive/internal controls and peptides that failed to pass QC. The heatmap is scaled by row to highlight the peptide signal differences across the samples. A hierarchical unsupervised clustering is applied both on the peptides and the samples to potentially group similar signatures. 
 
 
-```{r heatmapPlot, echo=T,fig.height=8, fig.width=8, fig.align="center"}
+```{r heatmapPlot, echo=T,fig.height=8, fig.width=8, fig.align="center", cache=TRUE}
 
 # Plot a CV figure using the modeled scaled data
 krsa_cv_plot(data_modeled$scaled, ppPassR2)
@@ -166,7 +166,7 @@ These *Filtering Parameters* (fold change threshold, QC criteria) can be modifie
 * Log fold change (LFC) cutoffs at (0.2,0.3)
 
 
-```{r,echo=T, fig.height=8,fig.width=7}
+```{r,echo=T, fig.height=8,fig.width=7, cache=TRUE}
 
 # Define Groups to be compared
 comparisons <- list(Comp1 = c("B", "A"))
@@ -193,7 +193,7 @@ sigPeps_total <- list(sigPeps, sigPepsPerChip) %>% unlist(recursive = F) %>%  un
 #### B vs A   
 After applying the *Filtering Parameters* for this group comparison, only *`r length(sigPeps$meanLFC[["0.2"]])`*/141 peptides carried forward in the analysis (i.e. *`r length(sigPeps$meanLFC[["0.2"]])` hits*). Below are some figures to visualize the differences between these samples for considering these *hits*.  
 
-```{r,echo=T, fig.align="center", fig.height=6, fig.width=6}
+```{r,echo=T, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 # generates a heatmap using the selected groups and peptides
 krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1, scale = "row")
@@ -202,7 +202,7 @@ krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparison
 \newpage  
 
 #### B vs A 
-```{r,echo=T, fig.align="center", fig.height=6, fig.width=8}
+```{r,echo=T, fig.align="center", fig.height=6, fig.width=8, cache=TRUE}
 # generates a violin plot using the selected groups and peptides
 krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups = comparisons$Comp1)
 
@@ -210,14 +210,14 @@ krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups =
 \newpage  
 
 #### B vs A   
-```{r, echo=T, fig.align="center", fig.height=8,fig.width=6}
+```{r, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 # generates a waterfall of the log2 fold change values for the selected peptide (top peptides)
 krsa_waterfall(diff_df, 0.2, byChip = T)
 ```
 \newpage  
 
 #### B vs A   
-```{r , echo=T,fig.align="center", fig.height=8, fig.width=8}
+```{r , echo=T,fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
 # generates a curve plot represenating the linear model fit for the selected peptide (top peptides)
 krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
 ```
@@ -227,7 +227,7 @@ krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
 ##### Upstream Kinase Anlaysis  
 The lab carefully curated and mapped the kinases that can act and phosphorylate each peptide present on the chip. This was achieved by using multiple sources including GPS 3.0, Kinexus Phosphonet, PhosphoELM and PhosphoSite Plus. Based on that association between peptides and kinases, a random sampling analysis is performed for these hits. This is done by using Kinome Random Sampling Analyzer (*KRSA*). *KRSA* is a software tool developed by the lab to perform the random sampling analysis. The basic idea of *KRSA* is: For each iteration (*2000* iterations performed in this analysis), the same number of hits are randomly selected from the total 141/or 193 peptides present on the chip. Predicted kinases are then mapped to this sample list of peptides and number of kinases are determined. The kinase count from the actual hits and random sampling is then compared to determine the significance.
 
-```{r , echo=T, warning=F, message=FALSE, fig.align="center", fig.height=6, fig.width=6}
+```{r , echo=T, warning=F, message=FALSE, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 # set seed that can be used later to reproduce results
 set.seed(123)
@@ -253,15 +253,16 @@ krsa_histogram_plot(fin$KRSA_Table, fin$count_mtx, bothways)
 
 
 # For parallel computing, load the furrr package:
-
 # opens multiple R sessions to run faster
-#plan(multisession)
+plan(multisession)
 
 # Run the KRSA function across the different sets of peptides using the furrr package for parallel computing
-#future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
+future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
 
+
+# For none parallel computing:
 # Run KRSA function across the different sets of peptides
-map(sigPeps_total, krsa) -> mutiple_krsa_outputs
+#map(sigPeps_total, krsa) -> mutiple_krsa_outputs
 
 # Tidy output
 df <- data.frame(matrix(unlist(mutiple_krsa_outputs), ncol = max(lengths(mutiple_krsa_outputs)), byrow = TRUE))
@@ -308,7 +309,7 @@ krsa_show_peptides(sigPeps_total)
 \newpage 
 
 #### B vs A 
-```{r, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6}
+```{r, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 
 # Generates the Z scores waterfall plots
 krsa_zscores_plot(AvgZTable)
@@ -319,7 +320,7 @@ krsa_zscores_plot(AvgZTable2)
 
 
 #### B vs A 
-```{r, echo=T, warning=F, fig.align="center", fig.height=6, fig.width=6}
+```{r, echo=T, warning=F, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 # plot the reverse KRSA figure for top kinases to determine their activity levels
 krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
@@ -327,7 +328,7 @@ krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
 \newpage
 
 #### B vs A   
-```{r , echo=T, fig.align="center", fig.height=8,fig.width=6}
+```{r , echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 
 # generates a kinase covergae plot 
 krsa_coverage_plot(chipCov, AvgZTable2, chipType)
@@ -336,7 +337,7 @@ krsa_coverage_plot(chipCov, AvgZTable2, chipType)
 \newpage
 
 #### B vs A   
-```{r , echo=T, fig.align="center", fig.height=8,fig.width=8, message=FALSE}
+```{r , echo=T, fig.align="center", fig.height=8,fig.width=8, message=FALSE, cache=TRUE}
 
 # Plot the network ball model
 krsa_ball_model(kinases_hits, AvgZTable2, 10, 2.5, 4.8)
