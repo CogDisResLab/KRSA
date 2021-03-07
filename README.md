@@ -14,7 +14,7 @@ Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.
 devtools::install_github("kalganem/KRSA")
 ```
 
-## KRSA <img src="figures/krsa_logo_v3.png" align="right" height="280"/>
+## KRSA <img src="man/figures/krsa_logo_v3.png" align="right" height="280"/>
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that
 automates many of the steps required to analyze
@@ -38,14 +38,14 @@ KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
 
 ## Workflow
 
-![KRSA Workflow](figures/workflow.jpg)
+![KRSA Workflow](man/figures/workflow.jpg)
 
 ## Random Sampling Approach
 
 ###### Running Random Sampling
 
 <p align="center">
-<img src="figures/rand_sampling_DMPK.gif"/>
+<img src="man/figures/rand_sampling_DMPK.gif"/>
 </p>
 
 <br /> <br />
@@ -53,7 +53,7 @@ KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
 ###### Calculating Mean, Standard Deviations, and Z Scores
 
 <p align="center">
-<img src="figures/rand_explain_new.png"/>
+<img src="man/figures/rand_explain_new.png"/>
 </p>
 
 <br /><br />
@@ -105,7 +105,7 @@ generated to allow for visual inspection of the selected peptides before
 proceeding to the next step to ensure linearity and sufficient magnitude
 of phosphorylation for each differentially phosphorylated peptide.
 
-![KRSA Curves](figures/curves.gif)
+![KRSA Curves](man/figures/curves.gif)
 
 ### Step3: Iteration
 
@@ -143,7 +143,7 @@ region) overlaid. Histograms of kinases with h averages outside of the
 confidence interval in either direction are considered significantly
 altered and match the kinases shown in the tabular output.
 
-![KRSA Histograms](figures/hits.jpg)
+![KRSA Histograms](man/figures/hits.jpg)
 
 ### Step6: Heatmap
 
@@ -153,7 +153,7 @@ differences for each peptide is provided and sorted in descending order.
 This heatmap can be saved as a PDF or image file directly within the
 KRSA software.
 
-![KRSA Heatmap](figures/heatmap.jpg)
+![KRSA Heatmap](man/figures/heatmap.jpg)
 
 ## Step7: Network
 
@@ -171,7 +171,7 @@ the network based on the number of interactions found for each kinase in
 the network. Confidence thresholds and connection type options are
 provided to allow for more control over the resultant graph.
 
-![KRSA Network](figures/networks.jpg)
+![KRSA Network](man/figures/networks.jpg)
 
 # Contact
 
