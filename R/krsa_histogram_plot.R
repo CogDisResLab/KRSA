@@ -8,6 +8,8 @@
 #'
 #' @return ggplot object
 #'
+#' @family plots
+#'
 #' @export
 #'
 #' @examples
@@ -19,10 +21,10 @@ krsa_histogram_plot <- function(data,data2,kinases) {
     dplyr::rename(Kinase = Kin) %>%
     dplyr::filter(Kinase %in% kinases) %>%
     ggplot2::ggplot() +
-    ggplot2::geom_histogram(aes(counts),binwidth = 1,fill= "gray30", color = "black") +
-    ggplot2::geom_rect(data=dplyr::filter(data, Kinase %in% kinases),aes(xmin=SamplingAvg+(2*SD), xmax=SamplingAvg-(2*SD), ymin=0, ymax=Inf),
+    ggplot2::geom_histogram(ggplot2::aes(counts),binwidth = 1,fill= "gray30", color = "black") +
+    ggplot2::geom_rect(data=dplyr::filter(data, Kinase %in% kinases),ggplot2::aes(xmin=SamplingAvg+(2*SD), xmax=SamplingAvg-(2*SD), ymin=0, ymax=Inf),
               fill="gray", alpha=0.5) +
-    ggplot2::geom_vline(data=dplyr::filter(data, Kinase %in% kinases), aes(xintercept = Observed), color = "red", size = 1,show.legend = F) +
+    ggplot2::geom_vline(data=dplyr::filter(data, Kinase %in% kinases),ggplot2::aes(xintercept = Observed), color = "red", size = 1,show.legend = F) +
     ggplot2::facet_wrap(~ Kinase, scales = "free") +
     ggplot2::labs(x = "Hits", y = "Counts") +
     ggplot2::theme_bw() +

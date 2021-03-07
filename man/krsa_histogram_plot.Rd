@@ -22,3 +22,17 @@ This function takes in Z score table, and count matrix (an output from krsa()) a
 \examples{
 TRUE
 }
+\seealso{
+Other plots: 
+\code{\link{krsa_ball_model}()},
+\code{\link{krsa_coverage_plot}()},
+\code{\link{krsa_curve_plot}()},
+\code{\link{krsa_cv_plot}()},
+\code{\link{krsa_heatmap_grouped}()},
+\code{\link{krsa_heatmap}()},
+\code{\link{krsa_reverse_krsa_plot}()},
+\code{\link{krsa_violin_plot}()},
+\code{\link{krsa_waterfall}()},
+\code{\link{krsa_zscores_plot}()}
+}
+\concept{plots}

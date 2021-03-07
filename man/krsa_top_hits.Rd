@@ -20,3 +20,13 @@ Take in Z score table and extract top kinases based on a Z score cutoff
 \examples{
 TRUE
 }
+\seealso{
+Other helper functions: 
+\code{\link{krsa_extractEndPointMaxExp}()},
+\code{\link{krsa_extractEndPoint}()},
+\code{\link{krsa_get_diff_byChip}()},
+\code{\link{krsa_get_diff}()},
+\code{\link{krsa_sampling}()},
+\code{\link{krsa_show_peptides}()}
+}
+\concept{helper functions}

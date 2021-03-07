@@ -9,6 +9,8 @@
 #'
 #' @return vector
 #'
+#' @family QC functions
+#'
 #' @export
 #'
 #' @examples

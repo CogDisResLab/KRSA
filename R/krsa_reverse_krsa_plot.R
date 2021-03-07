@@ -8,7 +8,9 @@
 #' @param lfc_thr LFC threshold
 #' @param byChip will facet by Barcode
 #'
-#' @return vector
+#' @return ggplot object
+#'
+#' @family plots
 #'
 #' @export
 #'
@@ -45,8 +47,8 @@ krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip 
 
 
   combined_data %>%
-    ggplot2::ggplot(aes(Kin, LFC)) +
-    ggplot2::geom_jitter(aes(color = colFC), position = ggplot2::position_jitter(width = .1), show.legend = F) +
+    ggplot2::ggplot(ggplot2::aes(Kin, LFC)) +
+    ggplot2::geom_jitter(ggplot2::aes(color = colFC), position = ggplot2::position_jitter(width = .1), show.legend = F) +
     ggplot2::geom_hline(yintercept = lfc_thr,linetype="dashed") +
     ggplot2::geom_hline(yintercept = -1 * lfc_thr,linetype="dashed") +
     ggplot2::labs(y = "Log2 Fold Change",

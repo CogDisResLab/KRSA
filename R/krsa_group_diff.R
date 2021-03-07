@@ -10,6 +10,8 @@
 #'
 #' @return LFC krsa table
 #'
+#' @family core functions
+#'
 #' @export
 #'
 #' @examples

@@ -11,6 +11,8 @@
 #'
 #' @return vector of peptides
 #'
+#' @family core functions
+#'
 #' @export
 #'
 #' @examples

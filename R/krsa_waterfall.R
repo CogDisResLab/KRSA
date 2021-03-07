@@ -6,7 +6,9 @@
 #' @param lfc_thr LFC cutoff for plot
 #' @param byChip boolean Select T if the LFC is based on a byChip analysis
 #'
-#' @return ggplot
+#' @return ggplot object
+#'
+#' @family plots
 #'
 #'
 #' @export
@@ -29,15 +31,15 @@ krsa_waterfall <- function(data, lfc_thr, byChip =  T) {
 
   if(byChip == T) {
     gg <- gg +
-      ggplot2::geom_point(aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 0.75) +
-      ggplot2::geom_point(aes(totalMeanLFC, stats::reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 1.2) +
-      ggplot2::geom_line(aes(LFC, stats::reorder(Peptide,totalMeanLFC)), alpha = 1/3)
+      ggplot2::geom_point(ggplot2::aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 0.75) +
+      ggplot2::geom_point(ggplot2::aes(totalMeanLFC, stats::reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 1.2) +
+      ggplot2::geom_line(ggplot2::aes(LFC, stats::reorder(Peptide,totalMeanLFC)), alpha = 1/3)
   }
 
   else {
     gg <- gg +
-      ggplot2::geom_segment( aes(x=0, xend= LFC, y= stats::reorder(Peptide,LFC), yend= stats::reorder(Peptide,LFC)), color="grey") +
-      ggplot2::geom_point(aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 2)
+      ggplot2::geom_segment(ggplot2::aes(x=0, xend= LFC, y= stats::reorder(Peptide,LFC), yend= stats::reorder(Peptide,LFC)), color="grey") +
+      ggplot2::geom_point(ggplot2::aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 2)
   }
 
 

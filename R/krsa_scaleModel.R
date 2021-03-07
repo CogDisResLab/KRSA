@@ -7,6 +7,8 @@
 #'
 #' @return list of scaled , normalized and grouped modeled data
 #'
+#' @family core functions
+#'
 #' @export
 #'
 #' @examples

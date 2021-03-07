@@ -21,3 +21,10 @@ This function takes in the raw data and QC pre-processes it (deals with negative
 TRUE
 
 }
+\seealso{
+Other QC functions: 
+\code{\link{krsa_filter_lowPeps}()},
+\code{\link{krsa_filter_nonLinear}()},
+\code{\link{krsa_filter_ref_pep}()}
+}
+\concept{QC functions}

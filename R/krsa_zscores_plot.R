@@ -6,6 +6,8 @@
 #'
 #' @return ggplot object
 #'
+#' @family plots
+#'
 #'
 #' @export
 #'
@@ -24,9 +26,9 @@ krsa_zscores_plot <- function(Ztable) {
         labels = c("Z <= 1", "1 >= Z < 1.5", "1.5 >= Z < 2", "Z >= 2")
         )) %>%
     ggplot2::ggplot() +
-    ggplot2::geom_line(aes(Z, stats::reorder(Kinase,AvgZ)), alpha = 1/3) +
-    ggplot2::geom_point(aes(Z, stats::reorder(Kinase,AvgZ)), color = "grey", size = 1) +
-    ggplot2::geom_point(aes(AvgZ, stats::reorder(Kinase,AvgZ), color = breaks), size = 2) +
+    ggplot2::geom_line(ggplot2::aes(Z, stats::reorder(Kinase,AvgZ)), alpha = 1/3) +
+    ggplot2::geom_point(ggplot2::aes(Z, stats::reorder(Kinase,AvgZ)), color = "grey", size = 1) +
+    ggplot2::geom_point(ggplot2::aes(AvgZ, stats::reorder(Kinase,AvgZ), color = breaks), size = 2) +
     ggplot2::geom_vline(xintercept = 0) +
     ggplot2::geom_vline(xintercept = c(-1, -1.5, -2, 1, 1.5, 2),linetype="dashed") +
     ggplot2::scale_color_brewer(palette="Reds", drop = F, guide = ggplot2::guide_legend(reverse=TRUE, title = "")) +

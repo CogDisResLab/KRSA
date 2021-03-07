@@ -7,6 +7,8 @@
 #'
 #' @return tbl_df
 #'
+#' @family core functions
+#'
 #' @export
 #'
 #' @examples

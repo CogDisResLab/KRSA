@@ -11,6 +11,7 @@
 #'
 #' @return pheatmap object
 #'
+#' @family plots
 #'
 #' @export
 #'

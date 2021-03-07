@@ -11,6 +11,7 @@
 #'
 #' @return Z score tibble or list if return_count = TRUE
 #'
+#' @family core functions
 #'
 #' @export
 #'

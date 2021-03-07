@@ -22,3 +22,13 @@ This function takes in the LFC table, column name, and an LFC cutoff to extracts
 \examples{
 TRUE
 }
+\seealso{
+Other helper functions: 
+\code{\link{krsa_extractEndPointMaxExp}()},
+\code{\link{krsa_extractEndPoint}()},
+\code{\link{krsa_get_diff_byChip}()},
+\code{\link{krsa_sampling}()},
+\code{\link{krsa_show_peptides}()},
+\code{\link{krsa_top_hits}()}
+}
+\concept{helper functions}

@@ -19,7 +19,7 @@ output:
 devtools::install_github("kalganem/KRSA")
 ```
 
-## KRSA <img src="figures/krsa_logo_v3.png" align="right" height="280"/>
+## KRSA <img src="man/figures/krsa_logo_v3.png" align="right" height="280"/>
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that automates many of the steps required to analyze [PamChip](%22https://pamgene.com/technology/%22) datasets, including peptide filtering, random sampling, heatmap generation, and kinase network generation. This new software makes analyzing kinome array datasets accessible and eliminates much of the human workload that the previous method required. More importantly, KRSA represents the results in a bigger biological context by visualizing altered kinome signaling networks instead of individual kinases.
 
@@ -33,14 +33,14 @@ KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
 
 ## Workflow
 
-![KRSA Workflow](figures/workflow.jpg)
+![KRSA Workflow](man/figures/workflow.jpg)
 
 ## Random Sampling Approach
 
 ###### Running Random Sampling
 
 <p align="center">
-  <img src="figures/rand_sampling_DMPK.gif"/>
+  <img src="man/figures/rand_sampling_DMPK.gif"/>
 </p>
 
 <br /> <br />
@@ -48,7 +48,7 @@ KRSA Shiny App Repo: [Link](https://github.com/kalganem/KRSA_App)
 ###### Calculating Mean, Standard Deviations, and Z Scores
 
 <p align="center">
-  <img src="figures/rand_explain_new.png"/>
+  <img src="man/figures/rand_explain_new.png"/>
 </p>
 
 <br /><br />
@@ -77,7 +77,7 @@ Including minimum exposure intensity \> 2 at the last exposure time in the cycle
 
 Fold change thresholds are selected to identify differentially phosphorylated peptides (h, or "hits") between selected groups. KRSA has a default cutoff of ± 35% as a fold change threshold, though modification should be made in cases where the bar for biological significance is substantially higher or lower. Line plots displaying the phosphorylation intensity in the post-wash phase for each sample are generated to allow for visual inspection of the selected peptides before proceeding to the next step to ensure linearity and sufficient magnitude of phosphorylation for each differentially phosphorylated peptide.
 
-![KRSA Curves](figures/curves.gif)
+![KRSA Curves](man/figures/curves.gif)
 
 ### Step3: Iteration
 
@@ -91,19 +91,19 @@ Results of the above calculations are provided in tabular form (Step4: Results),
 
 Histograms (Step5) displaying the distribution of mappings for each kinase after random sampling are provided, with the h mapping (vertical line), h' averages (bars), and h' confidence interval (gray translucent region) overlaid. Histograms of kinases with h averages outside of the confidence interval in either direction are considered significantly altered and match the kinases shown in the tabular output.
 
-![KRSA Histograms](figures/hits.jpg)
+![KRSA Histograms](man/figures/hits.jpg)
 
 ### Step6: Heatmap
 
 Heatmap of Differential Phosphorylation: A user-customizable heatmap, generated using the R package 'gplots2', visualizing the fold-change differences for each peptide is provided and sorted in descending order. This heatmap can be saved as a PDF or image file directly within the KRSA software.
 
-![KRSA Heatmap](figures/heatmap.jpg)
+![KRSA Heatmap](man/figures/heatmap.jpg)
 
 ## Step7: Network
 
 A network diagram connecting h kinases to predicted interacting proteins or kinases is generated using the Search Tool for Retrieval of Interacting Genes/Proteins (STRING) database data and graphed with the 'igraph' package in R (Szklarczyk et al., 2017). The generated network represents the direct interactions between protein kinases identified from KRSA, as well as additional kinases indirectly connected to the original seed kinases. STRING was used for growing and connecting the kinase network by selectively adding interacting kinases with the highest confidence interaction score. Because of the highly interactive and repetitive structure of kinase activity, we weighted the nodes of the network based on the number of interactions found for each kinase in the network. Confidence thresholds and connection type options are provided to allow for more control over the resultant graph.
 
-![KRSA Network](figures/networks.jpg)
+![KRSA Network](man/figures/networks.jpg)
 
 # Contact
 

@@ -7,6 +7,8 @@
 #'
 #' @return end point signals df
 #'
+#' @family helper functions
+#'
 #'
 #' @export
 #'

@@ -14,7 +14,7 @@ krsa_waterfall(data, lfc_thr, byChip = T)
 \item{byChip}{boolean Select T if the LFC is based on a byChip analysis}
 }
 \value{
-ggplot
+ggplot object
 }
 \description{
 Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a ggplot.
@@ -22,3 +22,17 @@ Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a 
 \examples{
 TRUE
 }
+\seealso{
+Other plots: 
+\code{\link{krsa_ball_model}()},
+\code{\link{krsa_coverage_plot}()},
+\code{\link{krsa_curve_plot}()},
+\code{\link{krsa_cv_plot}()},
+\code{\link{krsa_heatmap_grouped}()},
+\code{\link{krsa_heatmap}()},
+\code{\link{krsa_histogram_plot}()},
+\code{\link{krsa_reverse_krsa_plot}()},
+\code{\link{krsa_violin_plot}()},
+\code{\link{krsa_zscores_plot}()}
+}
+\concept{plots}

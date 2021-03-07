@@ -8,6 +8,7 @@
 #'
 #' @return ggplot object
 #'
+#' @family plots
 #'
 #' @export
 #'
@@ -21,9 +22,9 @@ krsa_cv_plot <- function(data, peptides,samples = NULL) {
     {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
     dplyr::group_by(Group, Peptide) %>%
     dplyr::summarise(SD = stats::sd(slope), repMean = mean(slope), CV = SD/repMean) %>%
-    ggplot2::ggplot(aes(.data$repMean, .data$CV)) +
+    ggplot2::ggplot(ggplot2::aes(.data$repMean, .data$CV)) +
     ggplot2::geom_point() +
-    ggplot2::geom_smooth(method = "loess",aes(color = Group)) +
+    ggplot2::geom_smooth(method = "loess",ggplot2::aes(color = Group)) +
     ggplot2::facet_wrap(~Group, scales = "free") +
     ggplot2::ylim(0,1) +
     ggplot2::labs(title = "CV Plot") +

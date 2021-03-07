@@ -7,6 +7,8 @@
 #'
 #' @return df
 #'
+#' @family QC functions
+#'
 #'
 #' @export
 #'

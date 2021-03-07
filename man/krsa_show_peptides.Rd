@@ -18,3 +18,13 @@ Takes in list of significant peptides and calculates length of each set
 \examples{
 TRUE
 }
+\seealso{
+Other helper functions: 
+\code{\link{krsa_extractEndPointMaxExp}()},
+\code{\link{krsa_extractEndPoint}()},
+\code{\link{krsa_get_diff_byChip}()},
+\code{\link{krsa_get_diff}()},
+\code{\link{krsa_sampling}()},
+\code{\link{krsa_top_hits}()}
+}
+\concept{helper functions}

@@ -26,3 +26,17 @@ This function takes in the modeled pw data, peptides and produces and pheatmap
 \examples{
 TRUE
 }
+\seealso{
+Other plots: 
+\code{\link{krsa_ball_model}()},
+\code{\link{krsa_coverage_plot}()},
+\code{\link{krsa_curve_plot}()},
+\code{\link{krsa_cv_plot}()},
+\code{\link{krsa_heatmap_grouped}()},
+\code{\link{krsa_histogram_plot}()},
+\code{\link{krsa_reverse_krsa_plot}()},
+\code{\link{krsa_violin_plot}()},
+\code{\link{krsa_waterfall}()},
+\code{\link{krsa_zscores_plot}()}
+}
+\concept{plots}

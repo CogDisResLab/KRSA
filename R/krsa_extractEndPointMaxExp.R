@@ -7,6 +7,8 @@
 #'
 #' @return end point data at max exposure df
 #'
+#' @family helper functions
+#'
 #'
 #' @export
 #'

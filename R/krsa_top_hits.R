@@ -7,6 +7,8 @@
 #'
 #' @return vector of top kinases
 #'
+#' @family helper functions
+#'
 #' @export
 #'
 #' @examples

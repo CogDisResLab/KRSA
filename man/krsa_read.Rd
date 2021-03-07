@@ -20,3 +20,11 @@ This function takes in paths to the median signal minus background (Median_SigmB
 \examples{
 TRUE
 }
+\seealso{
+Other core functions: 
+\code{\link{krsa_group_diff}()},
+\code{\link{krsa_quick_filter}()},
+\code{\link{krsa_scaleModel}()},
+\code{\link{krsa}()}
+}
+\concept{core functions}

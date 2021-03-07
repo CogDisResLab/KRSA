@@ -8,6 +8,8 @@
 #'
 #' @return peptides
 #'
+#' @family helper functions
+#'
 #' @export
 #'
 #' @examples

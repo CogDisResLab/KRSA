@@ -6,6 +6,8 @@
 #'
 #' @return vector of peptides
 #'
+#' @family QC functions
+#'
 #' @export
 #'
 #' @examples

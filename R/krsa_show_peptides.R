@@ -6,6 +6,8 @@
 #'
 #' @return tibble with length of peptide sets
 #'
+#' @family helper functions
+#'
 #'
 #' @export
 #'

@@ -9,6 +9,8 @@
 #'
 #' @return count of kinases hits to random peptides
 #'
+#' @family helper functions
+#'
 #'
 #' @export
 #'

@@ -26,3 +26,11 @@ This function takes in the modeled pw data, groups, peptides, and an option to p
 \examples{
 TRUE
 }
+\seealso{
+Other core functions: 
+\code{\link{krsa_quick_filter}()},
+\code{\link{krsa_read}()},
+\code{\link{krsa_scaleModel}()},
+\code{\link{krsa}()}
+}
+\concept{core functions}

@@ -10,6 +10,8 @@
 #'
 #' @return igraph network
 #'
+#' @family plots
+#'
 #'
 #' @export
 #'

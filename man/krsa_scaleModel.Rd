@@ -20,3 +20,11 @@ Runs a linear model on the tidy kinome array data of the signal as a function of
 \examples{
 TRUE
 }
+\seealso{
+Other core functions: 
+\code{\link{krsa_group_diff}()},
+\code{\link{krsa_quick_filter}()},
+\code{\link{krsa_read}()},
+\code{\link{krsa}()}
+}
+\concept{core functions}
