@@ -63,6 +63,6 @@ The user-supplied kinase-peptide association file and the raw kinome array data 
 
 # Contact
 
-For technical issues, please start a new issue on this repo.
+For technical issues, please start a new issue on this repo: [Link](https://github.com/kalganem/KRSA/issues)
 
 For biological interpretation questions please email: [khaled.alganem\@rockets.utoledo.edu](mailto:khaled.alganem@rockets.utoledo.edu)

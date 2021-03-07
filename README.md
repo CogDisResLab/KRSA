@@ -73,7 +73,8 @@ as shown in the example files: inst/extdata/example_Median_SigmBg.txt
 
 # Contact
 
-For technical issues, please start a new issue on this repo.
+For technical issues, please start a new issue on this repo:
+[Link](https://github.com/kalganem/KRSA/issues)
 
 For biological interpretation questions please email:
 <khaled.alganem@rockets.utoledo.edu>
