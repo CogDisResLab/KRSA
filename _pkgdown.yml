@@ -1,0 +1,65 @@
+url: https://kalganem.github.io/KRSA/index.html
+
+template:
+  params:
+    bootswatch: simplex
+    footer: KRSA is dveloped by Khaled Alganem as a member of the <a href="https://www.utoledo.edu/med/depts/neurosciences/CDRL.html" target="_blank" rel="noopener noreferrer">CDRL</a>
+
+
+development:
+  mode: auto
+
+figure:
+  fig.width: 12
+  fig.height: 12
+
+
+navbar:
+  components:
+     github:
+       icon: "fab fa-github"
+       href: https://github.com/kalganem/KRSA
+
+reference:
+  - title: Core Functions
+    contents:
+    - krsa
+    - krsa_group_diff
+    - krsa_quick_filter
+    - krsa_read
+    - krsa_scaleModel
+  - title: Plotting Functions
+    contents:
+    - krsa_ball_model
+    - krsa_coverage_plot
+    - krsa_curve_plot
+    - krsa_heatmap
+    - krsa_heatmap_grouped
+    - krsa_histogram_plot
+    - krsa_reverse_krsa_plot
+    - krsa_violin_plot
+    - krsa_waterfall
+    - krsa_zscores_plot
+    - krsa_cv_plot
+  - title: Helper Functions
+    contents:
+    - krsa_extractEndPoint
+    - krsa_extractEndPointMaxExp
+    - krsa_get_diff_byChip
+    - krsa_get_diff
+    - krsa_show_peptides
+    - krsa_top_hits
+  - title: QC Functions
+    contents:
+    - krsa_filter_lowPeps
+    - krsa_filter_nonLinear
+    - krsa_filter_ref_pep
+    - krsa_qc_steps
+  - title: Data and curated files
+    contents:
+    - KRSA_Mapping_PTK_PamChip_86402_v1
+    - KRSA_Mapping_STK_PamChip_87102_v1
+    - KRSA_coverage_PTK_PamChip_86402_v1
+    - KRSA_coverage_STK_PamChip_87102_v1
+    - ballModel_edges
+    - ballModel_nodes
