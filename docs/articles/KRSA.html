@@ -103,56 +103,55 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/gt">gt</a></span><span class="op">)</span> <span class="co"># can be used to view tables</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/DavisVaughan/furrr">furrr</a></span><span class="op">)</span> <span class="co"># can be used for parallel computing </span>
 <span class="co">#&gt; Loading required package: future</span></code></pre></div>
-<div id="introduction" class="section level3">
-<h3 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h3>
-<div id="background" class="section level4">
-<h4 class="hasAnchor">
-<a href="#background" class="anchor"></a>Background</h4>
+<div id="introduction" class="section level1">
+<h1 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h1>
+<div id="background" class="section level2">
+<h2 class="hasAnchor">
+<a href="#background" class="anchor"></a>Background</h2>
 <p>The Pamstation12 instrument provides a profiling of kinase activity of cell or tissue samples. The device is loaded with either serine/threonine or tyrosine microarray chips. Each chip has 4 wells so four samples can be loaded on a single chip, and the Pamstation12 can accommodate 3 chips per run. The microarray represents 144 (STK chip) or 196 (PTK chip) reporter peptides that can be phosphorylated by serine/threonine or tyrosine kinases. The device measures the degree of the phosphorylation in real time by detecting fluorescently labeled antibodies at different exposure times. The list of peptides present in each microarray can be viewed here: <a href="https://pamgene.com/wp-content/uploads/2020/09/STK-144-PamChip-87102.pdf">STK chip</a>, <a href="https://pamgene.com/wp-content/uploads/2020/09/PTK-196-PamChip-86402.pdf">PTK chip</a></p>
 <div style="page-break-after: always;"></div>
 <p><img src="images/pamgene_workflow.png" width="450px" style="display: block; margin: auto;"><img src="images/pamgene_detectionFig.png" width="450px" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="samples-info" class="section level4">
-<h4 class="hasAnchor">
-<a href="#samples-info" class="anchor"></a>Samples Info</h4>
-</div>
-<div id="run-design" class="section level4">
-<h4 class="hasAnchor">
-<a href="#run-design" class="anchor"></a>Run Design</h4>
+<div id="run-design" class="section level2">
+<h2 class="hasAnchor">
+<a href="#run-design" class="anchor"></a>Run Design</h2>
 <p>Designing the placement of the samples on the chips and arrays is important to consider due to the variability across different chips and batches. During the run some wells are subject to fail and their data cannot be analyzed and shown below as red.</p>
 <p><img src="KRSA_files/figure-html/design-1.png" width="288" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div id="results" class="section level2">
+<div id="results" class="section level1">
+<h1 class="hasAnchor">
+<a href="#results" class="anchor"></a>Results</h1>
+<div id="image-analysis" class="section level2">
 <h2 class="hasAnchor">
-<a href="#results" class="anchor"></a>Results</h2>
-<div id="image-anlaysis" class="section level4">
-<h4 class="hasAnchor">
-<a href="#image-anlaysis" class="anchor"></a>Image Anlaysis</h4>
+<a href="#image-analysis" class="anchor"></a>Image Analysis</h2>
 <p>The first step of analyzing the run is to convert the images taken by the PamStation of each array at different exposure times to numerical values This is done by the Bionavigator software developed by Pamgene. The software recognizes the grid of the array with the aid of the searching algorithm (Pamgrid) to correctly identify each spot on the array. The numbers produced by this software represent the median value of the foreground pixels minus the median value of the background pixels to produce the median signal minus background (Median_SigmBg).</p>
 </div>
-<div id="reading-data" class="section level4">
-<h4 class="hasAnchor">
-<a href="#reading-data" class="anchor"></a>Reading Data</h4>
+<div id="reading-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#reading-data" class="anchor"></a>Reading Data</h2>
 <p>The first step will be reading the crosstab view bionavigator files (Median_SigmBg and Signal_Saturation) and defining the PamChip type (STK or PTK). The raw data is read and then transformed to be in tidy format for an easier analysis, modeling, and visualizing.</p>
 </div>
-<div id="qc-initial-steps-and-groups-assignments" class="section level4">
-<h4 class="hasAnchor">
-<a href="#qc-initial-steps-and-groups-assignments" class="anchor"></a>QC Initial Steps and Groups Assignments</h4>
+<div id="qc-initial-steps-and-groups-assignments" class="section level2">
+<h2 class="hasAnchor">
+<a href="#qc-initial-steps-and-groups-assignments" class="anchor"></a>QC Initial Steps and Groups Assignments</h2>
 <p>We will perform a couple of quality control steps to deal with negative values in the data and adjust based on signal saturation (optional). Next, we will define a new column to represent the grouping. And then, we will extract end point signal values</p>
 </div>
-<div id="qc-steps-and-model-fitting" class="section level4">
-<h4 class="hasAnchor">
-<a href="#qc-steps-and-model-fitting" class="anchor"></a>QC Steps and Model Fitting</h4>
+<div id="qc-steps-and-model-fitting" class="section level2">
+<h2 class="hasAnchor">
+<a href="#qc-steps-and-model-fitting" class="anchor"></a>QC Steps and Model Fitting</h2>
 <p>We will filter out peptides with low signals. In order to combine the values from different exposure times into a single value, a simple linear regression model of the <em>Medain_SigmBg</em> as a function of exposure time is fitted. The slope of of the model fit and <span class="math inline">\(R^2\)</span> are then used for quality control and samples comparison. The slope is also scaled by multiplying by 100 and log2 transformed (<em>Slope_Transformed</em>). We then filter out peptides with poor linear fit and references peptides.</p>
 </div>
-<div id="global-signal-intensity" class="section level4">
-<h4 class="hasAnchor">
-<a href="#global-signal-intensity" class="anchor"></a>Global Signal Intensity</h4>
-<p>For a global signal intensity across all samples/groups, few figures can be plotted based on the <em>Slope_Transformed</em> values. ##### Global CV Plots</p>
+<div id="global-signal-intensity" class="section level2">
+<h2 class="hasAnchor">
+<a href="#global-signal-intensity" class="anchor"></a>Global Signal Intensity</h2>
+<p>For a global signal intensity across all samples/groups, few figures can be plotted based on the <em>Slope_Transformed</em> values.</p>
+<div id="global-cv-plots" class="section level3">
+<h3 class="hasAnchor">
+<a href="#global-cv-plots" class="anchor"></a>Global CV Plots</h3>
 <p>We will plot the coefficient of variation on both the normal and normalized fits. This will help us to identify groups with high variation that could be explained by sample outliers.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -166,9 +165,10 @@
 <span class="fu"><a href="../reference/krsa_cv_plot.html">krsa_cv_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">ppPassR2</span><span class="op">)</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/cvPlot-2.png" width="768" style="display: block; margin: auto;"></p>
-<div id="global-violin-plots" class="section level5">
-<h5 class="hasAnchor">
-<a href="#global-violin-plots" class="anchor"></a>Global Violin Plots</h5>
+</div>
+<div id="global-violin-plots" class="section level3">
+<h3 class="hasAnchor">
+<a href="#global-violin-plots" class="anchor"></a>Global Violin Plots</h3>
 <p>We will plot violin figures to examine global signal differences between groups/samples.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Plot a violin figure and facet by the (Group) variable</span>
@@ -180,9 +180,9 @@
 <span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">ppPassR2</span>, <span class="st">"Barcode"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/violinPlot-2.png" width="768" style="display: block; margin: auto;"></p>
 </div>
-<div id="global-heatmaps" class="section level5">
-<h5 class="hasAnchor">
-<a href="#global-heatmaps" class="anchor"></a>Global Heatmaps</h5>
+<div id="global-heatmaps" class="section level3">
+<h3 class="hasAnchor">
+<a href="#global-heatmaps" class="anchor"></a>Global Heatmaps</h3>
 <p>The heatmap represent all the peptides present on the chip except the positive/internal controls and peptides that failed to pass QC. The heatmaps are scaled by row to highlight the peptide signal differences across the samples. A hierarchical unsupervised clustering is applied both on the peptides and the samples to potentially group similar signatures.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -201,12 +201,12 @@
 <p><img src="KRSA_files/figure-html/heatmapPlot-3.png" width="768" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="group-comparsion" class="section level4">
-<h4 class="hasAnchor">
-<a href="#group-comparsion" class="anchor"></a>Group Comparsion</h4>
+<div id="group-comparison" class="section level2">
+<h2 class="hasAnchor">
+<a href="#group-comparison" class="anchor"></a>Group Comparison</h2>
 <p>To compare between samples, a two-group comparison is performed. In this case, the two group comparisons are:</p>
 <ul>
-<li>B vs A</li>
+<li><strong>B vs A</strong></li>
 </ul>
 <p>The <em>Slope_Transforemed</em> ratio between each group, paired by chip, is calculated to the fold change. Based on the fold change, peptides that pass a certain fold change threshold are considered significant hits. Also, quality control steps applied in each comparison to filter out peptides that do not reach specific criteria:</p>
 <ul>
@@ -248,10 +248,9 @@
 <span class="co"># Combine the peptides hits in one list</span>
 <span class="va">sigPeps_total</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">sigPeps</span>, <span class="va">sigPepsPerChip</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span>recursive <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op">%&gt;%</span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span>recursive <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
 <div style="page-break-after: always;"></div>
-</div>
-<div id="b-vs-a-heatmap" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-heatmap" class="anchor"></a>B vs A (Heatmap)</h4>
+<div id="b-vs-a-heatmap" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-heatmap" class="anchor"></a>B vs A (Heatmap)</h3>
 <p>After applying the <em>Filtering Parameters</em> for this group comparison, only <em>46</em>/141 peptides carried forward in the analysis (i.e. <em>46 hits</em>). Below are some figures to visualize the differences between these samples for considering these <em>hits</em>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -260,18 +259,18 @@
 <p><img src="KRSA_files/figure-html/heatmapInd-1.png" width="576" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-violin-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-violin-plot" class="anchor"></a>B vs A (Violin Plot)</h4>
+<div id="b-vs-a-violin-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-violin-plot" class="anchor"></a>B vs A (Violin Plot)</h3>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># generates a violin plot using the selected groups and peptides</span>
 <span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, <span class="st">"Barcode"</span>, groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/violinIndPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-waterfall-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-waterfall-plot" class="anchor"></a>B vs A (Waterfall Plot)</h4>
+<div id="b-vs-a-waterfall-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-waterfall-plot" class="anchor"></a>B vs A (Waterfall Plot)</h3>
 <p>This waterfall represents the log2 fold changes between the two groups at each peptide.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># generates a waterfall of the log2 fold change values for the selected peptide (top peptides)</span>
@@ -279,18 +278,18 @@
 <p><img src="KRSA_files/figure-html/waterfall-1.png" width="576" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-curve-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-curve-plot" class="anchor"></a>B vs A (Curve Plot)</h4>
+<div id="b-vs-a-curve-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-curve-plot" class="anchor"></a>B vs A (Curve Plot)</h3>
 <p>We generate curves plots per peptide using the last cycle data to visualize the linear fit model</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># generates a curve plot represenating the linear model fit for the selected peptide (top peptides)</span>
 <span class="fu"><a href="../reference/krsa_curve_plot.html">krsa_curve_plot</a></span><span class="op">(</span><span class="va">data_pw</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/curvePlot-1.png" width="768" style="display: block; margin: auto;"></p>
 </div>
-<div id="b-vs-a-upstream-kinase-analysis" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-upstream-kinase-analysis" class="anchor"></a>B vs A (Upstream Kinase Analysis)</h4>
+<div id="b-vs-a-upstream-kinase-analysis" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-upstream-kinase-analysis" class="anchor"></a>B vs A (Upstream Kinase Analysis)</h3>
 <p>The lab carefully curated and mapped the kinases that can act and phosphorylate each peptide present on the chip. This was achieved by using multiple sources including GPS 3.0, Kinexus Phosphonet, PhosphoELM and PhosphoSite Plus. Based on that association between peptides and kinases, a random sampling analysis is performed for these hits. The basic idea of <em>KRSA</em> is: For each iteration (<em>2000</em> iterations performed in this analysis), the same number of hits are randomly selected from the total 141/or 193 peptides present on the chip. Predicted kinases are then mapped to this sample list of peptides and number of kinases are determined. The kinase count from the actual hits and random sampling is then compared to determine the significance.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -571,9 +570,9 @@
 <span class="co">#&gt; 8 710317405.0.3               45</span></code></pre></div>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-z-scores-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-z-scores-plot" class="anchor"></a>B vs A (Z Scores Plot)</h4>
+<div id="b-vs-a-z-scores-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-z-scores-plot" class="anchor"></a>B vs A (Z Scores Plot)</h3>
 <p>We will plot the individual and averaged Z scores using both the across and within chip analyses.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -585,9 +584,9 @@
 <p><img src="KRSA_files/figure-html/zscoresPlot-2.png" width="576" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-reverse-krsa-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-reverse-krsa-plot" class="anchor"></a>B vs A (Reverse KRSA Plot)</h4>
+<div id="b-vs-a-reverse-krsa-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-reverse-krsa-plot" class="anchor"></a>B vs A (Reverse KRSA Plot)</h3>
 <p>We will use the reverse KRSA plot function, to plot the log2 fold chnage values for all peptides mapped to kinase hits. This will help us examine the activity of the kinase</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -596,9 +595,9 @@
 <p><img src="KRSA_files/figure-html/revKRSAPlot-1.png" width="576" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-coverage-plot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-coverage-plot" class="anchor"></a>B vs A (Coverage Plot)</h4>
+<div id="b-vs-a-coverage-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-coverage-plot" class="anchor"></a>B vs A (Coverage Plot)</h3>
 <p>To view the coverage of kinases across the full list of peptides on the chip, we will use the coverage plot function</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
@@ -607,24 +606,25 @@
 <p><img src="KRSA_files/figure-html/covPlot-1.png" width="576" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="b-vs-a-ball-model-network" class="section level4">
-<h4 class="hasAnchor">
-<a href="#b-vs-a-ball-model-network" class="anchor"></a>B vs A (Ball Model Network)</h4>
+<div id="b-vs-a-ball-model-network" class="section level3">
+<h3 class="hasAnchor">
+<a href="#b-vs-a-ball-model-network" class="anchor"></a>B vs A (Ball Model Network)</h3>
 <p>We will view the ball model network function, to generate a model representing the protein-protein interactions between kinases</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Plot the network ball model</span>
 <span class="fu"><a href="../reference/krsa_ball_model.html">krsa_ball_model</a></span><span class="op">(</span><span class="va">kinases_hits</span>, <span class="va">AvgZTable2</span>, <span class="fl">10</span>, <span class="fl">2.5</span>, <span class="fl">4.8</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/netPlot-1.png" width="768" style="display: block; margin: auto;"></p>
-<div id="session-info" class="section level5">
-<h5 class="hasAnchor">
-<a href="#session-info" class="anchor"></a>Session Info</h5>
+<div id="session-info" class="section level4">
+<h4 class="hasAnchor">
+<a href="#session-info" class="anchor"></a>Session Info</h4>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">otherPkgs</span><span class="op">)</span>, <span class="st">"Version"</span><span class="op">]</span>
 <span class="co">#&gt;     furrr    future        gt   forcats   stringr     dplyr     purrr     readr </span>
 <span class="co">#&gt;   "0.2.1"  "1.21.0"   "0.2.2"   "0.5.0"   "1.4.0"   "1.0.4"   "0.3.4"   "1.4.0" </span>
 <span class="co">#&gt;     tidyr    tibble   ggplot2 tidyverse     knitr      KRSA </span>
 <span class="co">#&gt;   "1.1.2"   "3.0.6"   "3.3.3"   "1.3.0"    "1.30"   "0.9.3"</span></code></pre></div>
+</div>
 </div>
 </div>
 </div>
