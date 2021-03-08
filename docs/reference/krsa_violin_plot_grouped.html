@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generates kinase histogram plots based on the KRSA function output — krsa_histogram_plot • KRSA</title>
+<title>Generates grouped violin plots based on peptides signals intensities with t tests options — krsa_violin_plot_grouped • KRSA</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Generates kinase histogram plots based on the KRSA function output — krsa_histogram_plot" />
-<meta property="og:description" content="This function takes in Z score table, and count matrix (an output from krsa()) and generates distribution histograms for a list of kinases" />
+<meta property="og:title" content="Generates grouped violin plots based on peptides signals intensities with t tests options — krsa_violin_plot_grouped" />
+<meta property="og:description" content="Takes in the scaled dataset from krsa_scaleModel() and plot violin figures using ggplot2" />
 <meta property="og:image" content="https://kalganem.github.io/KRSA/index.html/logo.png" />
 
 
@@ -119,37 +119,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generates kinase histogram plots based on the KRSA function output</h1>
+    <h1>Generates grouped violin plots based on peptides signals intensities with t tests options</h1>
     
-    <div class="hidden name"><code>krsa_histogram_plot.Rd</code></div>
+    <div class="hidden name"><code>krsa_violin_plot_grouped.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function takes in Z score table, and count matrix (an output from krsa()) and generates distribution histograms for a list of kinases</p>
+    <p>Takes in the scaled dataset from krsa_scaleModel() and plot violin figures using ggplot2</p>
     </div>
 
-    <pre class="usage"><span class='fu'>krsa_histogram_plot</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>data2</span>, <span class='va'>kinases</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>krsa_violin_plot_grouped</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  <span class='va'>peptides</span>,
+  <span class='va'>grp_comp</span>,
+  groups <span class='op'>=</span> <span class='cn'>NULL</span>,
+  test_method <span class='op'>=</span> <span class='st'>"wilcox.test"</span>,
+  violin <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  dots <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  test <span class='op'>=</span> <span class='cn'>T</span>,
+  lines <span class='op'>=</span> <span class='cn'>T</span>,
+  avg_line <span class='op'>=</span> <span class='cn'>F</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
-      <td><p>Z score table from krsa()</p></td>
+      <td><p>the scaled dataset from krsa_scaleModel</p></td>
     </tr>
     <tr>
-      <th>data2</th>
-      <td><p>count matrix from krsa()</p></td>
+      <th>peptides</th>
+      <td><p>vector of peptides</p></td>
     </tr>
     <tr>
-      <th>kinases</th>
-      <td><p>a vector of kinases</p></td>
+      <th>grp_comp</th>
+      <td><p>list of group comparison names</p></td>
+    </tr>
+    <tr>
+      <th>groups</th>
+      <td><p>(optional) a vector of group names</p></td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td><p>type of test</p></td>
+    </tr>
+    <tr>
+      <th>avg_line</th>
+      <td><p>draw avergaed line across the two groups</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>arguments passed to ggsignif</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>ggplot object</p>
+    <p>ggplot figure</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other plots: 
@@ -159,8 +187,8 @@
 <code><a href='krsa_cv_plot.html'>krsa_cv_plot</a>()</code>,
 <code><a href='krsa_heatmap_grouped.html'>krsa_heatmap_grouped</a>()</code>,
 <code><a href='krsa_heatmap.html'>krsa_heatmap</a>()</code>,
+<code><a href='krsa_histogram_plot.html'>krsa_histogram_plot</a>()</code>,
 <code><a href='krsa_reverse_krsa_plot.html'>krsa_reverse_krsa_plot</a>()</code>,
-<code><a href='krsa_violin_plot_grouped.html'>krsa_violin_plot_grouped</a>()</code>,
 <code><a href='krsa_violin_plot.html'>krsa_violin_plot</a>()</code>,
 <code><a href='krsa_waterfall.html'>krsa_waterfall</a>()</code>,
 <code><a href='krsa_zscores_plot.html'>krsa_zscores_plot</a>()</code></p></div>
