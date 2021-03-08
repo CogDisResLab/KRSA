@@ -9,10 +9,10 @@ krsa_violin_plot_grouped(
   peptides,
   grp_comp,
   groups = NULL,
+  test = T,
   test_method = "wilcox.test",
   violin = TRUE,
   dots = TRUE,
-  test = T,
   lines = T,
   avg_line = F,
   ...
@@ -27,9 +27,17 @@ krsa_violin_plot_grouped(
 
 \item{groups}{(optional) a vector of group names}
 
-\item{test}{type of test}
+\item{test}{perform two group test}
 
-\item{avg_line}{draw avergaed line across the two groups}
+\item{test_method}{type of test (default is wilcox.test)}
+
+\item{violin}{add violin layer}
+
+\item{dots}{add dotplot layer}
+
+\item{lines}{add lines layer}
+
+\item{avg_line}{draw averaged line across the two groups}
 
 \item{...}{arguments passed to ggsignif}
 }
