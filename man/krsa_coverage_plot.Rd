@@ -31,6 +31,7 @@ Other plots:
 \code{\link{krsa_heatmap}()},
 \code{\link{krsa_histogram_plot}()},
 \code{\link{krsa_reverse_krsa_plot}()},
+\code{\link{krsa_violin_plot_grouped}()},
 \code{\link{krsa_violin_plot}()},
 \code{\link{krsa_waterfall}()},
 \code{\link{krsa_zscores_plot}()}

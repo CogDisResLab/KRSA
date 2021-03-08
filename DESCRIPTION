@@ -23,7 +23,8 @@ Imports:
     stats,
     utils,
     ggplot2,
-    tidyr
+    tidyr,
+    ggsignif
 Depends: 
     R (>= 3.5.0)
 LazyData: true

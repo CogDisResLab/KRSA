@@ -1,77 +1,23 @@
 ---
-title: "KRSA Vignette"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{KRSA Vignette}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "KRSA Manuscript"
+author: "Khaled Alganem"
+date: "3/7/2021"
+output: html_document
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 
-```{r setup}
 library(KRSA)
 library(knitr)
 library(tidyverse)
 
 library(gt) # can be used to view tables
-library(furrr) # can be used for parallel computing 
+library(furrr)
 ```
-
-# Introduction
-
-## Background
-
-The Pamstation12 instrument provides a profiling of kinase activity of cell or tissue samples. The device is loaded with either serine/threonine or tyrosine microarray chips. Each chip has 4 wells so four samples can be loaded on a single chip, and the Pamstation12 can accommodate 3 chips per run. The microarray represents 144 (STK chip) or 196 (PTK chip) reporter peptides that can be phosphorylated by serine/threonine or tyrosine kinases. The device measures the degree of the phosphorylation in real time by detecting fluorescently labeled antibodies at different exposure times. The list of peptides present in each microarray can be viewed here: [STK chip](https://pamgene.com/wp-content/uploads/2020/09/STK-144-PamChip-87102.pdf), [PTK chip](https://pamgene.com/wp-content/uploads/2020/09/PTK-196-PamChip-86402.pdf)
-
-\newpage
-
-```{r, echo=F,out.width = "400px",out.width="450px", fig.align='center', cache=TRUE}
-knitr::include_graphics("images/pamgene_workflow.png")
-knitr::include_graphics("images/pamgene_detectionFig.png")
-```
-
-\newpage
-
-## Run Design
-
-Designing the placement of the samples on the chips and arrays is important to consider due to the variability across different chips and batches. During the run some wells are subject to fail and their data cannot be analyzed and shown below as red.
-
-```{r design, echo=F, fig.width=3, fig.height=3, fig.align="center", cache=TRUE}
-tt <- tibble(
-  num = rep(c(3.5,2.5,1.5,0.5),3),
-  chips = rep(c(2,5,8),each=4),
-  colr = c(rep(1,12)),
-  nms = rep(c("A", "B", "C", "D"), 3)
-)
-rundes <- ggplot() +
-  geom_rect(aes(xmin=1, xmax=3, ymin=0,ymax=4), fill="gray30") +
-  geom_rect(aes(xmin=4, xmax=6, ymin=0,ymax=4), fill="gray30") +
-  geom_rect(aes(xmin=7, xmax=9, ymin=0,ymax=4), fill="gray30") +
-  xlim(0,10) + 
-  theme_void() 
-
-rundes + geom_point(data = tt, aes(chips, num,color=factor(colr)), size = 13, show.legend = F) +
-  geom_text(data = tt, aes(chips,num,label = nms), size = 2) +
-  scale_color_manual(values=c("green3", "red3"))
-```
-
-\newpage
-
-# Results
-
-## Image Analysis
-
-The first step of analyzing the run is to convert the images taken by the PamStation of each array at different exposure times to numerical values This is done by the Bionavigator software developed by Pamgene. The software recognizes the grid of the array with the aid of the searching algorithm (Pamgrid) to correctly identify each spot on the array. The numbers produced by this software represent the median value of the foreground pixels minus the median value of the background pixels to produce the median signal minus background (Median_SigmBg).
 
 ## Reading Data
 
-The first step will be reading the crosstab view bionavigator files (Median_SigmBg and Signal_Saturation) and defining the PamChip type (STK or PTK). The raw data is read and then transformed to be in tidy format for an easier analysis, modeling, and visualizing.
 
 ```{r readData, include=FALSE, cache=TRUE}
 
@@ -79,7 +25,7 @@ The first step will be reading the crosstab view bionavigator files (Median_Sigm
 chipType <- "STK"
 
 # Read crosstab view bionavigator files and tidy data
-data <- krsa_read("data_files/example_Median_SigmBg.txt", "data_files/example_Signal_Saturation.txt")
+data <- krsa_read("data/DPLFC_MvsF_STK.txt") %>% filter(!SampleName %in% c("C1", "C2"))
 
 ```
 
@@ -89,10 +35,10 @@ We will perform a couple of quality control steps to deal with negative values i
 
 ```{r qcSteps, include=FALSE, cache=TRUE}
 # qc processing
-krsa_qc_steps(data) -> data
+krsa_qc_steps(data,sat_qc = F) -> data
 
 # Define sample groups
-data %>% mutate(Group = SampleName, SampleName = paste0(SampleName,"_" ,Barcode)) -> data
+data %>% mutate(Group = `Comment 1`) -> data
 
 # extract end level signal values @ all max exposure time (200ms)
 krsa_extractEndPointMaxExp(data, chipType) -> data_pw_200
@@ -120,7 +66,7 @@ krsa_filter_lowPeps(data_pw_200, 5) -> ppPassAll
 krsa_scaleModel(data_pw, ppPassAll) -> data_modeled
   
 # Filter out peptides weak linear fit
-krsa_filter_nonLinear(data_modeled$scaled, 0.8) -> ppPassR2
+krsa_filter_nonLinear(data_modeled$scaled, 0.9) -> ppPassR2
 
 # Filter out reference peptides
 krsa_filter_ref_pep(ppPassR2) -> new_pep
@@ -141,8 +87,6 @@ We will plot the coefficient of variation on both the normal and normalized fits
 # Plot a CV figure using the modeled scaled data
 krsa_cv_plot(data_modeled$scaled, ppPassR2)
 
-# Plot a CV figure using the modeled normalized data
-krsa_cv_plot(data_modeled$normalized, ppPassR2)
 ```
 
 ### Global Violin Plots
@@ -165,13 +109,11 @@ The heatmap represent all the peptides present on the chip except the positive/i
 ```{r heatmapPlot, echo=T,fig.height=8, fig.width=8, fig.align="center", cache=TRUE}
 
 # Generates a heatmap using the modeled scaled data
-krsa_heatmap(data_modeled$scaled, ppPassR2)
+krsa_heatmap(data_modeled$scaled, ppPassR2, scale = "row", cluster_col = F)
 
-# Generates a heatmap using the modeled normalized data
-krsa_heatmap(data_modeled$normalized, ppPassR2)
 
 # Generates a heatmap using the modeled grouped data
-krsa_heatmap_grouped(data_modeled$grouped, ppPassR2)
+krsa_heatmap_grouped(data_modeled$grouped, ppPassR2, scale = "none")
 
 
 ```
@@ -180,7 +122,7 @@ krsa_heatmap_grouped(data_modeled$grouped, ppPassR2)
 
 To compare between samples, a two-group comparison is performed. In this case, the two group comparisons are:
 
--   **B vs A**
+-   **Males vs Females**
 
 The *Slope_Transforemed* ratio between each group, paired by chip, is calculated to the fold change. Based on the fold change, peptides that pass a certain fold change threshold are considered significant hits. Also, quality control steps applied in each comparison to filter out peptides that do not reach specific criteria:
 
@@ -190,73 +132,78 @@ The *Slope_Transforemed* ratio between each group, paired by chip, is calculated
 These *Filtering Parameters* (fold change threshold, QC criteria) can be modified to adjust the stringency of the analysis. The *Filtering Parameters* that are used for this analysis:
 
 -   The *Medain_SigmBg* at max exposure *200ms* must be equal or above 5\
--   $R^2$ of the linear model fit must be above or equal 0.8\
--   Log fold change (LFC) cutoffs at (0.2,0.3)
+-   $R^2$ of the linear model fit must be above or equal 0.9\
+-   Log fold change (LFC) cutoffs at (0.4,0.5,0.6)
 
 ```{r groupDiff,echo=T, fig.height=8,fig.width=7, cache=TRUE}
 
-# Define Groups to be compared
-comparisons <- list(Comp1 = c("B", "A"))
+# Define Groups to be compared - Females as the "control"/"baseline"
+comparisons <- list(Comp1 = c("M", "F"))
 
 # This function will run both QC steps (krsa_filter_lowPeps, krsa_filter_nonLinear) and krsa_filter_ref_pep
+
 krsa_quick_filter(data = data_pw_200, data2 = data_modeled$scaled,
     signal_threshold = 5, r2_threshold = 0.9,
     groups = comparisons$Comp1) -> pep_passed_qc
 
 # This function calculates log2 fold change values between the defined groups
 # The byChip argument lets you calculates the log2 fold change the results within each chip
-krsa_group_diff(data_modeled$scaled, comparisons$Comp1, pep_passed_qc, byChip = T) -> diff_df
+krsa_group_diff(data_modeled$scaled, comparisons$Comp1, pep_passed_qc, byChip = F) -> diff_df
 
 # Extract top peptides based on the LFC cutoff
-krsa_get_diff(diff_df,totalMeanLFC ,c(0.2,0.3)) %>% list("meanLFC" = .) -> sigPeps
-krsa_get_diff_byChip(diff_df, LFC, c(0.2,0.3)) -> sigPepsPerChip
+krsa_get_diff(diff_df,LFC ,c(0.2,0.3,0.4)) %>% list("meanLFC" = .) -> sigPeps
 
 # Combine the peptides hits in one list
-sigPeps_total <- list(sigPeps, sigPepsPerChip) %>% unlist(recursive = F) %>%  unlist(recursive = F)
+sigPeps_total <- list(sigPeps) %>% unlist(recursive = F) %>%  unlist(recursive = F)
 
 
 ```
 
 \newpage
 
-### B vs A (Heatmap)
+### Males vs Females (Heatmap)
 
 After applying the *Filtering Parameters* for this group comparison, only *`r length(sigPeps$meanLFC[["0.2"]])`*/141 peptides carried forward in the analysis (i.e. *`r length(sigPeps$meanLFC[["0.2"]])` hits*). Below are some figures to visualize the differences between these samples for considering these *hits*.
 
 ```{r heatmapInd,echo=T, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 # generates a heatmap using the selected groups and peptides
-krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1, scale = "row")
+krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC[["0.2"]], groups = comparisons$Comp1, scale = "row", cluster_col = F)
 
 ```
 
 \newpage
 
-### B vs A (Violin Plot)
+### Males vs Females (Violin Plot)
 
 ```{r violinIndPlot,echo=T, fig.align="center", fig.height=6, fig.width=8, cache=TRUE}
 # generates a violin plot using the selected groups and peptides
-krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups = comparisons$Comp1)
+krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC[["0.2"]], "Barcode", groups = comparisons$Comp1)
 
-krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC$`0.2`, comparisons, 
-                         groups = comparisons$Comp1, avg_line = T)
+
+
+# generates grouped violin plot
+krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC[["0.2"]], grp_comp = comparisons,
+                   avg_line =  T
+                   )
+
 
 ```
 
 \newpage
 
-### B vs A (Waterfall Plot)
+### Males vs Females (Waterfall Plot)
 
 This waterfall represents the log2 fold changes between the two groups at each peptide.
 
 ```{r waterfall, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 # generates a waterfall of the log2 fold change values for the selected peptide (top peptides)
-krsa_waterfall(diff_df, 0.2, byChip = T)
+krsa_waterfall(diff_df, 0.2, byChip = F)
 ```
 
 \newpage
 
-### B vs A (Curve Plot)
+### Males vs Females (Curve Plot)
 
 We generate curves plots per peptide using the last cycle data to visualize the linear fit model
 
@@ -265,27 +212,25 @@ We generate curves plots per peptide using the last cycle data to visualize the 
 krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
 ```
 
-### B vs A (Upstream Kinase Analysis)
+### Males vs Females (Upstream Kinase Analysis)
 
 The lab carefully curated and mapped the kinases that can act and phosphorylate each peptide present on the chip. This was achieved by using multiple sources including GPS 3.0, Kinexus Phosphonet, PhosphoELM and PhosphoSite Plus. Based on that association between peptides and kinases, a random sampling analysis is performed for these hits. The basic idea of *KRSA* is: For each iteration (*2000* iterations performed in this analysis), the same number of hits are randomly selected from the total 141/or 193 peptides present on the chip. Predicted kinases are then mapped to this sample list of peptides and number of kinases are determined. The kinase count from the actual hits and random sampling is then compared to determine the significance.
 
 ```{r krsa, echo=T, warning=F, message=FALSE, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
-# set seed that can be used later to reproduce results
-set.seed(123)
 
 # load in chip coverage and kinase-substrate files OR uplaod your own files
 chipCov <- KRSA_coverage_STK_PamChip_87102_v1
 KRSA_file <- KRSA_Mapping_STK_PamChip_87102_v1
 
 # run the KRSA function to do the random sampling analysis
-krsa(sigPeps$meanLFC$`0.2`, return_count = T) -> fin
+krsa(sigPeps$meanLFC$`0.2`, return_count = T, seed = 123, itr = 2000) -> fin
 
 # View the Z score table
 kable(head(fin$KRSA_Table,25), digits = 3)
 
 # to save file
-#fin$KRSA_Table %>% write_delim("acrossChip_KRSA_FullTable_comp1.txt", delim = "\t")
+fin$KRSA_Table %>% write_delim("acrossChip_KRSA_FullTable_0_2LFC.txt", delim = "\t")
 
 # find top and bottom kinases
 bothways <- c(pull(head(fin$KRSA_Table, 10), Kinase), pull(tail(fin$KRSA_Table, 10), Kinase))
@@ -319,30 +264,22 @@ df %>%
   pivot_wider(names_from = method, values_from = Z) -> df2
   
 # Generates a table of the Z scores across the different sets of peptides
-# df2 %>% 
-#   gt() %>% tab_spanner_delim(delim = ">")
+df2 %>%
+  gt() %>% tab_spanner_delim(delim = ">")
 
 # Creates an average Z score table using the across chip analysis
 df %>% 
   filter(grepl("mean", method)) %>% 
   select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable
 
-# save file
-#AvgZTable %>% write_delim("acrossChip_KRSA_Table_comp1.txt", delim = "\t")
+#save file
+AvgZTable %>% write_delim("acrossChip_KRSA_Table_multipleComp.txt", delim = "\t")
 
-# Creates an average Z score table using the within chip analysis
-df %>% 
-  filter(!grepl("mean", method)) %>% 
-  select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable2
-
-# save file
-#AvgZTable %>% write_delim("withinChip_KRSA_Table_comp1.txt", delim = "\t")
 
 # Extract top kinases based on abs(Z) score
-krsa_top_hits(AvgZTable2, 2) -> kinases_hits
-
-#krsa_top_hits(AvgZTable2, 1.75)
-#krsa_top_hits(AvgZTable2, 1.5)
+krsa_top_hits(AvgZTable, 2) -> kinases_hits
+# krsa_top_hits(AvgZTable2, 1.75)
+# krsa_top_hits(AvgZTable2, 1.5)
 
 # Show the number of peptides per each set in atable
 krsa_show_peptides(sigPeps_total)
@@ -351,21 +288,20 @@ krsa_show_peptides(sigPeps_total)
 
 \newpage
 
-### B vs A (Z Scores Plot)
+### Males vs Females (Z Scores Plot)
 
-We will plot the individual and averaged Z scores using both the across and within chip analyses.
+We will plot the individual and averaged Z scores using the across chip analyses.
 
 ```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 
-# Generates the Z scores waterfall plots
+# Generates the Z scores waterfall plot
 krsa_zscores_plot(AvgZTable)
-krsa_zscores_plot(AvgZTable2)
 
 ```
 
 \newpage
 
-### B vs A (Reverse KRSA Plot)
+### Males vs Females (Reverse KRSA Plot)
 
 We will use the reverse KRSA plot function, to plot the log2 fold chnage values for all peptides mapped to kinase hits. This will help us examine the activity of the kinase
 
@@ -377,27 +313,274 @@ krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
 
 \newpage
 
-### B vs A (Coverage Plot)
+### Males vs Females (Coverage Plot)
 
 To view the coverage of kinases across the full list of peptides on the chip, we will use the coverage plot function
 
 ```{r covPlot, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 
 # generates a kinase covergae plot 
-krsa_coverage_plot(chipCov, AvgZTable2, chipType)
+krsa_coverage_plot(chipCov, AvgZTable, chipType)
 
 ```
 
 \newpage
 
-### B vs A (Ball Model Network)
+### Males vs Females (Ball Model Network)
 
 We will view the ball model network function, to generate a model representing the protein-protein interactions between kinases
 
 ```{r netPlot, echo=T, fig.align="center", fig.height=8,fig.width=8, message=FALSE, cache=TRUE}
 
 # Plot the network ball model
-krsa_ball_model(kinases_hits, AvgZTable2, 10, 2.5, 4.8)
+krsa_ball_model(kinases_hits, AvgZTable, 15, 2.5, 4.8)
+
+
+```
+
+
+
+```{r reading}
+raw <- readxl::read_xlsx("data/Export Tis100 brain data extended.xlsx", sheet = 4, col_names = F,
+                         na = c("NA", "")
+                         )
+
+raw[2:16,5:ncol(raw)] -> valueInfo
+dim(raw)
+raw[18:159,] -> data
+data <- data[, c(1,6:ncol(data))]
+
+df2 <- data.frame(t(data[-1]), stringsAsFactors = F)
+colnames(df2) <- data$...1
+colnames(df2) <- make.unique(colnames(df2)) 
+
+df3 <- data.frame(t(valueInfo[-1]), stringsAsFactors = F)
+colnames(df3) <- valueInfo$...5
+
+
+cbind(df3,df2) -> df4
+dim(df4)
+
+df4 %>% select(-ATP, -`Comment 11`, -`Sample concentration`, -`protein conc [mg/ml]`, 
+               -Detection
+               ) -> df4
+dim(df4)
+df4 %>% gather(11:152, key = "Peptide", value  = "Signal") -> tidydata
+#glimpse(tidydata)
+
+tidydata$Signal <- as.numeric(tidydata$Signal)
+
+tidydata %>% dplyr::rename(SampleName = `Sample name`, 
+                           Group = Grouping
+                           ) -> tidydata
+
+
+
+tidydata %>% dplyr::filter(`Braak stage Tau` == "1") %>% 
+  select(SampleName, Array) %>% distinct() %>% 
+  count(SampleName)
+
+
+#tidydata_krsa <- krsa_read("data/ad_data_full.txt")
+
+
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+tidydata %>% mutate(SampleName2 = paste0(SampleName, "_", Array, "_", Barcode)) %>% 
+  select(SampleName2, Gender, Barcode) %>% distinct(SampleName2, .keep_all = T) %>% 
+  dplyr::rename(Chip = Barcode) %>% 
+  column_to_rownames("SampleName2") -> levels_tbl 
+
+tidydata %>% select(Peptide, Signal) %>% group_by(Peptide) %>% 
+  summarise(sd = sd(Signal)) %>% filter(sd != 0) %>% 
+  pull(Peptide) -> sd_peps
+
+tidydata %>% dplyr::filter(`Braak stage Tau` == "1", Peptide %in% sd_peps) %>%
+  ungroup() %>% 
+  mutate(Signal = ifelse(Signal == 0, 0.1, Signal)) %>% 
+  dplyr::group_by(SampleName,Peptide) %>% 
+  dplyr::mutate(AvgSignal = EnvStats::geoMean(Signal, na.rm = T)) %>%
+  dplyr::select(-Signal,-Array) %>% distinct(SampleName, Peptide, .keep_all = T) -> tidydata2
+
+
+tidydata %>% 
+  select(SampleName, Gender) %>% rename(Sex = Gender) %>% 
+  mutate(Sex = factor(Sex, levels = c("M", "F"))) %>% 
+  distinct(SampleName, .keep_all = T) %>% 
+  column_to_rownames("SampleName") -> levels_tbl2 
+
+tidydata %>% mutate(SampleName2 = paste0(SampleName, "_", Array, "_", Barcode)) %>%
+  select(SampleName2, Peptide, Signal) %>% filter(Peptide %in% sd_peps) %>% 
+  pivot_wider(names_from = SampleName2, values_from = Signal) -> DF
+
+DF[rowSums(DF == 0) <= 10, ] %>% pull(Peptide) -> sd_peps_2
+
+col_breaks2 <- c(seq(-4, -0.01,length=50),0,
+          seq(0.01,4,length=50))
+
+hmcol2 <- colorRampPalette(c("yellow", "white", "red"))(n = 100)
+
+
+
+tidydata2 %>% filter(Peptide %in% sd_peps_2, Peptide != "ART_025_CXGLRRWSLGGLRRWSL") %>% 
+  select(SampleName, Peptide, AvgSignal) %>% 
+  pivot_wider(names_from = SampleName, values_from = AvgSignal) %>%
+  column_to_rownames("Peptide") %>% as.matrix() %>%
+  pheatmap::pheatmap(annotation_col = levels_tbl2, 
+                   
+                     fontsize_col = 5,
+                     fontsize_row = 1, 
+                     scale = "row",
+                     breaks = col_breaks2,
+                    col = hmcol2,
+                    clustering_method = "average",
+                    cluster_cols = T, 
+                    cluster_rows = T,
+                    show_rownames = F, 
+                    show_colnames = F
+                     )
+
+
+```
+
+
+```{r, echo=FALSE}
+
+library(factoextra)
+
+
+new_my_data <- tidydata2 %>% 
+  filter(Peptide %in% sd_peps_2) %>%
+  mutate_at(c("Barcode", "SFactor10", "Braak stage Tau", "Age", "PMD"), as.numeric)
+
+new_my_data %>% select(SampleName, Peptide, Barcode, Gender, AvgSignal, PMD, Age) %>%
+  filter(Peptide %in% sd_peps_2)  -> new_my_data
+
+new_my_data %>% mutate(
+Gender = case_when(
+  Gender == "M" ~ 1,
+  Gender == "F" ~ 2,
+  T ~ 3
+), PMD = ifelse(is.na(PMD), 0, PMD)) %>% filter(Gender != 3) %>% 
+  pivot_wider(names_from = Peptide, values_from = AvgSignal) -> new_my_data
+
+new_my_data %>% column_to_rownames("SampleName") -> ad_pca
+
+pca_res <- prcomp(ad_pca, center = T, scale. = T)
+
+
+fviz_pca_biplot(pca_res, label = "var", 
+                select.var = list(name = c("Age", "PMD", "Gender", "Barcode", "Braak stage Tau")),
+                habillage=new_my_data$Gender,
+                addEllipses = T,
+                col.var = "blue"
+                )
+
+fviz_eig(pca_res, addlabels = TRUE, ylim = c(0, 60))
+
+
+
+```
+
+```{r upstream, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6, }
+
+
+tidydata2 %>% 
+  filter(Peptide %in% sd_peps_2, Peptide != "ART_025_CXGLRRWSLGGLRRWSL") %>%
+  group_by(Gender, Peptide) %>% 
+  summarise(mean = mean(AvgSignal)) %>% 
+  pivot_wider(names_from = Gender, values_from = mean) %>% 
+  mutate(LFC = M - F) %>% select(Peptide, LFC) -> ad_lfc_table
+
+
+krsa_get_diff(ad_lfc_table,LFC ,c(0.2,0.3,0.4)) %>% list("meanLFC" = .) -> ad_peps
+
+# Combine the peptides hits in one list
+ad_sigPeps_total <- list(ad_peps) %>% unlist(recursive = F) %>%  unlist(recursive = F)
+
+future_map(ad_sigPeps_total, krsa) -> ad_mutiple_krsa_outputs
+
+df_ad <- data.frame(matrix(unlist(ad_mutiple_krsa_outputs), ncol = max(lengths(ad_mutiple_krsa_outputs)), byrow = TRUE))
+df_ad <- setNames(do.call(rbind.data.frame, ad_mutiple_krsa_outputs), names(ad_mutiple_krsa_outputs$meanLFC.0.2))
+
+df_ad %>% rownames_to_column("method") %>% select(Kinase, Z, method) %>% 
+  mutate(method = str_extract(method, "\\w+\\.\\w+\\.\\w+")) %>% 
+  mutate(method = gsub("(^\\w+)[\\.]", "\\1>", method)) %>% 
+  mutate_if(is.numeric, round, 2) -> df_ad
+
+df_ad %>% 
+  pivot_wider(names_from = method, values_from = Z) -> df_ad2
+  
+# Generates a table of the Z scores across the different sets of peptides
+df_ad %>%
+  gt() %>% tab_spanner_delim(delim = ">")
+
+# Creates an average Z score table using the across chip analysis
+df_ad %>% 
+  filter(grepl("mean", method)) %>% 
+  select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable_ad
+
+#save file
+AvgZTable_ad %>% write_delim("acrossChip_KRSA_Table_multipleComp_AD.txt", delim = "\t")
+
+
+# Extract top kinases based on abs(Z) score
+krsa_top_hits(AvgZTable_ad, 2) -> kinases_hits
+# krsa_top_hits(AvgZTable2, 1.75)
+# krsa_top_hits(AvgZTable2, 1.5)
+
+# Show the number of peptides per each set in atable
+krsa_show_peptides(ad_sigPeps_total)
+
+
+krsa_zscores_plot(AvgZTable_ad)
+
+```
+
+```{r}
+
+
+
+erica <- read_csv(file = "~/Desktop/Master_Classes/mcculm/Erica/KRSA_Paper/bioinformatics_manuscript/KRSA_results.csv")
+
+erica %>% filter(ZScore >= 1.5) %>% pull(Kinase) -> erc_kin_5
+fin %>% filter(abs(Z) >= 1.5) %>% pull(Kinase) -> ad_kin_5
+
+erica %>% filter(ZScore >= 1.25) %>% pull(Kinase) -> erc_kin_1
+fin %>% filter(abs(Z) >= 1.25) %>% pull(Kinase) -> ad_kin_1
+
+
+x2 <- list(`DLPFC`=erc_kin_5 , `HPC`=ad_kin_5
+           )
+pdf("../AD/venn_diagram_15.pdf",useDingbats = F, width = 9, height = 8)
+RAM::group.venn(x2,
+                cat.cex = 1,
+                lab.cex = 1,
+                cat.pos = c(0,0),
+                fill = c("red", "blue")
+                )
+dev.off()
+  
+
+x2 <- list(`DLPFC`=erc_kin_1 , `HPC`=ad_kin_1
+           )
+pdf("../AD/venn_diagram_125.pdf",useDingbats = F, width = 9, height = 8)
+RAM::group.venn(x2,
+                cat.cex = 1,
+                lab.cex = 1,
+                cat.pos = c(0,0),
+                fill = c("red", "blue")
+                )
+dev.off()
+
+
 
 
 ```
@@ -407,3 +590,4 @@ krsa_ball_model(kinases_hits, AvgZTable2, 10, 2.5, 4.8)
 ```{r}
 installed.packages()[names(sessionInfo()$otherPkgs), "Version"]
 ```
+

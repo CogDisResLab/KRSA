@@ -38,6 +38,7 @@ reference:
     - krsa_histogram_plot
     - krsa_reverse_krsa_plot
     - krsa_violin_plot
+    - krsa_violin_plot_grouped
     - krsa_waterfall
     - krsa_zscores_plot
     - krsa_cv_plot
