@@ -133,10 +133,10 @@
   <span class='va'>peptides</span>,
   <span class='va'>grp_comp</span>,
   groups <span class='op'>=</span> <span class='cn'>NULL</span>,
+  test <span class='op'>=</span> <span class='cn'>T</span>,
   test_method <span class='op'>=</span> <span class='st'>"wilcox.test"</span>,
   violin <span class='op'>=</span> <span class='cn'>TRUE</span>,
   dots <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  test <span class='op'>=</span> <span class='cn'>T</span>,
   lines <span class='op'>=</span> <span class='cn'>T</span>,
   avg_line <span class='op'>=</span> <span class='cn'>F</span>,
   <span class='va'>...</span>
@@ -163,11 +163,27 @@
     </tr>
     <tr>
       <th>test</th>
-      <td><p>type of test</p></td>
+      <td><p>perform two group test</p></td>
+    </tr>
+    <tr>
+      <th>test_method</th>
+      <td><p>type of test (default is wilcox.test)</p></td>
+    </tr>
+    <tr>
+      <th>violin</th>
+      <td><p>add violin layer</p></td>
+    </tr>
+    <tr>
+      <th>dots</th>
+      <td><p>add dotplot layer</p></td>
+    </tr>
+    <tr>
+      <th>lines</th>
+      <td><p>add lines layer</p></td>
     </tr>
     <tr>
       <th>avg_line</th>
-      <td><p>draw avergaed line across the two groups</p></td>
+      <td><p>draw averaged line across the two groups</p></td>
     </tr>
     <tr>
       <th>...</th>

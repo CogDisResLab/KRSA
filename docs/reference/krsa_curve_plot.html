@@ -128,7 +128,7 @@
     <p>This function takes in the PW data (that includes all exposure times), list of peptides, and optional arguments of samples or groups names vector</p>
     </div>
 
-    <pre class="usage"><span class='fu'>krsa_curve_plot</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>peptides</span>, samples <span class='op'>=</span> <span class='cn'>NULL</span>, groups <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>krsa_curve_plot</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>peptides</span>, byGroup <span class='op'>=</span> <span class='cn'>T</span>, samples <span class='op'>=</span> <span class='cn'>NULL</span>, groups <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +140,10 @@
     <tr>
       <th>peptides</th>
       <td><p>a vector of peptides to plot</p></td>
+    </tr>
+    <tr>
+      <th>byGroup</th>
+      <td><p>fit lines by group</p></td>
     </tr>
     <tr>
       <th>samples</th>

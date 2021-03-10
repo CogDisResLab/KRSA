@@ -368,7 +368,7 @@ krsa_show_peptides(sigPeps_total)
 
 We will plot the individual and averaged Z scores using both the across and within chip analyses.
 
-```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=10, cache=TRUE}
+```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=10,fig.width=8, cache=TRUE}
 
 # Generates Z scores waterfall plots
 krsa_zscores_plot(AvgZTable)

@@ -156,13 +156,13 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Plot a CV figure using the modeled scaled data</span>
-<span class="fu"><a href="../reference/krsa_cv_plot.html">krsa_cv_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">ppPassR2</span><span class="op">)</span>
+<span class="fu"><a href="../reference/krsa_cv_plot.html">krsa_cv_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">new_pep</span><span class="op">)</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/cvPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Plot a CV figure using the modeled normalized data</span>
-<span class="fu"><a href="../reference/krsa_cv_plot.html">krsa_cv_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">ppPassR2</span><span class="op">)</span>
+<span class="fu"><a href="../reference/krsa_cv_plot.html">krsa_cv_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">new_pep</span><span class="op">)</span>
 <span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/cvPlot-2.png" width="768" style="display: block; margin: auto;"></p>
 </div>
@@ -172,12 +172,12 @@
 <p>We will plot violin figures to examine global signal differences between groups/samples.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Plot a violin figure and facet by the (Group) variable</span>
-<span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">ppPassR2</span>, <span class="st">"Group"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">new_pep</span>, <span class="st">"Group"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/violinPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Plot a violin figure and facet by the (Barcode) variable</span>
-<span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">ppPassR2</span>, <span class="st">"Barcode"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/krsa_violin_plot.html">krsa_violin_plot</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">new_pep</span>, <span class="st">"Barcode"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/violinPlot-2.png" width="768" style="display: block; margin: auto;"></p>
 </div>
 <div id="global-heatmaps" class="section level3">
@@ -187,17 +187,17 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Generates a heatmap using the modeled scaled data</span>
-<span class="fu"><a href="../reference/krsa_heatmap.html">krsa_heatmap</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">ppPassR2</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/krsa_heatmap.html">krsa_heatmap</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">new_pep</span>, scale <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/heatmapPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Generates a heatmap using the modeled normalized data</span>
-<span class="fu"><a href="../reference/krsa_heatmap.html">krsa_heatmap</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">ppPassR2</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/krsa_heatmap.html">krsa_heatmap</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">new_pep</span>, scale <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/heatmapPlot-2.png" width="768" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Generates a heatmap using the modeled grouped data</span>
-<span class="fu"><a href="../reference/krsa_heatmap_grouped.html">krsa_heatmap_grouped</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">grouped</span>, <span class="va">ppPassR2</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="../reference/krsa_heatmap_grouped.html">krsa_heatmap_grouped</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">grouped</span>, <span class="va">new_pep</span>, scale <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/heatmapPlot-3.png" width="768" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -256,7 +256,7 @@
 <code class="sourceCode R">
 <span class="co"># generates a heatmap using the selected groups and peptides</span>
 <span class="fu"><a href="../reference/krsa_heatmap.html">krsa_heatmap</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">normalized</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span>, scale <span class="op">=</span> <span class="st">"row"</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/heatmapInd-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="KRSA_files/figure-html/heatmapInd-1.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-violin-plot" class="section level3">
@@ -268,46 +268,60 @@
 <p><img src="KRSA_files/figure-html/violinIndPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="fu"><a href="../reference/krsa_violin_plot_grouped.html">krsa_violin_plot_grouped</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">grouped</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, <span class="va">comparisons</span>, 
-                         groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span>, avg_line <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="co">#&gt; `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</span></code></pre></div>
+<span class="co"># generate a grouped violin/boxplot plot using the selected groups and peptides with more options, like a statistical test. check krsa_violin_plot_grouped() arguments for more options</span>
+<span class="fu"><a href="../reference/krsa_violin_plot_grouped.html">krsa_violin_plot_grouped</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">scaled</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, <span class="va">comparisons</span>, 
+                         dots <span class="op">=</span> <span class="cn">F</span>,
+                         groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span>, avg_line <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/violinIndPlot-2.png" width="768" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="fu"><a href="../reference/krsa_violin_plot_grouped.html">krsa_violin_plot_grouped</a></span><span class="op">(</span><span class="va">data_modeled</span><span class="op">$</span><span class="va">grouped</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, <span class="va">comparisons</span>, 
+                         test <span class="op">=</span> <span class="cn">F</span>, 
+                         groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span>, avg_line <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<p><img src="KRSA_files/figure-html/violinIndPlot-3.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-waterfall-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-waterfall-plot" class="anchor"></a>B vs A (Waterfall Plot)</h3>
 <p>This waterfall represents the log2 fold changes between the two groups at each peptide.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># generates a waterfall of the log2 fold change values for the selected peptide (top peptides)</span>
 <span class="fu"><a href="../reference/krsa_waterfall.html">krsa_waterfall</a></span><span class="op">(</span><span class="va">diff_df</span>, <span class="fl">0.2</span>, byChip <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/waterfall-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="KRSA_files/figure-html/waterfall-1.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-curve-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-curve-plot" class="anchor"></a>B vs A (Curve Plot)</h3>
 <p>We generate curves plots per peptide using the last cycle data to visualize the linear fit model</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># generates a curve plot represenating the linear model fit for the selected peptide (top peptides)</span>
-<span class="fu"><a href="../reference/krsa_curve_plot.html">krsa_curve_plot</a></span><span class="op">(</span><span class="va">data_pw</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># generates a curve plot representing the linear model fit for the selected peptide (top peptides, only showing 10 here)</span>
+<span class="fu"><a href="../reference/krsa_curve_plot.html">krsa_curve_plot</a></span><span class="op">(</span><span class="va">data_pw</span>, <span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, groups <span class="op">=</span> <span class="va">comparisons</span><span class="op">$</span><span class="va">Comp1</span><span class="op">)</span></code></pre></div>
 <p><img src="KRSA_files/figure-html/curvePlot-1.png" width="768" style="display: block; margin: auto;"></p>
 </div>
 <div id="b-vs-a-upstream-kinase-analysis" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-upstream-kinase-analysis" class="anchor"></a>B vs A (Upstream Kinase Analysis)</h3>
 <p>The lab carefully curated and mapped the kinases that can act and phosphorylate each peptide present on the chip. This was achieved by using multiple sources including GPS 3.0, Kinexus Phosphonet, PhosphoELM and PhosphoSite Plus. Based on that association between peptides and kinases, a random sampling analysis is performed for these hits. The basic idea of <em>KRSA</em> is: For each iteration (<em>2000</em> iterations performed in this analysis), the same number of hits are randomly selected from the total 141/or 193 peptides present on the chip. Predicted kinases are then mapped to this sample list of peptides and number of kinases are determined. The kinase count from the actual hits and random sampling is then compared to determine the significance.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="co"># set seed that can be used later to reproduce results</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
 
-<span class="co"># load in chip coverage and kinase-substrate files OR uplaod your own files</span>
+<span class="co"># load in chip coverage and kinase-substrate files OR upload your own files</span>
+<span class="co"># if PTK chip, use:</span>
+<span class="co"># chipCov &lt;- KRSA_coverage_PTK_PamChip_86402_v1</span>
+<span class="co"># KRSA_file &lt;- KRSA_Mapping_PTK_PamChip_86402_v1</span>
+
+<span class="co"># STK chip</span>
 <span class="va">chipCov</span> <span class="op">&lt;-</span> <span class="va">KRSA_coverage_STK_PamChip_87102_v1</span>
 <span class="va">KRSA_file</span> <span class="op">&lt;-</span> <span class="va">KRSA_Mapping_STK_PamChip_87102_v1</span>
 
-<span class="co"># run the KRSA function to do the random sampling analysis</span>
-<span class="fu"><a href="../reference/krsa.html">krsa</a></span><span class="op">(</span><span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, return_count <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">fin</span>
+
+
+<span class="co"># run the KRSA function to do the random sampling analysis, set seed that can be used later to reproduce results, and choose number of iterations</span>
+<span class="fu"><a href="../reference/krsa.html">krsa</a></span><span class="op">(</span><span class="va">sigPeps</span><span class="op">$</span><span class="va">meanLFC</span><span class="op">$</span><span class="va">`0.2`</span>, return_count <span class="op">=</span> <span class="cn">T</span>, seed <span class="op">=</span> <span class="fl">123</span>, itr <span class="op">=</span> <span class="fl">2000</span>,
+     map_file <span class="op">=</span> <span class="va">KRSA_file</span>, cov_file <span class="op">=</span> <span class="va">chipCov</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">fin</span>
 
 <span class="co"># View the Z score table</span>
 <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">fin</span><span class="op">$</span><span class="va">KRSA_Table</span>,<span class="fl">25</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
@@ -497,7 +511,7 @@
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># to save file</span>
 <span class="co">#fin$KRSA_Table %&gt;% write_delim("acrossChip_KRSA_FullTable_comp1.txt", delim = "\t")</span>
@@ -507,8 +521,8 @@
 
 <span class="co"># Use these kinase to generate histogram plots for each selected kinase</span>
 <span class="fu"><a href="../reference/krsa_histogram_plot.html">krsa_histogram_plot</a></span><span class="op">(</span><span class="va">fin</span><span class="op">$</span><span class="va">KRSA_Table</span>, <span class="va">fin</span><span class="op">$</span><span class="va">count_mtx</span>, <span class="va">bothways</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/krsa-1.png" width="576" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<p><img src="KRSA_files/figure-html/krsa-1.png" width="768" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 
 <span class="co"># For parallel computing, load the furrr package:</span>
@@ -580,43 +594,43 @@
 <h3 class="hasAnchor">
 <a href="#b-vs-a-z-scores-plot" class="anchor"></a>B vs A (Z Scores Plot)</h3>
 <p>We will plot the individual and averaged Z scores using both the across and within chip analyses.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Generates the Z scores waterfall plots</span>
-<span class="fu"><a href="../reference/krsa_zscores_plot.html">krsa_zscores_plot</a></span><span class="op">(</span><span class="va">AvgZTable</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/zscoresPlot-1.png" width="576" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Generates Z scores waterfall plots</span>
+<span class="fu"><a href="../reference/krsa_zscores_plot.html">krsa_zscores_plot</a></span><span class="op">(</span><span class="va">AvgZTable</span><span class="op">)</span></code></pre></div>
+<p><img src="KRSA_files/figure-html/zscoresPlot-1.png" width="768" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/krsa_zscores_plot.html">krsa_zscores_plot</a></span><span class="op">(</span><span class="va">AvgZTable2</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/zscoresPlot-2.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="KRSA_files/figure-html/zscoresPlot-2.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-reverse-krsa-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-reverse-krsa-plot" class="anchor"></a>B vs A (Reverse KRSA Plot)</h3>
 <p>We will use the reverse KRSA plot function, to plot the log2 fold chnage values for all peptides mapped to kinase hits. This will help us examine the activity of the kinase</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># plot the reverse KRSA figure for top kinases to determine their activity levels</span>
 <span class="fu"><a href="../reference/krsa_reverse_krsa_plot.html">krsa_reverse_krsa_plot</a></span><span class="op">(</span><span class="va">chipCov</span>, <span class="va">diff_df</span>, <span class="va">kinases_hits</span>, <span class="fl">0.2</span>, byChip <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/revKRSAPlot-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="KRSA_files/figure-html/revKRSAPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-coverage-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-coverage-plot" class="anchor"></a>B vs A (Coverage Plot)</h3>
 <p>To view the coverage of kinases across the full list of peptides on the chip, we will use the coverage plot function</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># generates a kinase covergae plot </span>
 <span class="fu"><a href="../reference/krsa_coverage_plot.html">krsa_coverage_plot</a></span><span class="op">(</span><span class="va">chipCov</span>, <span class="va">AvgZTable2</span>, <span class="va">chipType</span><span class="op">)</span></code></pre></div>
-<p><img src="KRSA_files/figure-html/covPlot-1.png" width="576" style="display: block; margin: auto;"></p>
+<p><img src="KRSA_files/figure-html/covPlot-1.png" width="768" style="display: block; margin: auto;"></p>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="b-vs-a-ball-model-network" class="section level3">
 <h3 class="hasAnchor">
 <a href="#b-vs-a-ball-model-network" class="anchor"></a>B vs A (Ball Model Network)</h3>
 <p>We will view the ball model network function, to generate a model representing the protein-protein interactions between kinases</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Plot the network ball model</span>
 <span class="fu"><a href="../reference/krsa_ball_model.html">krsa_ball_model</a></span><span class="op">(</span><span class="va">kinases_hits</span>, <span class="va">AvgZTable2</span>, <span class="fl">10</span>, <span class="fl">2.5</span>, <span class="fl">4.8</span><span class="op">)</span></code></pre></div>
@@ -624,7 +638,7 @@
 <div id="session-info" class="section level4">
 <h4 class="hasAnchor">
 <a href="#session-info" class="anchor"></a>Session Info</h4>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">otherPkgs</span><span class="op">)</span>, <span class="st">"Version"</span><span class="op">]</span>
 <span class="co">#&gt;     furrr    future        gt   forcats   stringr     dplyr     purrr     readr </span>
 <span class="co">#&gt;   "0.2.1"  "1.21.0"   "0.2.2"   "0.5.0"   "1.4.0"   "1.0.4"   "0.3.4"   "1.4.0" </span>
