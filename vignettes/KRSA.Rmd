@@ -193,7 +193,7 @@ These *Filtering Parameters* (fold change threshold, QC criteria) can be modifie
 -   $R^2$ of the linear model fit must be above or equal 0.8\
 -   Log fold change (LFC) cutoffs at (0.2,0.3)
 
-```{r groupDiff,echo=T, fig.height=8,fig.width=7, cache=TRUE}
+```{r groupDiff,echo=T, fig.height=8,fig.width=8,fig.align="center", cache=TRUE}
 
 # Define Groups to be compared
 comparisons <- list(Comp1 = c("B", "A"))
@@ -223,7 +223,7 @@ sigPeps_total <- list(sigPeps, sigPepsPerChip) %>% unlist(recursive = F) %>%  un
 
 After applying the *Filtering Parameters* for this group comparison, only *`r length(sigPeps$meanLFC[["0.2"]])`*/141 peptides carried forward in the analysis (i.e. *`r length(sigPeps$meanLFC[["0.2"]])` hits*). Below are some figures to visualize the differences between these samples for considering these *hits*.
 
-```{r heatmapInd,echo=T, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
+```{r heatmapInd,echo=T, fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
 
 # generates a heatmap using the selected groups and peptides
 krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1, scale = "row")
@@ -234,17 +234,18 @@ krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparison
 
 ### B vs A (Violin Plot)
 
-```{r violinIndPlot,echo=T, fig.align="center", fig.height=6, fig.width=8, cache=TRUE, message=FALSE}
+```{r violinIndPlot,echo=T, fig.align="center", fig.height=8, fig.width=8, cache=TRUE, message=FALSE}
 # generates a violin plot using the selected groups and peptides
 krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups = comparisons$Comp1)
 
 # generate a grouped violin/boxplot plot using the selected groups and peptides with more options, like a statistical test. check krsa_violin_plot_grouped() arguments for more options
-
 krsa_violin_plot_grouped(data_modeled$scaled, sigPeps$meanLFC$`0.2`, comparisons, 
-                         byGroup = F, dots = F,
+                         dots = F,
                          groups = comparisons$Comp1, avg_line = T)
 
+
 krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC$`0.2`, comparisons, 
+                         test = F, 
                          groups = comparisons$Comp1, avg_line = T)
 
 ```
@@ -255,7 +256,7 @@ krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC$`0.2`, comparison
 
 This waterfall represents the log2 fold changes between the two groups at each peptide.
 
-```{r waterfall, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
+```{r waterfall, echo=T, fig.align="center", fig.height=8,fig.width=8, cache=TRUE}
 # generates a waterfall of the log2 fold change values for the selected peptide (top peptides)
 krsa_waterfall(diff_df, 0.2, byChip = T)
 ```
@@ -267,15 +268,15 @@ krsa_waterfall(diff_df, 0.2, byChip = T)
 We generate curves plots per peptide using the last cycle data to visualize the linear fit model
 
 ```{r curvePlot, echo=T,fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
-# generates a curve plot representing the linear model fit for the selected peptide (top peptides)
-krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
+# generates a curve plot representing the linear model fit for the selected peptide (top peptides, only showing 10 here)
+krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`[1:10], groups = comparisons$Comp1)
 ```
 
 ### B vs A (Upstream Kinase Analysis)
 
 The lab carefully curated and mapped the kinases that can act and phosphorylate each peptide present on the chip. This was achieved by using multiple sources including GPS 3.0, Kinexus Phosphonet, PhosphoELM and PhosphoSite Plus. Based on that association between peptides and kinases, a random sampling analysis is performed for these hits. The basic idea of *KRSA* is: For each iteration (*2000* iterations performed in this analysis), the same number of hits are randomly selected from the total 141/or 193 peptides present on the chip. Predicted kinases are then mapped to this sample list of peptides and number of kinases are determined. The kinase count from the actual hits and random sampling is then compared to determine the significance.
 
-```{r krsa, echo=T, warning=F, message=FALSE, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
+```{r krsa, echo=T, warning=F, message=FALSE, fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
 
 
 # load in chip coverage and kinase-substrate files OR upload your own files
@@ -367,7 +368,7 @@ krsa_show_peptides(sigPeps_total)
 
 We will plot the individual and averaged Z scores using both the across and within chip analyses.
 
-```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
+```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=10, cache=TRUE}
 
 # Generates Z scores waterfall plots
 krsa_zscores_plot(AvgZTable)
@@ -381,7 +382,7 @@ krsa_zscores_plot(AvgZTable2)
 
 We will use the reverse KRSA plot function, to plot the log2 fold chnage values for all peptides mapped to kinase hits. This will help us examine the activity of the kinase
 
-```{r revKRSAPlot, echo=T, warning=F, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
+```{r revKRSAPlot, echo=T, warning=F, fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
 
 # plot the reverse KRSA figure for top kinases to determine their activity levels
 krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
@@ -393,7 +394,7 @@ krsa_reverse_krsa_plot(chipCov, diff_df, kinases_hits, 0.2, byChip = F)
 
 To view the coverage of kinases across the full list of peptides on the chip, we will use the coverage plot function
 
-```{r covPlot, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
+```{r covPlot, echo=T, fig.align="center", fig.height=10,fig.width=8, cache=TRUE}
 
 # generates a kinase covergae plot 
 krsa_coverage_plot(chipCov, AvgZTable2, chipType)
@@ -406,7 +407,7 @@ krsa_coverage_plot(chipCov, AvgZTable2, chipType)
 
 We will view the ball model network function, to generate a model representing the protein-protein interactions between kinases
 
-```{r netPlot, echo=T, fig.align="center", fig.height=8,fig.width=8, message=FALSE, cache=TRUE}
+```{r netPlot, echo=T, fig.align="center", fig.height=10,fig.width=8, message=FALSE, cache=TRUE}
 
 # Plot the network ball model
 krsa_ball_model(kinases_hits, AvgZTable2, 10, 2.5, 4.8)

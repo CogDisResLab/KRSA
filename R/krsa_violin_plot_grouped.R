@@ -61,11 +61,7 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
   if(avg_line) {
     data %>%
       group_by(Group) %>%
-      summarise(slopeM = mean(slope),
-                sd = sd(slope),
-                SEM = sd/sqrt(3),
-                SEM_p = slopeM + SEM,
-                SEM_n = slopeM - SEM) -> avg_data
+      summarise(slopeM = mean(slope)) -> avg_data
 
     gg <- gg + ggplot2::geom_line(data = avg_data, ggplot2::aes(Group, slopeM, group = 1),
                                   color = "black", size = 3)
