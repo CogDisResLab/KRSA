@@ -32,7 +32,7 @@ krsa_waterfall <- function(data, lfc_thr, byChip =  T) {
   if(byChip == T) {
     gg <- gg +
       ggplot2::geom_point(ggplot2::aes(LFC, stats::reorder(Peptide,LFC)), color = data$colFC, size = 0.75) +
-      ggplot2::geom_point(ggplot2::aes(totalMeanLFC, stats::reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 1.2) +
+      ggplot2::geom_point(ggplot2::aes(totalMeanLFC, stats::reorder(Peptide,totalMeanLFC)), color = data$colMean, size = 2) +
       ggplot2::geom_line(ggplot2::aes(LFC, stats::reorder(Peptide,totalMeanLFC)), alpha = 1/3)
   }
 

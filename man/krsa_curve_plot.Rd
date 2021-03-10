@@ -4,12 +4,14 @@
 \alias{krsa_curve_plot}
 \title{Generates curves plots per peptide using the last cycle data}
 \usage{
-krsa_curve_plot(data, peptides, samples = NULL, groups = NULL)
+krsa_curve_plot(data, peptides, byGroup = T, samples = NULL, groups = NULL)
 }
 \arguments{
 \item{data}{PW data (that includes all exposure times)}
 
 \item{peptides}{a vector of peptides to plot}
+
+\item{byGroup}{fit lines by group}
 
 \item{samples}{(optional) sample names}
 

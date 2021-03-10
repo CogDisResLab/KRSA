@@ -76,8 +76,6 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
       x = "",
       y = "Signal Intensity"
     ) +
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 6)) +
     ggplot2::theme_bw()
-
 
 }

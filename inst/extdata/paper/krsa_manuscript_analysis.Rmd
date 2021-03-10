@@ -168,7 +168,9 @@ After applying the *Filtering Parameters* for this group comparison, only *`r le
 ```{r heatmapInd,echo=T, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 # generates a heatmap using the selected groups and peptides
-krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC[["0.2"]], groups = comparisons$Comp1, scale = "row", cluster_col = F)
+pdf("figures/dlpfc_heatmap.pdf", useDingbats = F, height = 15, width = 15)
+krsa_heatmap(data_modeled$scaled, sigPeps$meanLFC[["0.2"]], groups = comparisons$Comp1, scale = "row", cluster_col = F)
+dev.off()
 
 ```
 
@@ -183,9 +185,12 @@ krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC[["0.2"]], "Barcode", group
 
 
 # generates grouped violin plot
-krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC[["0.2"]], grp_comp = comparisons,
-                   avg_line =  T
+pdf("figures/dlpfc_violin_plot.pdf", useDingbats = F, height = 15, width = 10)
+krsa_violin_plot_grouped(data_modeled$scaled, sigPeps$meanLFC[["0.2"]], grp_comp = comparisons,
+                   avg_line =  T, 
+                   dots = T
                    )
+dev.off()
 
 
 ```
@@ -198,7 +203,10 @@ This waterfall represents the log2 fold changes between the two groups at each p
 
 ```{r waterfall, echo=T, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 # generates a waterfall of the log2 fold change values for the selected peptide (top peptides)
+
+pdf("figures/waterfall_plot.pdf", useDingbats = F, height = 15, width = 10)
 krsa_waterfall(diff_df, 0.2, byChip = F)
+dev.off()
 ```
 
 \newpage
@@ -208,8 +216,21 @@ krsa_waterfall(diff_df, 0.2, byChip = F)
 We generate curves plots per peptide using the last cycle data to visualize the linear fit model
 
 ```{r curvePlot, echo=T,fig.align="center", fig.height=8, fig.width=8, cache=TRUE}
-# generates a curve plot represenating the linear model fit for the selected peptide (top peptides)
+# generates a curve plot representing the linear model fit for the selected peptide (top peptides)
 krsa_curve_plot(data_pw, sigPeps$meanLFC$`0.2`, groups = comparisons$Comp1)
+
+
+peps <- c("ACM4_456_468", "CFTR_730_742", "VASP_150_162")
+
+krsa_curve_plot(data_pw, peps, groups = comparisons$Comp1, byGroup = F) -> p1
+
+# to put in one column
+p1$facet <- NULL
+
+pdf("figures/cuvres_plot.pdf", useDingbats = F, height = 10, width = 8)
+p1 + facet_wrap(~Peptide, ncol = 1, scales = "free_y")
+dev.off()
+
 ```
 
 ### Males vs Females (Upstream Kinase Analysis)
@@ -219,7 +240,7 @@ The lab carefully curated and mapped the kinases that can act and phosphorylate 
 ```{r krsa, echo=T, warning=F, message=FALSE, fig.align="center", fig.height=6, fig.width=6, cache=TRUE}
 
 
-# load in chip coverage and kinase-substrate files OR uplaod your own files
+# load in chip coverage and kinase-substrate files OR upload your own files
 chipCov <- KRSA_coverage_STK_PamChip_87102_v1
 KRSA_file <- KRSA_Mapping_STK_PamChip_87102_v1
 
@@ -236,7 +257,11 @@ fin$KRSA_Table %>% write_delim("acrossChip_KRSA_FullTable_0_2LFC.txt", delim = "
 bothways <- c(pull(head(fin$KRSA_Table, 10), Kinase), pull(tail(fin$KRSA_Table, 10), Kinase))
 
 # Use these kinase to generate histogram plots for each selected kinase
-krsa_histogram_plot(fin$KRSA_Table, fin$count_mtx, bothways)
+pdf("figures/dlpfc_histograms.pdf", useDingbats = F, height = 10, width = 10)
+krsa_histogram_plot(fin$KRSA_Table, fin$count_mtx, bothways) +
+  labs(x = "Mapped Hits", 
+       y = "Cumulative Counts")
+dev.off()
 
 
 # For parallel computing, load the furrr package:
@@ -295,7 +320,9 @@ We will plot the individual and averaged Z scores using the across chip analyses
 ```{r zscoresPlot, echo=T, warning=F, fig.align="center", fig.height=8,fig.width=6, cache=TRUE}
 
 # Generates the Z scores waterfall plot
+pdf("figures/dlpfc_szores.pdf", useDingbats = F, height = 15, width = 15)
 krsa_zscores_plot(AvgZTable)
+dev.off()
 
 ```
 
@@ -333,7 +360,9 @@ We will view the ball model network function, to generate a model representing t
 ```{r netPlot, echo=T, fig.align="center", fig.height=8,fig.width=8, message=FALSE, cache=TRUE}
 
 # Plot the network ball model
-krsa_ball_model(kinases_hits, AvgZTable, 15, 2.5, 4.8)
+pdf("figures/dplfc_network.pdf", useDingbats = F, height = 10, width = 10)
+krsa_ball_model(kinases_hits, AvgZTable, 10, 3, 4.8)
+dev.off()
 
 
 ```
@@ -341,9 +370,12 @@ krsa_ball_model(kinases_hits, AvgZTable, 15, 2.5, 4.8)
 
 
 ```{r reading}
-raw <- readxl::read_xlsx("data/Export Tis100 brain data extended.xlsx", sheet = 4, col_names = F,
+
+
+raw <- readxl::read_xlsx("data/Export_Tis100_brain_data_extended.xlsx", sheet = 4, col_names = F,
                          na = c("NA", "")
                          )
+
 
 raw[2:16,5:ncol(raw)] -> valueInfo
 dim(raw)
@@ -381,18 +413,12 @@ tidydata %>% dplyr::filter(`Braak stage Tau` == "1") %>%
   count(SampleName)
 
 
-#tidydata_krsa <- krsa_read("data/ad_data_full.txt")
-
-
-
 
 ```
 
-## Including Plots
+## Heatmap
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
+```{r coh2_heatmap, echo=FALSE}
 tidydata %>% mutate(SampleName2 = paste0(SampleName, "_", Array, "_", Barcode)) %>% 
   select(SampleName2, Gender, Barcode) %>% distinct(SampleName2, .keep_all = T) %>% 
   dplyr::rename(Chip = Barcode) %>% 
@@ -422,30 +448,6 @@ tidydata %>% mutate(SampleName2 = paste0(SampleName, "_", Array, "_", Barcode)) 
 
 DF[rowSums(DF == 0) <= 10, ] %>% pull(Peptide) -> sd_peps_2
 
-col_breaks2 <- c(seq(-4, -0.01,length=50),0,
-          seq(0.01,4,length=50))
-
-hmcol2 <- colorRampPalette(c("yellow", "white", "red"))(n = 100)
-
-
-
-tidydata2 %>% filter(Peptide %in% sd_peps_2, Peptide != "ART_025_CXGLRRWSLGGLRRWSL") %>% 
-  select(SampleName, Peptide, AvgSignal) %>% 
-  pivot_wider(names_from = SampleName, values_from = AvgSignal) %>%
-  column_to_rownames("Peptide") %>% as.matrix() %>%
-  pheatmap::pheatmap(annotation_col = levels_tbl2, 
-                   
-                     fontsize_col = 5,
-                     fontsize_row = 1, 
-                     scale = "row",
-                     breaks = col_breaks2,
-                    col = hmcol2,
-                    clustering_method = "average",
-                    cluster_cols = T, 
-                    cluster_rows = T,
-                    show_rownames = F, 
-                    show_colnames = F
-                     )
 
 
 ```
@@ -476,15 +478,20 @@ new_my_data %>% column_to_rownames("SampleName") -> ad_pca
 pca_res <- prcomp(ad_pca, center = T, scale. = T)
 
 
+pdf("figures/pca_krsa_fin.pdf",useDingbats = F, width = 9, height = 8)
+
 fviz_pca_biplot(pca_res, label = "var", 
                 select.var = list(name = c("Age", "PMD", "Gender", "Barcode", "Braak stage Tau")),
                 habillage=new_my_data$Gender,
-                addEllipses = T,
+                #addEllipses = T,
                 col.var = "blue"
                 )
 
-fviz_eig(pca_res, addlabels = TRUE, ylim = c(0, 60))
+dev.off()
 
+pdf("figures/pca_comp_krsa_fin.pdf",useDingbats = F, width = 9, height = 8)
+fviz_eig(pca_res, addlabels = TRUE, ylim = c(0, 60))
+dev.off()
 
 
 ```
@@ -505,8 +512,57 @@ krsa_get_diff(ad_lfc_table,LFC ,c(0.2,0.3,0.4)) %>% list("meanLFC" = .) -> ad_pe
 # Combine the peptides hits in one list
 ad_sigPeps_total <- list(ad_peps) %>% unlist(recursive = F) %>%  unlist(recursive = F)
 
-future_map(ad_sigPeps_total, krsa) -> ad_mutiple_krsa_outputs
+col_breaks2 <- c(seq(-4, -0.01,length=50),0,
+          seq(0.01,4,length=50))
 
+hmcol2 <- colorRampPalette(c("yellow", "white", "red"))(n = 100)
+
+
+pdf("figures/Heatmap_MvsF_KRSA_AllConSamples_New.pdf", useDingbats = F, height = 15, width = 15)
+tidydata2 %>% filter(Peptide %in% ad_peps$meanLFC$`0.2`, Peptide != "ART_025_CXGLRRWSLGGLRRWSL") %>% 
+  select(SampleName, Peptide, AvgSignal) %>% 
+  pivot_wider(names_from = SampleName, values_from = AvgSignal) %>%
+  column_to_rownames("Peptide") %>% as.matrix() %>%
+  pheatmap::pheatmap(annotation_col = levels_tbl2, 
+                   
+                     fontsize_col = 5,
+                     fontsize_row = 5, 
+                     scale = "row",
+                     breaks = col_breaks2,
+                    col = hmcol2,
+                    clustering_method = "average",
+                    cluster_cols = T, 
+                    cluster_rows = T,
+                    show_rownames = T, 
+                    show_colnames = F
+                     )
+dev.off()
+
+
+pdf("figures/hpc_violin_plot.pdf", useDingbats = F, height = 15, width = 10)
+tidydata2 %>% select(-Group) %>% 
+  rename(slope = AvgSignal, Group = Gender) %>% 
+  krsa_violin_plot_grouped(ad_peps$meanLFC$`0.2`, grp_comp = list(Comp1 = c("M", "F")), 
+                           groups = c("M", "F"),
+                           lines = T,
+                           dots = F,
+                           avg_line = T
+                           )
+dev.off()
+
+
+krsa(ad_peps$meanLFC$`0.2`, 
+     map_file = KRSA_Mapping_STK_PamChip_87102_v1, 
+     cov_file = KRSA_coverage_STK_PamChip_87102_v1) -> ad_krsa_output
+
+
+ad_krsa_output %>% write_delim("acrossChip_KRSA_Table_0_2_AD.txt", delim = "\t")
+
+future_map(ad_sigPeps_total, krsa, 
+           map_file = KRSA_Mapping_STK_PamChip_87102_v1, 
+           cov_file = KRSA_coverage_STK_PamChip_87102_v1) -> ad_mutiple_krsa_outputs
+
+# clean up krsa output
 df_ad <- data.frame(matrix(unlist(ad_mutiple_krsa_outputs), ncol = max(lengths(ad_mutiple_krsa_outputs)), byrow = TRUE))
 df_ad <- setNames(do.call(rbind.data.frame, ad_mutiple_krsa_outputs), names(ad_mutiple_krsa_outputs$meanLFC.0.2))
 
@@ -518,8 +574,8 @@ df_ad %>% rownames_to_column("method") %>% select(Kinase, Z, method) %>%
 df_ad %>% 
   pivot_wider(names_from = method, values_from = Z) -> df_ad2
   
-# Generates a table of the Z scores across the different sets of peptides
-df_ad %>%
+# Generates a table of the Z scores across the different sets of peptides and just show top 10
+df_ad2 %>% head(10) %>% 
   gt() %>% tab_spanner_delim(delim = ">")
 
 # Creates an average Z score table using the across chip analysis
@@ -539,27 +595,22 @@ krsa_top_hits(AvgZTable_ad, 2) -> kinases_hits
 # Show the number of peptides per each set in atable
 krsa_show_peptides(ad_sigPeps_total)
 
-
+pdf("figures/hpc_szores.pdf", useDingbats = F, height = 15, width = 15)
 krsa_zscores_plot(AvgZTable_ad)
-
+dev.off()
 ```
 
 ```{r}
 
+DLPFC_hits <- read_delim("acrossChip_KRSA_Table_multipleComp.txt", delim = "\t")
+HPC_hits <- read_delim("acrossChip_KRSA_Table_multipleComp_AD.txt", delim = "\t")
 
+DLPFC_hits %>% filter(abs(AvgZ) >= 2) %>% pull(Kinase) %>% unique() -> DLPFC_hits_top_2
+HPC_hits %>% filter(abs(AvgZ) >= 2) %>% pull(Kinase) %>% unique() -> HPC_hits_top_2
 
-erica <- read_csv(file = "~/Desktop/Master_Classes/mcculm/Erica/KRSA_Paper/bioinformatics_manuscript/KRSA_results.csv")
-
-erica %>% filter(ZScore >= 1.5) %>% pull(Kinase) -> erc_kin_5
-fin %>% filter(abs(Z) >= 1.5) %>% pull(Kinase) -> ad_kin_5
-
-erica %>% filter(ZScore >= 1.25) %>% pull(Kinase) -> erc_kin_1
-fin %>% filter(abs(Z) >= 1.25) %>% pull(Kinase) -> ad_kin_1
-
-
-x2 <- list(`DLPFC`=erc_kin_5 , `HPC`=ad_kin_5
+x2 <- list(`DLPFC`=DLPFC_hits_top_2 , `HPC`=HPC_hits_top_2
            )
-pdf("../AD/venn_diagram_15.pdf",useDingbats = F, width = 9, height = 8)
+pdf("figures/venn_diagram_2.pdf",useDingbats = F, width = 9, height = 8)
 RAM::group.venn(x2,
                 cat.cex = 1,
                 lab.cex = 1,
@@ -569,18 +620,30 @@ RAM::group.venn(x2,
 dev.off()
   
 
-x2 <- list(`DLPFC`=erc_kin_1 , `HPC`=ad_kin_1
-           )
-pdf("../AD/venn_diagram_125.pdf",useDingbats = F, width = 9, height = 8)
-RAM::group.venn(x2,
-                cat.cex = 1,
-                lab.cex = 1,
-                cat.pos = c(0,0),
-                fill = c("red", "blue")
-                )
-dev.off()
+
+```
 
 
+```{r}
+
+dplfc_tbl <- read_delim("acrossChip_KRSA_FullTable_0_2LFC.txt", delim = "\t")
+hpc_tbl <- read_delim("acrossChip_KRSA_Table_0_2_AD.txt", delim = "\t")
+
+
+dplfc_tbl %>% 
+  head(10) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  gt() %>% 
+  cols_align(align = "center") %>% 
+  gtsave("figures/dlpfc_krsaTable.png")
+
+
+hpc_tbl %>% 
+  head(10) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  gt() %>% 
+  cols_align(align = "center") %>% 
+  gtsave("figures/hpc_krsaTable.png")
 
 
 ```
