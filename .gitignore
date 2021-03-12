@@ -3,4 +3,6 @@
 .RData
 .Ruserdata
 inst/doc
-inst/extdata/paper
+
+/*_cache/
+/cache/
