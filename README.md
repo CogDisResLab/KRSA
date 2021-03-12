@@ -2,6 +2,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R-CMD-check](https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml)
 [![Build
 Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.travis-ci.com/kalganem/KRSA)
 [![Repo
