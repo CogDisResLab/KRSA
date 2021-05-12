@@ -4,6 +4,7 @@
 #'
 #' @param df kinome array data tidy data
 #' @param pep Peptide List
+#' @param nobs_filter min number of data points to fit linear model
 #'
 #' @return list of scaled , normalized and grouped modeled data
 #'
@@ -14,7 +15,7 @@
 #' @examples
 #' TRUE
 
-krsa_scaleModel <- function(df, pep) {
+krsa_scaleModel <- function(df, pep, nobs_filter = 0) {
 
   df %>%
     dplyr::filter(Peptide %in% pep) %>%
@@ -27,21 +28,30 @@ krsa_scaleModel <- function(df, pep) {
       summary = purrr::map(fit, broom::glance),
       #.default argument to replace NA/NaN values
       slope = purrr::map_dbl(coefs,purrr::pluck,2,.default = 0),
-      r.seq = purrr::map_dbl(summary, "r.squared")
+      r.seq = purrr::map_dbl(summary, "r.squared"),
+      nobs = purrr::map_dbl(summary, "nobs")
     ) %>%
     dplyr::ungroup() %>%
-    dplyr::select(Group, Barcode, SampleName, Peptide, slope, r.seq) %>%
-    dplyr::mutate(slope = log2(slope*100), slope = ifelse(slope < 0, 0, slope)) -> df_model
+    dplyr::select(Group, Barcode, SampleName, Peptide, slope, r.seq,nobs) %>%
+    dplyr::mutate(slope = log2(slope*100),
+                  slope = ifelse(slope < 0, NA, slope),
+                  slope = ifelse(nobs >= nobs_filter, slope, NA),
+                  r.seq = ifelse(nobs >= nobs_filter, r.seq, NA),
+                  ) -> df_model
 
   df_model %>%
     dplyr::group_by(Barcode, Peptide) %>%
-    dplyr::mutate(Mean = mean(slope)) %>%
+    dplyr::mutate(Mean = mean(slope, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::mutate(slope = slope/Mean) -> df_model_norm
+    dplyr::mutate(
+      slope = ifelse(Mean == 0,  0,  slope/Mean)
+      ) -> df_model_norm
 
   df_model %>%
     dplyr::group_by(Group, Peptide) %>%
-    dplyr::summarise(slope =  EnvStats::geoMean(slope),r.seq=EnvStats::geoMean(r.seq)) -> df_model_grouped
+    dplyr::summarise(
+      slope =  EnvStats::geoMean(slope, na.rm = TRUE),
+      r.seq=EnvStats::geoMean(r.seq,na.rm = TRUE)) -> df_model_grouped
 
   return(list(scaled = df_model, normalized = df_model_norm, grouped = df_model_grouped))
 

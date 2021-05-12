@@ -19,14 +19,14 @@
 #' @examples
 #' TRUE
 
-krsa_violin_plot <- function(data, peptides,facet_factor,facet = T,samples = NULL, groups = NULL) {
+krsa_violin_plot <- function(data, peptides,facet_factor,facet = T,samples = NULL, groups = NULL, show_legend = F) {
 
   data %>%
     dplyr::filter(Peptide %in% peptides) %>%
     {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
     {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
     ggplot2::ggplot(ggplot2::aes(SampleName, slope)) +
-    ggplot2::geom_violin(ggplot2::aes(fill = Group), show.legend = F) +
+    ggplot2::geom_violin(ggplot2::aes(fill = Group), show.legend = show_legend) +
     ggplot2::geom_point(size = 1.5)+
     ggplot2::geom_line(ggplot2::aes(group = Peptide), alpha = 1/2) +
     ggplot2::labs(

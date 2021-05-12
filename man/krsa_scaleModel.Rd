@@ -4,12 +4,14 @@
 \alias{krsa_scaleModel}
 \title{Fits, scales, transforms, and normalize kinome array data}
 \usage{
-krsa_scaleModel(df, pep)
+krsa_scaleModel(df, pep, nobs_filter = 0)
 }
 \arguments{
 \item{df}{kinome array data tidy data}
 
 \item{pep}{Peptide List}
+
+\item{nobs_filter}{min number of data points to fit linear model}
 }
 \value{
 list of scaled , normalized and grouped modeled data

@@ -4,7 +4,14 @@
 \alias{krsa_reverse_krsa_plot}
 \title{Generates the reverse krsa plot (to examine kinase activity)}
 \usage{
-krsa_reverse_krsa_plot(chipCov, lfc_table, kinases, lfc_thr, byChip = T)
+krsa_reverse_krsa_plot(
+  chipCov,
+  lfc_table,
+  kinases,
+  lfc_thr,
+  byChip = T,
+  facet = F
+)
 }
 \arguments{
 \item{chipCov}{chipCov df for eaither STK or PTK}
@@ -16,6 +23,8 @@ krsa_reverse_krsa_plot(chipCov, lfc_table, kinases, lfc_thr, byChip = T)
 \item{lfc_thr}{LFC threshold}
 
 \item{byChip}{will facet by Barcode}
+
+\item{facet}{facet by chip}
 }
 \value{
 ggplot object

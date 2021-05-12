@@ -29,6 +29,7 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
 
   data %>%
     dplyr::filter(Peptide %in% peptides) %>%
+    dplyr::filter(!is.na(slope)) %>%
     {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} -> data
 
   data %>%
@@ -50,9 +51,7 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
   }
   if(test) {
     gg <- gg + ggsignif::geom_signif(
-      margin_top  =0.5,
       comparisons = grp_comp,
-      map_signif_level = F, textsize = 6,
       test = test_method,
       ...
     )

@@ -207,6 +207,9 @@ krsa_quick_filter(data = data_pw_200, data2 = data_modeled$scaled,
 # The byChip argument lets you calculates the log2 fold change the results within each chip
 krsa_group_diff(data_modeled$scaled, comparisons$Comp1, pep_passed_qc, byChip = T) -> diff_df
 
+# save LFC table
+#write_delim(diff_df, "comp1_LFC_df.txt", delim = "\t")
+
 # Extract top peptides based on the LFC cutoff
 krsa_get_diff(diff_df,totalMeanLFC ,c(0.2,0.3)) %>% list("meanLFC" = .) -> sigPeps
 krsa_get_diff_byChip(diff_df, LFC, c(0.2,0.3)) -> sigPepsPerChip

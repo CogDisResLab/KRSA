@@ -47,6 +47,18 @@
 #'
 "KRSA_coverage_STK_PamChip_87102_v1"
 
+#' KRSA kinase coverage file for PamChip 87102 STK (v2 mapping, removed PDK kinase)
+#'
+#' A data frame of the built-in KRSA kinase coverage file for PamChip 87102 STK (v2 mapping)
+#'
+#' @format A data frame with 2423 rows and 2 variables:
+#' \describe{
+#'   \item{Kin}{Kinase Family Name}
+#'   \item{Substrates}{Peptides IDs}
+#' }
+#'
+"KRSA_coverage_STK_PamChip_87102_v2"
+
 
 #' Protein-Protein Interactions based on PhosphositePlus database
 #'

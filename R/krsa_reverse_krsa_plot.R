@@ -7,6 +7,7 @@
 #' @param kinases vector of kinases
 #' @param lfc_thr LFC threshold
 #' @param byChip will facet by Barcode
+#' @param facet facet by chip
 #'
 #' @return ggplot object
 #'
@@ -17,7 +18,7 @@
 #' @examples
 #' TRUE
 
-krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip =  T) {
+krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip =  T, facet = F) {
 
   if(byChip == T) {
     lfc_table$colMean <- cut(lfc_table$totalMeanLFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
@@ -33,10 +34,18 @@ krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip 
 
   dplyr::left_join(KinHitPeps, lfc_table, by = "Peptide") -> combined_data
 
-  if(byChip == T) {
+  if(byChip == T && facet == T) {
     combined_data %>%
       dplyr::filter(!is.na(totalMeanLFC)) %>%
-      dplyr::select(Kin, Peptide,LFC, colFC, Barcode) %>%
+      dplyr::select(Kin, Peptide,totalMeanLFC, colMean, Barcode) %>%
+      dplyr::rename(LFC = totalMeanLFC, colFC = colMean) %>%
+      dplyr::distinct() -> combined_data
+  }
+  else if(byChip == T && facet == F) {
+    combined_data %>%
+      dplyr::filter(!is.na(totalMeanLFC)) %>%
+      dplyr::select(Kin, Peptide,totalMeanLFC, colMean) %>%
+      dplyr::rename(LFC = totalMeanLFC, colFC = colMean) %>%
       dplyr::distinct() -> combined_data
   }
   else {
@@ -59,6 +68,6 @@ krsa_reverse_krsa_plot <- function(chipCov, lfc_table, kinases, lfc_thr, byChip 
     ggplot2::scale_colour_identity() +
     ggplot2::theme_bw() -> gg
 
-  if(byChip == T) {gg + ggplot2::facet_wrap(~Barcode)} else gg
+  if(byChip == T && facet == T) {gg + ggplot2::facet_wrap(~Barcode)} else gg
 
 }

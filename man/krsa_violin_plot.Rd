@@ -10,7 +10,8 @@ krsa_violin_plot(
   facet_factor,
   facet = T,
   samples = NULL,
-  groups = NULL
+  groups = NULL,
+  show_legend = F
 )
 }
 \arguments{
