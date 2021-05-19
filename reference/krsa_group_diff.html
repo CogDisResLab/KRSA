@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">KRSA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.33</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.4</span>
       </span>
     </div>
 
@@ -128,7 +128,14 @@
     <p>This function takes in the modeled pw data, groups, peptides, and an option to perform the calculation per chip (byChip)</p>
     </div>
 
-    <pre class="usage"><span class='fu'>krsa_group_diff</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>groups</span>, <span class='va'>peps</span>, byChip <span class='op'>=</span> <span class='cn'>T</span>, Barcodes <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>krsa_group_diff</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  <span class='va'>groups</span>,
+  <span class='va'>peps</span>,
+  samples <span class='op'>=</span> <span class='cn'>NULL</span>,
+  byChip <span class='op'>=</span> <span class='cn'>T</span>,
+  Barcodes <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,6 +151,10 @@
     <tr>
       <th>peps</th>
       <td><p>peptide list</p></td>
+    </tr>
+    <tr>
+      <th>samples</th>
+      <td><p>sample names</p></td>
     </tr>
     <tr>
       <th>byChip</th>
