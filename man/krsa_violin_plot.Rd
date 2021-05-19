@@ -26,6 +26,8 @@ krsa_violin_plot(
 \item{samples}{(optional) a vector of sample names}
 
 \item{groups}{(optional) a vector of group names}
+
+\item{show_legend}{to show legend (default = FALSE)}
 }
 \value{
 ggplot figure

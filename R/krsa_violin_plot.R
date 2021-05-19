@@ -8,6 +8,7 @@
 #' @param facet boolean to facet the plot by a variable
 #' @param samples (optional) a vector of sample names
 #' @param groups (optional) a vector of group names
+#' @param show_legend to show legend (default = FALSE)
 #'
 #'
 #' @return ggplot figure

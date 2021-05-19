@@ -3,6 +3,7 @@
 export("%>%")
 export(krsa)
 export(krsa_ball_model)
+export(krsa_ce_output_kinases)
 export(krsa_coverage_plot)
 export(krsa_curve_plot)
 export(krsa_cv_plot)

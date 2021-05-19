@@ -7,14 +7,14 @@
 #'
 #' @return saved txt file to be used in creedenzymatic
 #'
-#' @export
+#'
 #'
 #'
 
-krsa_ce_output_kinases <- function(peptide_table, file_name) {
+krsa_ce_output_peptides <- function(peptide_table, file_name) {
 
   peptide_table %>%
-    dplyr::select(Peptide, ) %>%
+    dplyr::select(Peptide) %>%
     dplyr::rename(Score = Z) %>%
     readr::write_delim(file=file_name)
 

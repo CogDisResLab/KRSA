@@ -7,11 +7,7 @@
 #'
 #' @return saved txt file to be used in creedenzymatic
 #'
-#'
-#'
 #' @export
-#'
-#'
 #'
 
 krsa_ce_output_kinases <- function(krsa_table, file_name) {

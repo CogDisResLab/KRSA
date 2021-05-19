@@ -4,7 +4,14 @@
 \alias{krsa_group_diff}
 \title{Calculates LFC based on modeled pw data and grouping}
 \usage{
-krsa_group_diff(data, groups, peps, byChip = T, Barcodes = NULL)
+krsa_group_diff(
+  data,
+  groups,
+  peps,
+  samples = NULL,
+  byChip = T,
+  Barcodes = NULL
+)
 }
 \arguments{
 \item{data}{modeled pw data}
@@ -12,6 +19,8 @@ krsa_group_diff(data, groups, peps, byChip = T, Barcodes = NULL)
 \item{groups}{a vector. format: (case, control)}
 
 \item{peps}{peptide list}
+
+\item{samples}{sample names}
 
 \item{byChip}{T or F, to calculate per chip}
 
