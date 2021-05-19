@@ -4,10 +4,12 @@
 \alias{krsa_ce_output_peptides}
 \title{It prepares a KRSA peptide file (log2 FC) to be used for creedenzymatic}
 \usage{
-krsa_ce_output_peptides(peptide_table, file_name)
+krsa_ce_output_peptides(peptide_table, metric, file_name)
 }
 \arguments{
 \item{peptide_table}{a df of the log2 FC scores of peptides}
+
+\item{metric}{which col to use as the score (totalMeanLFC, LFC, ... etc)}
 
 \item{file_name}{file name and path to save file as txt tab delimited file}
 }
