@@ -31,7 +31,7 @@ The Pamstation12 instrument provides a profiling of kinase activity of cell or t
 
 \newpage
 
-```{r, echo=F,out.width = "400px",out.width="450px", fig.align='center', cache=TRUE}
+```{r, echo=T,out.width = "400px",out.width="450px", fig.align='center', cache=TRUE}
 knitr::include_graphics("images/pamgene_workflow.png")
 knitr::include_graphics("images/pamgene_detectionFig.png")
 ```
@@ -42,7 +42,7 @@ knitr::include_graphics("images/pamgene_detectionFig.png")
 
 Designing the placement of the samples on the chips and arrays is important to consider due to the variability across different chips and batches. During the run some wells are subject to fail and their data cannot be analyzed and shown below as red.
 
-```{r design, echo=F, fig.width=3, fig.height=3, fig.align="center", cache=TRUE}
+```{r design, echo=T, fig.width=3, fig.height=3, fig.align="center", cache=TRUE}
 tt <- tibble(
   num = rep(c(3.5,2.5,1.5,0.5),3),
   chips = rep(c(2,5,8),each=4),
@@ -73,7 +73,7 @@ The first step of analyzing the run is to convert the images taken by the PamSta
 
 The first step will be reading the crosstab view bionavigator files (Median_SigmBg and Signal_Saturation) and defining the PamChip type (STK or PTK). The raw data is read and then transformed to be in tidy format for an easier analysis, modeling, and visualizing.
 
-```{r readData, include=FALSE, cache=TRUE}
+```{r readData, include=T, cache=TRUE}
 
 # Define chip type
 chipType <- "STK"
@@ -87,7 +87,7 @@ data <- krsa_read("data_files/example_Median_SigmBg.txt", "data_files/example_Si
 
 We will perform a couple of quality control steps to deal with negative values in the data and adjust based on signal saturation (optional). Next, we will define a new column to represent the grouping. And then, we will extract end point signal values
 
-```{r qcSteps, include=FALSE, cache=TRUE}
+```{r qcSteps, include=T, cache=TRUE}
 # qc processing
 krsa_qc_steps(data) -> data
 
@@ -107,7 +107,7 @@ krsa_extractEndPoint(data, chipType) -> data_pw
 
 We will filter out peptides with low signals. In order to combine the values from different exposure times into a single value, a simple linear regression model of the *Medain_SigmBg* as a function of exposure time is fitted. The slope of of the model fit and $R^2$ are then used for quality control and samples comparison. The slope is also scaled by multiplying by 100 and log2 transformed (*Slope_Transformed*). We then filter out peptides with poor linear fit and references peptides.
 
-```{r model, warning=F,include=FALSE, cache=TRUE}
+```{r model, warning=F,include=T, cache=TRUE}
 
 # Filter out peptides with low signals
 krsa_filter_lowPeps(data_pw_200, 5) -> ppPassAll

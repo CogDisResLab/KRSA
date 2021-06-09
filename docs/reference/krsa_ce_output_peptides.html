@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KRSA kinase coverage file for PamChip 86402 PTK (v1 mapping) — KRSA_coverage_PTK_PamChip_86402_v1 • KRSA</title>
+<title>It prepares a KRSA peptide file (log2 FC) to be used for creedenzymatic — krsa_ce_output_peptides • KRSA</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="KRSA kinase coverage file for PamChip 86402 PTK (v1 mapping) — KRSA_coverage_PTK_PamChip_86402_v1" />
-<meta property="og:description" content="A data frame of the built-in KRSA kinase coverage file for PamChip 86402 PTK (v1 mapping)" />
+<meta property="og:title" content="It prepares a KRSA peptide file (log2 FC) to be used for creedenzymatic — krsa_ce_output_peptides" />
+<meta property="og:description" content="Takes in the Z score table and output kinase with their scores" />
 <meta property="og:image" content="https://kalganem.github.io/KRSA/index.html/logo.png" />
 
 
@@ -119,26 +119,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>KRSA kinase coverage file for PamChip 86402 PTK (v1 mapping)</h1>
+    <h1>It prepares a KRSA peptide file (log2 FC) to be used for creedenzymatic</h1>
     
-    <div class="hidden name"><code>KRSA_coverage_PTK_PamChip_86402_v1.Rd</code></div>
+    <div class="hidden name"><code>krsa_ce_output_peptides.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A data frame of the built-in KRSA kinase coverage file for PamChip 86402 PTK (v1 mapping)</p>
+    <p>Takes in the Z score table and output kinase with their scores</p>
     </div>
 
-    <pre class="usage"><span class='va'>KRSA_coverage_PTK_PamChip_86402_v1</span></pre>
+    <pre class="usage"><span class='fu'>krsa_ce_output_peptides</span><span class='op'>(</span><span class='va'>peptide_table</span>, <span class='va'>metric</span>, <span class='va'>file_name</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>peptide_table</th>
+      <td><p>a df of the log2 FC scores of peptides</p></td>
+    </tr>
+    <tr>
+      <th>metric</th>
+      <td><p>which col to use as the score (totalMeanLFC, LFC, ... etc)</p></td>
+    </tr>
+    <tr>
+      <th>file_name</th>
+      <td><p>file name and path to save file as txt tab delimited file</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 1278 rows and 2 variables:</p><dl>
-  <dt>Kin</dt><dd><p>Kinase Family Name</p></dd>
-  <dt>Substrates</dt><dd><p>Peptides IDs</p></dd>
-
-</dl>
-
+    <p>saved txt file to be used in creedenzymatic</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
