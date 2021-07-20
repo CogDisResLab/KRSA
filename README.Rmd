@@ -19,6 +19,13 @@ output:
 devtools::install_github("kalganem/KRSA")
 ```
 
+### Installation Requirements 
+R (>= 3.5.0) version  
+
+For Windows users:  
+installment of Rtools (https://cran.r-project.org/bin/windows/Rtools/). 
+
+
 ## KRSA <img src="man/figures/logo.png" align="right" height="280"/>
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that automates many of the steps required to analyze [PamChip](%22https://pamgene.com/technology/%22) datasets, including peptide filtering, random sampling, heatmap generation, and kinase network generation. This new software makes analyzing kinome array datasets accessible and eliminates much of the human workload that the previous method required. More importantly, KRSA represents the results in a bigger biological context by visualizing altered kinome signaling networks instead of individual kinases.

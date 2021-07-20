@@ -18,6 +18,14 @@ Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 devtools::install_github("kalganem/KRSA")
 ```
 
+### Installation Requirements
+
+R (\>= 3.5.0) version
+
+For Windows users:  
+installment of Rtools
+(<https://cran.r-project.org/bin/windows/Rtools/>).
+
 ## KRSA <img src="man/figures/logo.png" align="right" height="280"/>
 
 Kinome Random Sampling Analyzer, or KRSA, is an R Shiny application that

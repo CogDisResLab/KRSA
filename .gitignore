@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-inst/doc
+#inst/doc
 
 /*_cache/
 /cache/
