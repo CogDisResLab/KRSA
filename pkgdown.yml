@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   KRSA: KRSA.html
-last_built: 2021-07-15T15:50Z
+last_built: 2021-07-20T17:54Z
 urls:
   reference: https://kalganem.github.io/KRSA/index.html/reference
   article: https://kalganem.github.io/KRSA/index.html/articles
