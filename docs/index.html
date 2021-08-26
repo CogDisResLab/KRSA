@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">KRSA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.42</span>
       </span>
     </div>
 
@@ -85,7 +85,17 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"kalganem/KRSA"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"CogDisResLab/KRSA"</span><span class="op">)</span></code></pre></div>
+<p>The KRSA Vignette is now available in R (using browseVignettes(“KRSA”)). To have the KRSA Vignette locally accessible, the build_vignettes argument must be set as TRUE when installing the package:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span>build_vignettes <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
+<div id="installation-requirements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation-requirements" class="anchor"></a>Installation Requirements</h3>
+<p>R (&gt;= 3.5.0) version</p>
+<p>For Windows users:<br>
+installment of Rtools (<a href="https://cran.r-project.org/bin/windows/Rtools/" class="uri">https://cran.r-project.org/bin/windows/Rtools/</a>).</p>
+</div>
 </div>
 <div id="krsa-" class="section level2">
 <h2 class="hasAnchor">
@@ -97,12 +107,12 @@
 <div id="package-website" class="section level2">
 <h2 class="hasAnchor">
 <a href="#package-website" class="anchor"></a>Package Website</h2>
-<p><a href="https://kalganem.github.io/KRSA/" class="uri">https://kalganem.github.io/KRSA/</a></p>
+<p><a href="https://CogDisResLab.github.io/KRSA/" class="uri">https://CogDisResLab.github.io/KRSA/</a></p>
 </div>
 <div id="access" class="section level2">
 <h2 class="hasAnchor">
 <a href="#access" class="anchor"></a>Access</h2>
-<p>KRSA Shiny App GitHub Repository: <a href="https://github.com/kalganem/KRSA_App">Link</a></p>
+<p>KRSA Shiny App GitHub Repository: <a href="https://github.com/CogDisResLab/KRSA_App">Link</a></p>
 <p>KRSA preprint is available here: <a href="https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1">BioRxiv</a></p>
 </div>
 <div id="workflow" class="section level2">
@@ -129,12 +139,12 @@
 <div id="input-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#input-files" class="anchor"></a>Input Files</h2>
-<p>The user-supplied kinase-peptide association file and the raw kinome array data file are selected as input. The kinase-peptide associations should be based on the known/predicted interactions found in databases like GPS 3.0 and Kinexus Phosphonet. Expected inputs should be formatted as shown in the example files: inst/extdata/example_Median_SigmBg.txt</p>
+<p>The user-supplied kinase-peptide association file and the raw kinome array data file are selected as input. The kinase-peptide associations should be based on the known/predicted interactions found in databases like GPS 3.0 and Kinexus Phosphonet. Expected inputs should be formatted as shown in the example files: vignettes/data_files/example_Median_SigmBg.txt</p>
 </div>
 <div id="contact" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#contact" class="anchor"></a>Contact</h1></div>
-<p>For technical issues, please start a new issue on this repo: <a href="https://github.com/kalganem/KRSA/issues">Link</a></p>
+<p>For technical issues, please start a new issue on this repo: <a href="https://github.com/CogDisResLab/KRSA/issues">Link</a></p>
 <p>For biological interpretation questions please email: <a href="mailto:khaled.alganem@rockets.utoledo.edu" class="email">khaled.alganem@rockets.utoledo.edu</a></p>
 </div>
 
@@ -159,9 +169,9 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml"><img src="https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml/badge.svg" alt="pkgdown"></a></li>
-<li><a href="https://www.travis-ci.com/kalganem/KRSA"><img src="https://www.travis-ci.com/kalganem/KRSA.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml"><img src="https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg" alt="pkgdown"></a></li>
+<li><a href="https://www.travis-ci.com/CogDisResLab/KRSA"><img src="https://www.travis-ci.com/CogDisResLab/KRSA.svg?branch=master" alt="Build Status"></a></li>
 <li><a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Repo Status"></a></li>
 </ul>
 </div>

@@ -2,10 +2,10 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R-CMD-check](https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kalganem/KRSA/actions/workflows/R-CMD-check.yaml)
-[![pkgdown](https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/kalganem/KRSA/actions/workflows/pkgdown.yml)
+[![R-CMD-check](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml)
 [![Build
-Status](https://www.travis-ci.com/kalganem/KRSA.svg?branch=master)](https://www.travis-ci.com/kalganem/KRSA)
+Status](https://www.travis-ci.com/CogDisResLab/KRSA.svg?branch=master)](https://www.travis-ci.com/CogDisResLab/KRSA)
 [![Repo
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
@@ -15,7 +15,15 @@ Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("kalganem/KRSA")
+devtools::install_github("CogDisResLab/KRSA")
+```
+
+The KRSA Vignette is now available in R (using browseVignettes(“KRSA”)).
+To have the KRSA Vignette locally accessible, the build_vignettes
+argument must be set as TRUE when installing the package:
+
+``` r
+devtools::install_github(build_vignettes = T)
 ```
 
 ### Installation Requirements
@@ -43,12 +51,12 @@ More info on the PamStation12 platform can be found here:
 
 ## Package Website
 
-<https://kalganem.github.io/KRSA/>
+<https://CogDisResLab.github.io/KRSA/>
 
 ## Access
 
 KRSA Shiny App GitHub Repository:
-[Link](https://github.com/kalganem/KRSA_App)
+[Link](https://github.com/CogDisResLab/KRSA_App)
 
 KRSA preprint is available here:
 [BioRxiv](https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1)
@@ -81,12 +89,13 @@ The user-supplied kinase-peptide association file and the raw kinome
 array data file are selected as input. The kinase-peptide associations
 should be based on the known/predicted interactions found in databases
 like GPS 3.0 and Kinexus Phosphonet. Expected inputs should be formatted
-as shown in the example files: inst/extdata/example_Median_SigmBg.txt
+as shown in the example files:
+vignettes/data_files/example_Median_SigmBg.txt
 
 # Contact
 
 For technical issues, please start a new issue on this repo:
-[Link](https://github.com/kalganem/KRSA/issues)
+[Link](https://github.com/CogDisResLab/KRSA/issues)
 
 For biological interpretation questions please email:
 <khaled.alganem@rockets.utoledo.edu>
