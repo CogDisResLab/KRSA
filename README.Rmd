@@ -50,7 +50,7 @@ KRSA preprint is available here: [BioRxiv](https://www.biorxiv.org/content/10.11
 
 ## Workflow
 
-![KRSA Workflow](man/figures/workflow.jpg)
+![KRSA Workflow](man/figures/workflow.png)
 
 ## Random Sampling Approach
 

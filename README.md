@@ -63,7 +63,7 @@ KRSA preprint is available here:
 
 ## Workflow
 
-![KRSA Workflow](man/figures/workflow.jpg)
+![KRSA Workflow](man/figures/workflow.png)
 
 ## Random Sampling Approach
 
