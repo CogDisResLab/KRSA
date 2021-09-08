@@ -4,7 +4,7 @@
 \alias{krsa_waterfall}
 \title{Generates a waterfall figure based on the LFC table}
 \usage{
-krsa_waterfall(data, lfc_thr, byChip = T)
+krsa_waterfall(data, lfc_thr, byChip = T, sd_thr = Inf)
 }
 \arguments{
 \item{data}{LFC table}
@@ -12,6 +12,8 @@ krsa_waterfall(data, lfc_thr, byChip = T)
 \item{lfc_thr}{LFC cutoff for plot}
 
 \item{byChip}{boolean Select T if the LFC is based on a byChip analysis}
+
+\item{sd_thr}{SD cutoff for plot}
 }
 \value{
 ggplot object

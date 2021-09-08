@@ -210,8 +210,13 @@ krsa_group_diff(data_modeled$scaled, comparisons$Comp1, pep_passed_qc, byChip = 
 # save LFC table
 #write_delim(diff_df, "comp1_LFC_df.txt", delim = "\t")
 
-# Extract top peptides based on the LFC cutoff
+# Extract top peptides based on the LFC cutoff using average of LFCs across chips
 krsa_get_diff(diff_df,totalMeanLFC ,c(0.2,0.3)) %>% list("meanLFC" = .) -> sigPeps
+
+# Extract top peptides based on the LFC cutoff using average of LFCs across chips with a standard deviation cutoff (sd_thr). in this example the sd_thr is set as 0.5 but that could be adjusted by user (uncomment next line to account for LFC sd)
+# krsa_get_diff(diff_df,totalMeanLFC ,c(0.2,0.3), sd_thr = 0.5) %>% list("meanLFC" = .) -> sigPeps
+
+# Extract top peptides based on the LFC cutoff using per chip LFCs
 krsa_get_diff_byChip(diff_df, LFC, c(0.2,0.3)) -> sigPepsPerChip
 
 # Combine the peptides hits in one list
@@ -261,7 +266,10 @@ This waterfall represents the log2 fold changes between the two groups at each p
 
 ```{r waterfall, echo=T, fig.align="center", fig.height=8,fig.width=8, cache=TRUE}
 # generates a waterfall of the log2 fold change values for the selected peptide (top peptides)
-krsa_waterfall(diff_df, 0.2, byChip = T)
+krsa_waterfall(diff_df, lfc_thr = 0.2, byChip = T)
+
+# generates a waterfall of the log2 fold change values for the selected peptide (top peptides) with a standard deviation cutoff (sd_thr). This is just for the waterfall not the actual upstream kinase analysis (that must be set with the krsa_get_diff function)
+krsa_waterfall(diff_df, lfc_thr = 0.2, byChip = T, sd_thr = 0.5)
 ```
 
 \newpage

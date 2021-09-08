@@ -32,7 +32,7 @@ krsa_group_diff  <- function(data, groups, peps, samples = NULL,  byChip = T, Ba
     dplyr::ungroup(.) %>%
     {if (byChip == T) {
       dplyr::group_by(.,Peptide) %>%
-        dplyr::mutate(.,totalMeanLFC = mean(LFC)) %>%
+        dplyr::mutate(.,totalMeanLFC = mean(LFC), LFC_SD = sd(LFC)) %>%
         dplyr::ungroup(.)
     } else .}
 }

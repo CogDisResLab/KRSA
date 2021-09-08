@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">KRSA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.42</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.43</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
     <p>Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a ggplot.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>krsa_waterfall</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>lfc_thr</span>, byChip <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>krsa_waterfall</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>lfc_thr</span>, byChip <span class='op'>=</span> <span class='cn'>T</span>, sd_thr <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,6 +144,10 @@
     <tr>
       <th>byChip</th>
       <td><p>boolean Select T if the LFC is based on a byChip analysis</p></td>
+    </tr>
+    <tr>
+      <th>sd_thr</th>
+      <td><p>SD cutoff for plot</p></td>
     </tr>
     </table>
 

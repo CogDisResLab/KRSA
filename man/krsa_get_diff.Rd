@@ -4,7 +4,7 @@
 \alias{krsa_get_diff}
 \title{Extract differential peptides based on LFC cutoff}
 \usage{
-krsa_get_diff(data, col, lfc_thr)
+krsa_get_diff(data, col, lfc_thr, sd_thr = Inf)
 }
 \arguments{
 \item{data}{LFC table}
@@ -12,6 +12,8 @@ krsa_get_diff(data, col, lfc_thr)
 \item{col}{LFC column name}
 
 \item{lfc_thr}{LFC cutoffs}
+
+\item{sd_thr}{SD cutoff}
 }
 \value{
 peptides

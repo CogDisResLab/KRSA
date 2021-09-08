@@ -5,6 +5,7 @@
 #' @param data LFC table
 #' @param col LFC column name
 #' @param lfc_thr LFC cutoffs
+#' @param sd_thr SD cutoff
 #'
 #' @return peptides
 #'
@@ -17,10 +18,11 @@
 #' TRUE
 
 
-krsa_get_diff <- function(data,col, lfc_thr) {
+krsa_get_diff <- function(data,col, lfc_thr, sd_thr = Inf) {
   peplist <- vector("list", length(lfc_thr))
   for (i in 1:length(lfc_thr)) {
     dplyr::filter(data, {{ col }} >= lfc_thr[i] | {{ col }} <= lfc_thr[i]*-1) %>%
+      dplyr::filter(LFC_SD <= sd_thr) %>%
       dplyr::pull(Peptide) %>%
       unique() -> peplist[[i]]
   }

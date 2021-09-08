@@ -5,6 +5,7 @@
 #' @param data LFC table
 #' @param lfc_thr LFC cutoff for plot
 #' @param byChip boolean Select T if the LFC is based on a byChip analysis
+#' @param sd_thr SD cutoff for plot
 #'
 #' @return ggplot object
 #'
@@ -17,17 +18,24 @@
 #' TRUE
 
 
-krsa_waterfall <- function(data, lfc_thr, byChip =  T) {
+krsa_waterfall <- function(data, lfc_thr, byChip =  T, sd_thr =Inf) {
 
   if(byChip == T) {
+
+    data %>%
+      dplyr::filter(LFC_SD <= sd_thr) -> data
+
     data$colMean <- cut(data$totalMeanLFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
     data$colFC <- cut(data$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("black", "gray", "black"))
+
   }
   else {
     data$colFC <- cut(data$LFC, breaks = c(-Inf,-1*lfc_thr, lfc_thr, Inf), labels = c("red", "black", "red"))
   }
 
   ggplot2::ggplot(data) -> gg
+
+
 
   if(byChip == T) {
     gg <- gg +
