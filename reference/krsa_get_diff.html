@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">KRSA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.42</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.43</span>
       </span>
     </div>
 
@@ -128,7 +128,7 @@
     <p>This function takes in the LFC table, column name, and an LFC cutoff to extracts differentially phosphorylated peptides</p>
     </div>
 
-    <pre class="usage"><span class='fu'>krsa_get_diff</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>col</span>, <span class='va'>lfc_thr</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>krsa_get_diff</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>col</span>, <span class='va'>lfc_thr</span>, sd_thr <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,6 +144,10 @@
     <tr>
       <th>lfc_thr</th>
       <td><p>LFC cutoffs</p></td>
+    </tr>
+    <tr>
+      <th>sd_thr</th>
+      <td><p>SD cutoff</p></td>
     </tr>
     </table>
 
