@@ -22,7 +22,7 @@ krsa_get_diff <- function(data,col, lfc_thr, sd_thr = Inf) {
   peplist <- vector("list", length(lfc_thr))
   for (i in 1:length(lfc_thr)) {
     dplyr::filter(data, {{ col }} >= lfc_thr[i] | {{ col }} <= lfc_thr[i]*-1) %>%
-      dplyr::filter(LFC_SD <= sd_thr) %>%
+      dplyr::filter(LFC_SD <= sd_thr | is.na(LFC_SD)) %>%
       dplyr::pull(Peptide) %>%
       unique() -> peplist[[i]]
   }
