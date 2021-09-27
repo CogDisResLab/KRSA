@@ -24,8 +24,8 @@
 #' @examples
 #' TRUE
 
-krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test = T, test_method = "wilcox.test",
-                               violin = TRUE, dots = TRUE, lines = T, avg_line = F, ...) {
+krsa_violin_plot_grouped <- function(data, peptides,grp_comp = NULL,groups = NULL,test = F, test_method = "wilcox.test",
+                               violin = TRUE, dots = FALSE, lines = FALSE, avg_line = T, ...) {
 
   data %>%
     dplyr::filter(Peptide %in% peptides) %>%
@@ -40,7 +40,7 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
   }
 
 
-  gg <- gg + ggplot2::geom_boxplot(ggplot2::aes(fill = Group),width=0.1)
+  gg <- gg + ggplot2::geom_boxplot(ggplot2::aes(fill = Group),width=0.1, show.legend = F)
 
   if(dots) {
     gg <- gg + ggplot2::geom_dotplot(binaxis='y', stackdir='center', dotsize=1, alpha = 1/2)
@@ -49,7 +49,7 @@ krsa_violin_plot_grouped <- function(data, peptides,grp_comp,groups = NULL,test 
   if(lines) {
     gg <- gg + ggplot2::geom_line(ggplot2::aes(group = Peptide), alpha = 1/2)
   }
-  if(test) {
+  if(test & !is.null(grp_comp)) {
     gg <- gg + ggsignif::geom_signif(
       comparisons = grp_comp,
       test = test_method,

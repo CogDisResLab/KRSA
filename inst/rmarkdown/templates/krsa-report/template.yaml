@@ -1,0 +1,4 @@
+name: KRSA Report
+description: >
+   Create a new KRSA report template
+create_dir: TRUE
