@@ -19,7 +19,7 @@ krsa_extractEndPointMaxExp <- function(df, type = c("STK", "PTK")) {
 
   df %>% dplyr::filter(
     if (type == "STK") {Cycle == 124} else {Cycle == 94},
-                ExposureTime == 200) %>%
+                ExposureTime == max(ExposureTime)) %>%
     dplyr::select(SampleName, Peptide ,Signal, Group)
 
 
