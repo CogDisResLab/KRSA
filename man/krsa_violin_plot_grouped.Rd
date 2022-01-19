@@ -7,14 +7,14 @@
 krsa_violin_plot_grouped(
   data,
   peptides,
-  grp_comp,
+  grp_comp = NULL,
   groups = NULL,
-  test = T,
+  test = F,
   test_method = "wilcox.test",
   violin = TRUE,
-  dots = TRUE,
-  lines = T,
-  avg_line = F,
+  dots = FALSE,
+  lines = FALSE,
+  avg_line = T,
   ...
 )
 }
