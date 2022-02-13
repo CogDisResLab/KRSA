@@ -9,6 +9,5 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-KRSA: Kinome Random Sampling Analyzer
-    This package aims to pre-process and analyze PamChip array data. From reading bionavigator crosstab view files to generating network models on kinome data.
+KRSA: Kinome Random Sampling Analyzer This package aims to pre-process and analyze PamChip array data. From reading bionavigator crosstab view files to generating network models on kinome data.
 }
