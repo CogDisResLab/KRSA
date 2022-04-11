@@ -18,7 +18,7 @@ navbar:
   components:
      github:
        icon: "fab fa-github"
-       href: https://github.com/kalganem/KRSA
+       href: https://github.com/CogDisResLab/KRSA
 
 reference:
   - title: Core Functions
@@ -31,6 +31,7 @@ reference:
   - title: Plotting Functions
     contents:
     - krsa_ball_model
+    - krsa_sampling
     - krsa_coverage_plot
     - krsa_curve_plot
     - krsa_heatmap
@@ -42,6 +43,9 @@ reference:
     - krsa_waterfall
     - krsa_zscores_plot
     - krsa_cv_plot
+    - krsa_ce_output_kinases
+    - krsa_ce_output_peptides
+    - parse_BN_crosstabFile
   - title: Helper Functions
     contents:
     - krsa_extractEndPoint
@@ -62,5 +66,6 @@ reference:
     - KRSA_Mapping_STK_PamChip_87102_v1
     - KRSA_coverage_PTK_PamChip_86402_v1
     - KRSA_coverage_STK_PamChip_87102_v1
+    - KRSA_coverage_STK_PamChip_87102_v2
     - ballModel_edges
     - ballModel_nodes

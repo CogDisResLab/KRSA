@@ -1,4 +1,4 @@
-#' Performs random sampling of peptides and mappped kinases
+#' Performs random sampling of peptides and mapped kinases
 #'
 #' This function takes number of iterations, coverage file, kinase-substrate mapping df, and the length of the set of peptides to resample
 #'

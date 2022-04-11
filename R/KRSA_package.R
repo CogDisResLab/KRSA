@@ -3,4 +3,5 @@
 #' @docType package
 #' @name KRSA_description
 #' @aliases KRSA_package
+#' @NoRd
 "_PACKAGE"

@@ -7,6 +7,8 @@
 #'
 #' @return saved txt file to be used in creedenzymatic
 #'
+#' @family helper functions
+#'
 #' @export
 #'
 
