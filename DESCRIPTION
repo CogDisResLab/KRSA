@@ -1,7 +1,7 @@
 Package: KRSA
 Type: Package
 Title: KRSA: Kinome Random Sampling Analyzer
-Version: 0.10.0.9000
+Version: 0.10.1.9000
 Author: Khaled Alganem
 Maintainer: Khaled Alganem <khaled.a.alganem@gmail.com>
 Description: KRSA: Kinome Random Sampling Analyzer

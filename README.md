@@ -4,8 +4,6 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml)
 [![pkgdown](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml)
-[![Build
-Status](https://www.travis-ci.com/CogDisResLab/KRSA.svg?branch=master)](https://www.travis-ci.com/CogDisResLab/KRSA)
 [![Repo
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
@@ -28,7 +26,7 @@ devtools::install_github(build_vignettes = T)
 
 ### Installation Requirements
 
-R (\>= 3.5.0) version
+R (>= 3.5.0) version
 
 For Windows users:  
 installment of Rtools
@@ -58,8 +56,8 @@ More info on the PamStation12 platform can be found here:
 KRSA Shiny App GitHub Repository:
 [Link](https://github.com/CogDisResLab/KRSA_App)
 
-KRSA preprint is available here:
-[BioRxiv](https://www.biorxiv.org/content/10.1101/2020.08.26.268581v1)
+KRSA manuscript is available here:
+[PubMed](https://pubmed.ncbi.nlm.nih.gov/34919543/)
 
 ## Workflow
 
