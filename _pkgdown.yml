@@ -46,6 +46,7 @@ reference:
     - krsa_ce_output_kinases
     - krsa_ce_output_peptides
     - parse_BN_crosstabFile
+    - krsa_enrichr_plot
   - title: Helper Functions
     contents:
     - krsa_extractEndPoint
@@ -54,6 +55,8 @@ reference:
     - krsa_get_diff
     - krsa_show_peptides
     - krsa_top_hits
+    - krsa_enrichr
+    - enrichr_lib_call
   - title: QC Functions
     contents:
     - krsa_filter_lowPeps
@@ -69,3 +72,5 @@ reference:
     - KRSA_coverage_STK_PamChip_87102_v2
     - ballModel_edges
     - ballModel_nodes
+    - stk_pamchip_87102_mapping
+    - ptk_pamchip_86402_mapping

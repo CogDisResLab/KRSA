@@ -1,0 +1,75 @@
+---
+title: "KRSA and Enrichr"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(KRSA)
+library(knitr)
+library(tidyverse)
+```
+
+# Using Enrichr and KRSA
+
+You can perform gene set enrichment analysis using Enrichr by using either a set of PamChip peptide IDs or gene symbols.
+
+
+# Using Peptide IDs
+
+```{r, echo=T,out.width = "400px",out.width="450px", fig.align='center', cache=TRUE}
+
+example_peptide_list <- c("ACM5_494_506", "ADDB_696_708", "ADRB2_338_350", "ANXA1_209_221")
+
+enrichr_results <- krsa_enrichr(peptides = example_peptide_list)
+
+
+head(enrichr_results, 10)
+
+
+```
+
+
+
+## Using Gene Symbols
+
+Alternatively, the input coould be gene symbols instead of peptide ids: 
+
+
+```{r, echo=T,out.width = "400px",out.width="450px", fig.align='center', cache=TRUE}
+
+
+enrichr_results_genes <- krsa_enrichr(genes = c("AKT1", "AKT2", "AKTe"))
+
+
+head(enrichr_results_genes, 10)
+
+
+```
+
+
+# Visualization  
+
+The results could be plotted using the *krsa_enrichr_plot* function: 
+
+```{r plot, echo=T, fig.width=10, fig.height=8, fig.align="center", cache=TRUE}
+
+krsa_enrichr_plot(enrichr_results)
+
+
+```
+
+
+Showing only top 5 terms per library: 
+`
+```{r plot2, echo=T, fig.width=10, fig.height=8, fig.align="center", cache=TRUE}
+
+krsa_enrichr_plot(enrichr_results, terms_to_plot = 5)
+
+
+```

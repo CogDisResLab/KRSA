@@ -85,5 +85,25 @@
 #'
 "ballModel_edges"
 
+#' CDRL Complete mapping of peptides to HGNC symbols (STK PamChip 87102)
+#'
+#' A data frame of CDRL Complete mapping CDRL Complete mapping of peptides to HGNC symbols (STK PamChip 87102)
+#'
+#' @format A data frame with 141 rows and 2 variables:
+#' \describe{
+#' }
+#'
+"stk_pamchip_87102_mapping"
+
+#' CDRL Complete mapping of peptides to HGNC symbols (PTK PamChip 86402)
+#'
+#' A data frame of CDRL Complete mapping CDRL Complete mapping of peptides to HGNC symbols (PTK PamChip 86402)
+#'
+#' @format A data frame with 193 rows and 2 variables:
+#' \describe{
+#' }
+#'
+"ptk_pamchip_86402_mapping"
+
 
 

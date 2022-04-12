@@ -13,6 +13,9 @@
     <loc>https://cogdisreslab.github.io/KRSA/index.html/articles/KRSA.html</loc>
   </url>
   <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/articles/enrichr/enrichr.html</loc>
+  </url>
+  <url>
     <loc>https://cogdisreslab.github.io/KRSA/index.html/articles/index.html</loc>
   </url>
   <url>
@@ -49,6 +52,9 @@
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/ballModel_nodes.html</loc>
   </url>
   <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/enrichr_lib_call.html</loc>
+  </url>
+  <url>
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/index.html</loc>
   </url>
   <url>
@@ -71,6 +77,12 @@
   </url>
   <url>
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/krsa_cv_plot.html</loc>
+  </url>
+  <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/krsa_enrichr.html</loc>
+  </url>
+  <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/krsa_enrichr_plot.html</loc>
   </url>
   <url>
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/krsa_extractEndPoint.html</loc>
@@ -145,6 +157,12 @@
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/parse_BN_crosstabFile.html</loc>
   </url>
   <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/ptk_pamchip_86402_mapping.html</loc>
+  </url>
+  <url>
     <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/reexports.html</loc>
+  </url>
+  <url>
+    <loc>https://cogdisreslab.github.io/KRSA/index.html/reference/stk_pamchip_87102_mapping.html</loc>
   </url>
 </urlset>

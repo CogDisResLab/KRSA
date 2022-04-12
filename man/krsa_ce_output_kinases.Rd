@@ -19,7 +19,9 @@ Takes in the Z score table and output kinase with their scores
 }
 \seealso{
 Other helper functions: 
+\code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_peptides}()},
+\code{\link{krsa_enrichr}()},
 \code{\link{krsa_extractEndPointMaxExp}()},
 \code{\link{krsa_extractEndPoint}()},
 \code{\link{krsa_get_diff_byChip}()},
