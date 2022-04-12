@@ -2,7 +2,7 @@
 % Please edit documentation in R/krsa_sampling.R
 \name{krsa_sampling}
 \alias{krsa_sampling}
-\title{Performs random sampling of peptides and mappped kinases}
+\title{Performs random sampling of peptides and mapped kinases}
 \usage{
 krsa_sampling(x, CovFile, map, sum_num)
 }
@@ -26,6 +26,8 @@ TRUE
 }
 \seealso{
 Other helper functions: 
+\code{\link{krsa_ce_output_kinases}()},
+\code{\link{krsa_ce_output_peptides}()},
 \code{\link{krsa_extractEndPointMaxExp}()},
 \code{\link{krsa_extractEndPoint}()},
 \code{\link{krsa_get_diff_byChip}()},

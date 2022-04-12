@@ -1,13 +1,13 @@
-url: https://kalganem.github.io/KRSA/index.html
+url: https://cogdisreslab.github.io/KRSA/index.html
 
 template:
   params:
     bootswatch: simplex
-    footer: KRSA is dveloped by Khaled Alganem as a member of the <a href="https://www.utoledo.edu/med/depts/neurosciences/CDRL.html" target="_blank" rel="noopener noreferrer">CDRL</a>
+    footer: KRSA is dveloped by Khaled Alganem as a member of the <a href="https://cdrl-ut.org/" target="_blank" rel="noopener noreferrer">CDRL</a>
 
 
 development:
-  mode: auto
+  mode: release
 
 figure:
   fig.width: 12

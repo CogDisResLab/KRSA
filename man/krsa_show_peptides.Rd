@@ -20,6 +20,8 @@ TRUE
 }
 \seealso{
 Other helper functions: 
+\code{\link{krsa_ce_output_kinases}()},
+\code{\link{krsa_ce_output_peptides}()},
 \code{\link{krsa_extractEndPointMaxExp}()},
 \code{\link{krsa_extractEndPoint}()},
 \code{\link{krsa_get_diff_byChip}()},
