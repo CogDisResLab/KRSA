@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">KRSA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.10.3</span>
       </span>
     </div>
 
@@ -28,6 +28,16 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/enrichr/enrichr.html">KRSA and Enrichr</a>
+    </li>
+  </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/CogDisResLab/KRSA" class="external-link">
     <span class="fab fa-github"></span>
@@ -138,6 +148,10 @@
           <p><code><a href="parse_BN_crosstabFile.html">parse_BN_crosstabFile()</a></code> </p>
         </td>
         <td><p>Parse bionavigator crosstab files</p></td>
+      </tr><tr><td>
+          <p><code><a href="krsa_enrichr_plot.html">krsa_enrichr_plot()</a></code> </p>
+        </td>
+        <td><p>Visualize the enrichr analysis</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="helper-functions">Helper Functions <a href="#helper-functions" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p>
@@ -166,6 +180,14 @@
           <p><code><a href="krsa_top_hits.html">krsa_top_hits()</a></code> </p>
         </td>
         <td><p>Extracts top kinase hits based on a Z cutoff</p></td>
+      </tr><tr><td>
+          <p><code><a href="krsa_enrichr.html">krsa_enrichr()</a></code> </p>
+        </td>
+        <td><p>Runs enrichr analysis using a list of PamChip peptide IDs or genes</p></td>
+      </tr><tr><td>
+          <p><code><a href="enrichr_lib_call.html">enrichr_lib_call()</a></code> </p>
+        </td>
+        <td><p>Runs enrichr api (single GET call for a geneset library)</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="qc-functions">QC Functions <a href="#qc-functions" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p>
@@ -218,6 +240,14 @@
           <p><code><a href="ballModel_nodes.html">ballModel_nodes</a></code> </p>
         </td>
         <td><p>Protein-Protein Interactions based on PhosphositePlus database</p></td>
+      </tr><tr><td>
+          <p><code><a href="stk_pamchip_87102_mapping.html">stk_pamchip_87102_mapping</a></code> </p>
+        </td>
+        <td><p>CDRL Complete mapping of peptides to HGNC symbols (STK PamChip 87102)</p></td>
+      </tr><tr><td>
+          <p><code><a href="ptk_pamchip_86402_mapping.html">ptk_pamchip_86402_mapping</a></code> </p>
+        </td>
+        <td><p>CDRL Complete mapping of peptides to HGNC symbols (PTK PamChip 86402)</p></td>
       </tr></tbody></table></div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
