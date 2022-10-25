@@ -96,17 +96,17 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">KRSA</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/" class="external-link">knitr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.3.5     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 0.3.4</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.6     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.0.8</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.2.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.4.0</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 0.5.1</span>
-<span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">KRSA</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/" class="external-link">knitr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.2 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.3.6      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 0.3.5 </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.8      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.0.10</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.2.1      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.4.1 </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.3      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 0.5.2 </span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="using-enrichr-and-krsa">Using Enrichr and KRSA<a class="anchor" aria-label="anchor" href="#using-enrichr-and-krsa"></a>
 </h2>
@@ -116,64 +116,68 @@
 <h2 id="using-peptide-ids">Using Peptide IDs<a class="anchor" aria-label="anchor" href="#using-peptide-ids"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">example_peptide_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ACM5_494_506"</span>, <span class="st">"ADDB_696_708"</span>, <span class="st">"ADRB2_338_350"</span>, <span class="st">"ANXA1_209_221"</span><span class="op">)</span>
-
-<span class="va">enrichr_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/krsa_enrichr.html">krsa_enrichr</a></span><span class="op">(</span>peptides <span class="op">=</span> <span class="va">example_peptide_list</span><span class="op">)</span>
-<span class="co">#&gt; GO_Biological_Process_2021 ...</span>
-<span class="co">#&gt; GO_Cellular_Component_2021 ...</span>
-<span class="co">#&gt; GO_Molecular_Function_2021 ...</span>
-<span class="co">#&gt; WikiPathway_2021_Human ...</span>
-<span class="co">#&gt; Reactome_2016 ...</span>
-<span class="co">#&gt; KEGG_2021_Human ...</span>
-<span class="co">#&gt; BioPlanet_2019 ...</span>
-
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">enrichr_results</span>, <span class="fl">10</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span>
-<span class="co">#&gt;    index term       pvalue odds_ratio combined_score genes adjusted_pvalue lib  </span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 positive… 1.58<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span>       644.          <span style="text-decoration: underline;">7</span>120. ANXA…         0.002<span style="text-decoration: underline;">67</span> GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 G protei… 6.21<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span>       316.          <span style="text-decoration: underline;">3</span>065. ANXA…         0.005<span style="text-decoration: underline;">25</span> GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 positive… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>666          <span style="text-decoration: underline;">11</span>509. ADRB2         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 negative… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>666          <span style="text-decoration: underline;">11</span>509. ADRB2         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 positive… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>666          <span style="text-decoration: underline;">11</span>509. ADRB2         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 alpha-be… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>666          <span style="text-decoration: underline;">11</span>509. ANXA1         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 positive… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>666          <span style="text-decoration: underline;">11</span>509. ANXA1         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 positive… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>333.          <span style="text-decoration: underline;">8</span>964. ADRB2         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 activati… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>333.          <span style="text-decoration: underline;">8</span>964. ADRB2         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 hepatocy… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>      <span style="text-decoration: underline;">1</span>333.          <span style="text-decoration: underline;">8</span>964. ANXA1         0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="va">example_peptide_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ACM5_494_506"</span>, <span class="st">"ADDB_696_708"</span>, <span class="st">"ADRB2_338_350"</span>, <span class="st">"ANXA1_209_221"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">enrichr_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/krsa_enrichr.html">krsa_enrichr</a></span><span class="op">(</span>peptides <span class="op">=</span> <span class="va">example_peptide_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; GO_Biological_Process_2021 ...</span></span>
+<span><span class="co">#&gt; GO_Cellular_Component_2021 ...</span></span>
+<span><span class="co">#&gt; GO_Molecular_Function_2021 ...</span></span>
+<span><span class="co">#&gt; WikiPathway_2021_Human ...</span></span>
+<span><span class="co">#&gt; Reactome_2016 ...</span></span>
+<span><span class="co">#&gt; KEGG_2021_Human ...</span></span>
+<span><span class="co">#&gt; BioPlanet_2019 ...</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">enrichr_results</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span></span>
+<span><span class="co">#&gt;    index term                         pvalue odds_…¹ combi…² genes adjus…³ lib  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 positive regulation of org… 1.58<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span>    644.   <span style="text-decoration: underline;">7</span>120. ANXA… 0.002<span style="text-decoration: underline;">67</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 G protein-coupled receptor… 6.21<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span>    316.   <span style="text-decoration: underline;">3</span>065. ANXA… 0.005<span style="text-decoration: underline;">25</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 positive regulation of AMP… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>666   <span style="text-decoration: underline;">11</span>509. ADRB2 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 negative regulation of smo… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>666   <span style="text-decoration: underline;">11</span>509. ADRB2 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 positive regulation of cAM… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>666   <span style="text-decoration: underline;">11</span>509. ADRB2 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 alpha-beta T cell differen… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>666   <span style="text-decoration: underline;">11</span>509. ANXA1 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 positive regulation of pro… 1.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>666   <span style="text-decoration: underline;">11</span>509. ANXA1 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 positive regulation of aut… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>333.   <span style="text-decoration: underline;">8</span>964. ADRB2 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 activation of transmembran… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>333.   <span style="text-decoration: underline;">8</span>964. ADRB2 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 hepatocyte differentiation… 1.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>   <span style="text-decoration: underline;">1</span>333.   <span style="text-decoration: underline;">8</span>964. ANXA1 0.011<span style="text-decoration: underline;">3</span>  GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​odds_ratio, ²​combined_score,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ³​adjusted_pvalue</span></span></span></code></pre></div>
 <div class="section level3">
 <h3 id="using-gene-symbols">Using Gene Symbols<a class="anchor" aria-label="anchor" href="#using-gene-symbols"></a>
 </h3>
 <p>Alternatively, the input coould be gene symbols instead of peptide ids:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-
-<span class="va">enrichr_results_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/krsa_enrichr.html">krsa_enrichr</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AKT1"</span>, <span class="st">"AKT2"</span>, <span class="st">"AKTe"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; GO_Biological_Process_2021 ...</span>
-<span class="co">#&gt; GO_Cellular_Component_2021 ...</span>
-<span class="co">#&gt; GO_Molecular_Function_2021 ...</span>
-<span class="co">#&gt; WikiPathway_2021_Human ...</span>
-<span class="co">#&gt; Reactome_2016 ...</span>
-<span class="co">#&gt; KEGG_2021_Human ...</span>
-<span class="co">#&gt; BioPlanet_2019 ...</span>
-
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">enrichr_results_genes</span>, <span class="fl">10</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span>
-<span class="co">#&gt;    index term       pvalue odds_ratio combined_score genes adjusted_pvalue lib  </span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 regulati… 2.25<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>      <span style="text-decoration: underline;">9</span>996.        <span style="text-decoration: underline;">153</span>020. AKT2…       0.000<span style="text-decoration: underline;">034</span>5 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 positive… 3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>      <span style="text-decoration: underline;">7</span>997.        <span style="text-decoration: underline;">119</span>719. AKT2…       0.000<span style="text-decoration: underline;">034</span>5 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 mammary … 4.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>      <span style="text-decoration: underline;">6</span>664.         <span style="text-decoration: underline;">97</span>844. AKT2…       0.000<span style="text-decoration: underline;">034</span>5 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 positive… 5.40<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>      <span style="text-decoration: underline;">5</span>711.         <span style="text-decoration: underline;">82</span>427. AKT2…       0.000<span style="text-decoration: underline;">034</span>5 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 negative… 6.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>      <span style="text-decoration: underline;">4</span>997.         <span style="text-decoration: underline;">71</span>005. AKT2…       0.000<span style="text-decoration: underline;">034</span>5 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 positive… 1.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>      <span style="text-decoration: underline;">3</span>634.         <span style="text-decoration: underline;">49</span>634. AKT2…       0.000<span style="text-decoration: underline;">036</span>6 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 regulati… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>      <span style="text-decoration: underline;">3</span>331.         <span style="text-decoration: underline;">44</span>982. AKT2…       0.000<span style="text-decoration: underline;">036</span>6 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 positive… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>      <span style="text-decoration: underline;">3</span>331.         <span style="text-decoration: underline;">44</span>982. AKT2…       0.000<span style="text-decoration: underline;">036</span>6 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 positive… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>      <span style="text-decoration: underline;">3</span>331.         <span style="text-decoration: underline;">44</span>982. AKT2…       0.000<span style="text-decoration: underline;">036</span>6 GO_B…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 mammary … 1.57<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>      <span style="text-decoration: underline;">3</span>074.         <span style="text-decoration: underline;">41</span>080. AKT2…       0.000<span style="text-decoration: underline;">036</span>6 GO_B…</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="va">enrichr_results_genes</span> <span class="op">&lt;-</span> <span class="fu"><a href="../../reference/krsa_enrichr.html">krsa_enrichr</a></span><span class="op">(</span>genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AKT1"</span>, <span class="st">"AKT2"</span>, <span class="st">"AKTe"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; GO_Biological_Process_2021 ...</span></span>
+<span><span class="co">#&gt; GO_Cellular_Component_2021 ...</span></span>
+<span><span class="co">#&gt; GO_Molecular_Function_2021 ...</span></span>
+<span><span class="co">#&gt; WikiPathway_2021_Human ...</span></span>
+<span><span class="co">#&gt; Reactome_2016 ...</span></span>
+<span><span class="co">#&gt; KEGG_2021_Human ...</span></span>
+<span><span class="co">#&gt; BioPlanet_2019 ...</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">enrichr_results_genes</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 8</span></span></span>
+<span><span class="co">#&gt;    index term                         pvalue odds_…¹ combi…² genes adjus…³ lib  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     1 regulation of long-chain f… 2.25<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>   <span style="text-decoration: underline;">9</span>996. <span style="text-decoration: underline;">153</span>020. AKT2… 3.45<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     2 positive regulation of mit… 3.15<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>   <span style="text-decoration: underline;">7</span>997. <span style="text-decoration: underline;">119</span>719. AKT2… 3.45<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     3 mammary gland epithelial c… 4.20<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>   <span style="text-decoration: underline;">6</span>664.  <span style="text-decoration: underline;">97</span>844. AKT2… 3.45<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     4 positive regulation of mem… 5.40<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>   <span style="text-decoration: underline;">5</span>711.  <span style="text-decoration: underline;">82</span>427. AKT2… 3.45<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     5 negative regulation of tra… 6.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-7</span>   <span style="text-decoration: underline;">4</span>997.  <span style="text-decoration: underline;">71</span>005. AKT2… 3.45<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>     6 positive regulation of cel… 1.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>   <span style="text-decoration: underline;">3</span>634.  <span style="text-decoration: underline;">49</span>634. AKT2… 3.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>     7 regulation of fatty acid b… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>   <span style="text-decoration: underline;">3</span>331.  <span style="text-decoration: underline;">44</span>982. AKT2… 3.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>     8 positive regulation of glu… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>   <span style="text-decoration: underline;">3</span>331.  <span style="text-decoration: underline;">44</span>982. AKT2… 3.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>     9 positive regulation of gly… 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>   <span style="text-decoration: underline;">3</span>331.  <span style="text-decoration: underline;">44</span>982. AKT2… 3.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    10 mammary gland epithelium d… 1.57<span style="color: #949494;">e</span><span style="color: #BB0000;">-6</span>   <span style="text-decoration: underline;">3</span>074.  <span style="text-decoration: underline;">41</span>080. AKT2… 3.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> GO_B…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​odds_ratio, ²​combined_score,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ³​adjusted_pvalue</span></span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -181,13 +185,13 @@
 </h2>
 <p>The results could be plotted using the <em>krsa_enrichr_plot</em> function:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="../../reference/krsa_enrichr_plot.html">krsa_enrichr_plot</a></span><span class="op">(</span><span class="va">enrichr_results</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="../../reference/krsa_enrichr_plot.html">krsa_enrichr_plot</a></span><span class="op">(</span><span class="va">enrichr_results</span><span class="op">)</span></span></code></pre></div>
 <p><img src="enrichr_files/figure-html/plot-1.png" width="960" style="display: block; margin: auto;"></p>
 <p>Showing only top 5 terms per library: `</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="../../reference/krsa_enrichr_plot.html">krsa_enrichr_plot</a></span><span class="op">(</span><span class="va">enrichr_results</span>, terms_to_plot <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="../../reference/krsa_enrichr_plot.html">krsa_enrichr_plot</a></span><span class="op">(</span><span class="va">enrichr_results</span>, terms_to_plot <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="enrichr_files/figure-html/plot2-1.png" width="960" style="display: block; margin: auto;"></p>
 </div>
   </div>
@@ -209,7 +213,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

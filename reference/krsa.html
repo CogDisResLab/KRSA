@@ -63,34 +63,47 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">krsa</span><span class="op">(</span>
-  <span class="va">peptides</span>,
-  itr <span class="op">=</span> <span class="fl">2000</span>,
-  seed <span class="op">=</span> <span class="fl">123</span>,
-  return_count <span class="op">=</span> <span class="cn">F</span>,
-  map_file <span class="op">=</span> <span class="va">KRSA_file</span>,
-  cov_file <span class="op">=</span> <span class="va">chipCov</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">krsa</span><span class="op">(</span></span>
+<span>  <span class="va">peptides</span>,</span>
+<span>  itr <span class="op">=</span> <span class="fl">2000</span>,</span>
+<span>  seed <span class="op">=</span> <span class="fl">123</span>,</span>
+<span>  return_count <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  map_file <span class="op">=</span> <span class="va">KRSA_file</span>,</span>
+<span>  cov_file <span class="op">=</span> <span class="va">chipCov</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>peptides</dt>
 <dd><p>a vector of the peptides that are considered "hits"</p></dd>
+
+
 <dt>itr</dt>
 <dd><p>number of iterations for the random sampling (default  = 2000)</p></dd>
+
+
 <dt>seed</dt>
 <dd><p>seed number (default  = 123)</p></dd>
+
+
 <dt>return_count</dt>
 <dd><p>boolean to return the kinase count matrix</p></dd>
+
+
 <dt>map_file</dt>
 <dd><p>kinase-substrate dataframe</p></dd>
+
+
 <dt>cov_file</dt>
 <dd><p>kinase coverage dataframe</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Z score tibble or list if return_count = TRUE</p>
+    
+
+<p>Z score tibble or list if return_count = TRUE</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -103,7 +116,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="cn">TRUE</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="cn">TRUE</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 </code></pre></div>
     </div>
@@ -119,7 +132,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
