@@ -11,6 +11,10 @@ KRSA_Mapping_PTK_PamChip_86402_v1 <- read.table("data-raw/KRSA_Mapping_PTK_PamCh
 
 KRSA_coverage_STK_PamChip_87102_v1 <- readRDS("data-raw/KRSA_coverage_STK_PamChip_87102_v1.rds")
 
+KRSA_layout_STK_PamChip_87102_v1 <- readr::read_tsv("data-raw/STK-87102-Array-Layout.txt")
+
+KRSA_layout_PTK_PamChip_86402_v1 <- readr::read_tsv("data-raw/PTK-86402-Array-Layout.txt")
+
 #removed pdk
 KRSA_coverage_STK_PamChip_87102_v1 %>% dplyr::filter(Kin != "PDK") -> KRSA_coverage_STK_PamChip_87102_v2
 
@@ -24,6 +28,8 @@ usethis::use_data(KRSA_Mapping_STK_PamChip_87102_v1,
                   KRSA_coverage_STK_PamChip_87102_v1,
                   KRSA_coverage_STK_PamChip_87102_v2,
                   KRSA_coverage_PTK_PamChip_86402_v1,
+                  KRSA_layout_PTK_PamChip_86402_v1,
+                  KRSA_layout_STK_PamChip_87102_v1,
                   ballModel_nodes,
                   ballModel_edges,
                   overwrite = T)

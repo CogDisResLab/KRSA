@@ -1,0 +1,205 @@
+Row	Col	ID	Sequence	Tyr	SpotConc	UniprotAccession	Description	Xoff	Yoff
+-1	-1	#REF	NA	NA	NA	NA	NA	0	0
+-3	-1	#REF	NA	NA	NA	NA	NA	0	0
+-5	-1	#REF	NA	NA	NA	NA	NA	0	0
+-3	-2	#REF	NA	NA	NA	NA	NA	0	0
+-2	-20	#REF	NA	NA	NA	NA	NA	0	0
+-4	-20	#REF	NA	NA	NA	NA	NA	0	0
+-6	-20	#REF	NA	NA	NA	NA	NA	0	0
+-6	-19	#REF	NA	NA	NA	NA	NA	0	0
+1	1	EFS_246_258	GGTDEGIYDVPLL	[253]	500	O43281	Embryonal Fyn-associated substrate (HEFS).	0	0
+1	2	41_654_666	LDGENIYIRHSNL	[660]	1000	P11171	Protein 4.1 (Band 4.1) (P4.1) (EPB4.1) (4.1R).	0	0
+1	3	ACHD_383_395	YISKAEEYFLLKS	[383, 390]	1000	Q07001	Acetylcholine receptor subunit delta precursor.	0	0
+1	4	AMPE_5_17	EREGSKRYCIQTK	[12]	1000	Q07075	Glutamyl aminopeptidase (EC 3.4.11.7) (EAP) (Aminopeptidase A) (APA)(Differentiation antigen gp160) (CD249 antigen).	0	0
+1	5	ANXA2_17_29	HSTPPSAYGSVKA	[24]	1000	P07355	Annexin A2 (Annexin-2) (Annexin II) (Lipocortin II) (Calpactin I heavychain) (Chromobindin-8) (p36) (Protein I) (Placental anticoagulantprotein IV) (PAP-IV).	0	0
+1	6	ART_004_EAIYAAPFAKKKXC	EAIYAAPFAKKK	NA	1000	NA	NA	0	0
+1	7	B3AT_39_51	TEATATDYHTTSH	[46]	1000	P02730	Band 3 anion transport protein (Anion exchange protein 1) (AE 1)(Solute carrier family 4 member 1) (CD233 antigen).	0	0
+1	8	C1R_199_211	TEASGYISSLEYP	[204, 210]	1000	P00736	"Complement C1r subcomponent precursor (EC 3.4.21.41) (Complementcomponent 1, r subcomponent) [Contains: Complement C1r subcomponentheavy chain; Complement C1r subcomponent light chain]."	0	0
+1	9	CALM_93_105	FDKDGNGYISAAE	[100]	1000	P0DP23	Calmodulin (CaM).	0	0
+1	10	CALM_95_107	KDGNGYISAAELR	[100]	1000	P0DP23	Calmodulin (CaM).	0	0
+1	11	CBL_693_705	EGEEDTEYMTPSS	[700]	1000	P22681	E3 ubiquitin-protein ligase CBL (EC 6.3.2.-) (Signal transductionprotein CBL) (Proto-oncogene c-CBL) (Casitas B-lineage lymphoma proto-oncogene) (RING finger protein 55).	0	0
+1	12	CD3Z_116_128	KDKMAEAYSEIGM	[123]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+1	13	CD3Z_146_158	STATKDTYDALHM	[153]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+1	14	ART_003_EAI(pY)AAPFAKKKXC	EAI(pY)AAPFAKKK	NA	30	NA	NA	0	0
+2	1	CDK2_8_20	EKIGEGTYGVVYK	[15, 19]	1000	P24941	Cyclin-dependent kinase 2 (EC:2.7.11.22) Cell division protein kinase 2 (EC 2.7.11.22) (p33 protein kinase).	0	0
+2	2	CDK7_157_169	GLAKSFGSPNRAY	[169]	1000	P50613	Cyclin-dependent kinase 7 (EC:2.7.11.22, EC:2.7.11.23) Cell division protein kinase 7 (EC 2.7.11.22) (EC 2.7.11.23) (CDK-activating kinase) (TFIIH basal transcription factor complexkinase subunit) (39 kDa protein kinase) (P39 Mo15)	0	0
+2	3	CRK_214_226	GPPEPGPYAQPSV	[221]	1000	P46108	Proto-oncogene C-crk (p38) (Adapter molecule crk).	0	0
+2	4	CTNB1_79_91	VADIDGQYAMTRA	[86]	1000	P35222	Catenin beta-1 (Beta-catenin).	0	0
+2	5	DCX_67_79	GIVYAVSSDRFRS	 [70]	1000	O43602	Neuronal migration protein doublecortin (Lissencephalin-X) (Lis-X)(Doublin).	0	0
+2	6	DDR1_506_518	LLLSNPAYRLLLA	[513]	1000	Q08345	Epithelial discoidin domain-containing receptor 1 precursor(EC 2.7.10.1) (Epithelial discoidin domain receptor 1) (Tyrosinekinase DDR) (Discoidin receptor tyrosine kinase) (Tyrosine-proteinkinase CAK) (Cell adhesion kinase) (TRK E) (Protein-tyrosine kinaseRTK 6) (HGK2) (CD167a antigen).	0	0
+2	7	DYR1A_212_224	KHDTEMKYYIVHL	[219, 220]	1000	Q13627	Dual specificity tyrosine-phosphorylation-regulated kinase 1A(EC 2.7.12.1) (Protein kinase minibrain homolog) (MNBH) (HP86) (Dualspecificity YAK1-related kinase) (hMNB).	0	0
+2	8	DYR1A_312_324	CQLGQRIYQYIQS	[319, 321]	1000	Q13627	Dual specificity tyrosine-phosphorylation-regulated kinase 1A(EC 2.7.12.1) (Protein kinase minibrain homolog) (MNBH) (HP86) (Dualspecificity YAK1-related kinase) (hMNB).	0	0
+2	9	EGFR_1062_1074	EDSFLQRYSSDPT	[1069]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+2	10	EGFR_1103_1115	GSVQNPVYHNQPL	[1110]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+2	11	EGFR_1118_1130	APSRDPHYQDPHS	[1125]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+2	12	EGFR_1190_1202	STAENAEYLRVAP	[1197]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+2	13	EGFR_862_874	LGAEEKEYHAEGG	[869]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+2	14	EGFR_908_920	MTFGSKPYDGIPA	[915]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+3	1	EPHA1_774_786	LDDFDGTYETQGG	[781]	1000	P21709	Ephrin type-A receptor 1 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor EPH).	0	0
+3	2	EPHA2_581_593	QLKPLKTYVDPHT	[588]	1000	P29317	Ephrin type-A receptor 2 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor ECK) (Epithelial cell kinase).	0	0
+3	3	EPHA2_765_777	EDDPEATYTTSGG	[772]	1000	P29317	Ephrin type-A receptor 2 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor ECK) (Epithelial cell kinase).	0	0
+3	4	EPHA4_589_601	LNQGVRTYVDPFT	[596]	1000	P54764	Ephrin type-A receptor 4 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor SEK) (Receptor protein-tyrosine kinase HEK8)(Tyrosine-protein kinase TYRO1).	0	0
+3	5	EPHA4_921_933	QAIKMDRYKDNFT	[928] 	1000	P54764	Ephrin type-A receptor 4 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor SEK) (Receptor protein-tyrosine kinase HEK8)(Tyrosine-protein kinase TYRO1).	0	0
+3	6	EPHA7_607_619	TYIDPETYEDPNR	[608, 614]	1000	Q15375	Ephrin type-A receptor 7 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor EHK-3) (EPH homology kinase 3) (Receptor protein-tyrosine kinase HEK11).	0	0
+3	7	EPHB1_771_783	DDTSDPTYTSSLG	[778]	1000	P54762	Ephrin type-B receptor 1 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor EPH-2) (NET) (HEK6) (ELK).	0	0
+3	8	EPHB1_921_933	SAIKMVQYRDSFL	[928]	1000	P54762	Ephrin type-B receptor 1 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor EPH-2) (NET) (HEK6) (ELK).	0	0
+3	9	EPHB4_583_595	IGHGTKVYIDPFT	[590]	1000	P54760	Ephrin type-B receptor 4 precursor (EC 2.7.10.1) (Tyrosine-proteinkinase receptor HTK) (Tyrosine-protein kinase TYRO11).	0	0
+3	10	EPOR_361_373	SEHAQDTYLVLDK	[368]	1000	P19235	Erythropoietin receptor precursor (EPO-R).	0	0
+3	11	ERBB2_870_882	LDIDETEYHADGG	[877]	1000	P04626	Receptor tyrosine-protein kinase erbB-2 precursor (EC 2.7.10.1)(p185erbB2) (C-erbB-2) (NEU proto-oncogene) (Tyrosine kinase-type cellsurface receptor HER2) (MLN 19) (CD340 antigen).	0	0
+3	12	ERBB4_1181_1193	QALDNPEYHNASN	[1188]	1000	Q15303	Receptor tyrosine-protein kinase erbB-4 precursor (EC 2.7.10.1)(p180erbB4) (Tyrosine kinase-type cell surface receptor HER4).	0	0
+3	13	EFS_246_258_Y253F	GGTDEGIFDVPLL	[]	500	O43281	Embryonal Fyn-associated substrate (HEFS).	0	0
+3	14	FABPH_13_25	DSKNFDDYMKSLG	[20] 	1000	P05413	Fatty acid-binding protein, heart (H-FABP) (Heart-type fatty acid-binding protein) (Muscle fatty acid-binding protein) (M-FABP)(Mammary-derived growth inhibitor) (MDGI).	0	0
+4	1	FAK1_569_581	RYMEDSTYYKASK	[570, 576, 577]	1000	Q05397	Focal adhesion kinase 1 (EC 2.7.10.2) (FADK 1) (pp125FAK) (Protein-tyrosine kinase 2).	0	0
+4	2	FAK2_572_584	RYIEDEDYYKASV	[573, 579, 580]	1000	Q14289	Protein tyrosine kinase 2 beta (EC 2.7.10.2) (Focal adhesion kinase 2)(FADK 2) (Proline-rich tyrosine kinase 2) (Cell adhesion kinase beta)(CAK beta) (Calcium-dependent tyrosine kinase) (CADTK) (Relatedadhesion focal tyrosine kinase) (RAFTK).	0	0
+4	3	FER_707_719	RQEDGGVYSSSGL	[714]	1000	P16591	Proto-oncogene tyrosine-protein kinase FER (EC 2.7.10.2) (p94-FER) (c-FER) (Tyrosine kinase 3).	0	0
+4	4	FES_706_718	REEADGVYAASGG	[713]	1000	P07332	Proto-oncogene tyrosine-protein kinase Fes/Fps (EC 2.7.10.2) (C-Fes).	0	0
+4	5	FGFR3_641_653	DVHNLDYYKKTTN	[647, 648]	1000	P22607	Fibroblast growth factor receptor 3 precursor (EC 2.7.10.1) (FGFR-3)(CD333 antigen).	0	0
+4	6	FRK_380_392	KVDNEDIYESRHE	[387]	1000	P42685	Tyrosine-protein kinase FRK (EC 2.7.10.2) (FYN-related kinase)(Nuclear tyrosine protein kinase RAK).	0	0
+4	7	INSR_1348_1360	SLGFKRSYEEHIP	[1355]	1000	P06213	"Insulin receptor precursor (EC 2.7.10.1) (IR) (CD220 antigen)[Contains: Insulin receptor subunit alpha; Insulin receptor subunitbeta]."	0	0
+4	8	INSR_992_1004	YASSNPEYLSASD	[992, 999]	1000	P06213	"Insulin receptor precursor (EC 2.7.10.1) (IR) (CD220 antigen)[Contains: Insulin receptor subunit alpha; Insulin receptor subunitbeta]."	0	0
+4	9	JAK1_1027_1039	AIETDKEYYTVKD	[1034,1035]	1000	P23458	Tyrosine-protein kinase JAK1 (EC 2.7.10.2) (Janus kinase 1) (JAK-1).	0	0
+4	10	JAK2_563_577	VRREVGDYGQLHETE	[570]	1000	O60674	Tyrosine-protein kinase JAK2 (EC 2.7.10.2) (Janus kinase 2) (JAK-2).	0	0
+4	11	K2C6B_53_65	GAGFGSRSLYGLG	[62]	1000	P04259	Keratin, type II cytoskeletal 6B (Cytokeratin-6B) (CK 6B) (K6bkeratin).	0	0
+4	12	K2C8_425_437	SAYGGLTSPGLSY	[427, 437]	1000	P05787	Keratin, type II cytoskeletal 8 (Cytokeratin-8) (CK-8) (Keratin-8)(K8).	0	0
+4	13	LAT_194_206	MESIDDYVNVPES	[200]	1000	O43561	Linker for activation of T-cells family member 1 (36 kDa phospho-tyrosine adapter protein) (pp36) (p36-38).	0	0
+4	14	LAT_249_261	EEGAPDYENLQEL	[255]	1000	O43561	Linker for activation of T-cells family member 1 (36 kDa phospho-tyrosine adapter protein) (pp36) (p36-38).	0	0
+5	1	LCK_387_399	RLIEDNEYTAREG	[394]	1000	P06239	Proto-oncogene tyrosine-protein kinase LCK (EC 2.7.10.2) (p56-LCK)(Lymphocyte cell-specific protein-tyrosine kinase) (LSK) (T cell-specific protein-tyrosine kinase).	0	0
+5	2	MBP_198_210	ARTAHYGSLPQKS	[203]	1000	P02686	Myelin basic protein (MBP) (Myelin A1 protein) (Myelin membraneencephalitogenic protein).	0	0
+5	3	MBP_259_271	FGYGGRASDYKSA	[261, 268]	1000	P02686	Myelin basic protein (MBP) (Myelin A1 protein) (Myelin membraneencephalitogenic protein).	0	0
+5	4	MBP_263_275	GRASDYKSAHKGF	[268]	1000	P02686	Myelin basic protein (MBP) (Myelin A1 protein) (Myelin membraneencephalitogenic protein).	0	0
+5	5	MET_1227_1239	RDMYDKEYYSVHN	[1230, 1234, 1235]	1000	P08581	Hepatocyte growth factor receptor precursor (EC 2.7.10.1) (HGFreceptor) (Scatter factor receptor) (SF receptor) (HGF/SF receptor)(Met proto-oncogene tyrosine kinase) (c-Met).	0	0
+5	6	MK01_180_192	HTGFLTEYVATRW	[187]	1000	P28482	Mitogen-activated protein kinase 1 (EC 2.7.11.24) (Extracellular signal-regulated kinase 2) (ERK-2) (Mitogen-activated protein kinase 2) (MAP kinase 2) (MAPK 2) (p42-MAPK) (ERT1).	0	0
+5	7	MK01_198_210	IMLNSKGYTKSID	[205]	1000	P28482	Mitogen-activated protein kinase 1 (EC 2.7.11.24) (Extracellular signal-regulated kinase 2) (ERK-2) (Mitogen-activated protein kinase 2) (MAP kinase 2) (MAPK 2) (p42-MAPK) (ERT1).	0	0
+5	8	MK07_212_224	AEHQYFMTEYVAT	[216,221]	1000	Q13164	Mitogen-activated protein kinase 7 (EC 2.7.11.24) (Extracellularsignal-regulated kinase 5) (ERK-5) (ERK4) (BMK1 kinase).	0	0
+5	9	MK10_216_228	TSFMMTPYVVTRY	[223, 228]	1000	P53779	Mitogen-activated protein kinase 10 (EC 2.7.11.24) (Stress-activated protein kinase JNK3) (c-Jun N-terminal kinase 3) (MAP kinase p49 3F12).	0	0
+5	10	NCF1_313_325	QRSRKRLSQDAYR	[324]	1000	P14598	Neutrophil cytosol factor 1 (NCF-1) (Neutrophil NADPH oxidase factor1) (47 kDa neutrophil oxidase factor) (p47-phox) (NCF-47K) (47 kDaautosomal chronic granulomatous disease protein) (Nox organizer 2)(Nox-organizing protein 2) (SH3 and PX domain-containing protein 1A).	0	0
+5	11	NPT2A_501_513	AKALGKRTAKYRW	[511]	1000	Q06495	Sodium-dependent phosphate transport protein 2A (Sodium/phosphatecotransporter 2A) (Na(+)/Pi cotransporter 2A) (Sodium-phosphatetransport protein 2A) (Na(+)-dependent phosphate cotransporter 2A)(NaPi-2a) (Solute carrier family 34 member 1) (NaPi-3).	0	0
+5	12	NTRK1_489_501	HIIENPQYFSDAC	[496]	1000	P04629	High affinity nerve growth factor receptor precursor (EC 2.7.10.1)(Neurotrophic tyrosine kinase receptor type 1) (TRK1-transformingtyrosine kinase protein) (p140-TrkA) (Trk-A).	0	0
+5	13	NTRK2_509_521	PVIENPQYFGITN	[516]	1000	Q16620	BDNF/NT-3 growth factors receptor precursor (EC 2.7.10.1)(Neurotrophic tyrosine kinase receptor type 2) (TrkB tyrosine kinase)(GP145-TrkB) (Trk-B).	0	0
+5	14	NTRK2_696_708	GMSRDVYSTDYYR	[702, 706, 707]	1000	Q16620	BDNF/NT-3 growth factors receptor precursor (EC 2.7.10.1)(Neurotrophic tyrosine kinase receptor type 2) (TrkB tyrosine kinase)(GP145-TrkB) (Trk-B).	0	0
+6	1	ODPAT_291_303	SMSDPGVSYRTRE	[299]	1000	P29803	Pyruvate dehydrogenase E1 component subunit alpha, testis-specificform, mitochondrial precursor (EC 1.2.4.1) (PDHE1-A type II).	0	0
+6	2	PAXI_111_123	VGEEEHVYSFPNK	[118]	1000	P49023	Paxillin.	0	0
+6	3	PAXI_24_36	FLSEETPYSYPTG	[31, 33]	1000	P49023	Paxillin.	0	0
+6	4	PDPK1_2_14	ARTTSQLYDAVPI	[9]	1000	O15530	3-phosphoinositide-dependent protein kinase 1 (EC 2.7.11.1) (hPDK1).	0	0
+6	5	PECA1_706_718	KKDTETVYSEVRK	[713]	1000	P16284	Platelet endothelial cell adhesion molecule precursor (PECAM-1)(EndoCAM) (GPIIA') (CD31 antigen).	0	0
+6	6	PERI_458_470	QRSELDKSSAHSY	[470]	1000	P41219	Peripherin.	0	0
+6	7	PGFRB_1002_1014	LDTSSVLYTAVQP	[1009]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+6	8	PGFRB_709_721	RPPSAELYSNALP	[716]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+6	9	PGFRB_768_780	SSNYMAPYDNYVP	[771, 775, 778]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+6	10	PGFRB_771_783	YMAPYDNYVPSAP	[771, 775, 778]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+6	11	PLCG1_1246_1258	EGSFESRYQQPFE	[1253]	1000	P19174	1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase gamma-1(EC 3.1.4.11) (Phosphoinositide phospholipase C) (PLC-gamma-1)(Phospholipase C-gamma-1) (PLC-II) (PLC-148).	0	0
+6	12	PLCG1_764_776	IGTAEPDYGALYE	[771, 775]	1000	P19174	1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase gamma-1(EC 3.1.4.11) (Phosphoinositide phospholipase C) (PLC-gamma-1)(Phospholipase C-gamma-1) (PLC-II) (PLC-148).	0	0
+6	13	PRGR_545_557	LRPDSEASQSPQY	[557]	1000	P06401	Progesterone receptor (PR) (Nuclear receptor subfamily 3 group Cmember 3).	0	0
+6	14	PRGR_786_798	EQRMKESSFYSLC	[795]	1000	P06401	Progesterone receptor (PR) (Nuclear receptor subfamily 3 group Cmember 3).	0	0
+7	1	PP2AB_297_309	EPHVTRRTPDYFL	[307]	1000	P62714	Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform(EC 3.1.3.16) (PP2A-beta).	0	0
+7	2	PRRX2_202_214	WTASSPYSTVPPY	[208, 214]	1000	Q99811	Paired mesoderm homeobox protein 2 (PRX-2) (Paired-related homeoboxprotein 2).	0	0
+7	3	PTN11_539_551	SKRKGHEYTNIKY	[546, 551]	1000	Q06124	Tyrosine-protein phosphatase non-receptor type 11 (EC 3.1.3.48)(Protein-tyrosine phosphatase 2C) (PTP-2C) (PTP-1D) (SH-PTP3) (SH-PTP2) (SHP-2) (Shp2).	0	0
+7	4	RB_804_816	IYISPLKSPYKIS	[805, 813]	1000	P06400	Retinoblastoma-associated protein (PP110) (P105-RB) (RB).	0	0
+7	5	RBL2_99_111	VPTVSKGTVEGNY	[111]	1000	Q08999	Retinoblastoma-like protein 2 (130 kDa retinoblastoma-associatedprotein) (p130) (PRB2) (RBR-2).	0	0
+7	6	RET_1022_1034	TPSDSLIYDDGLS	[1029]	1000	P07949	Proto-oncogene tyrosine-protein kinase receptor ret precursor(EC 2.7.10.1) (C-ret).	0	0
+7	7	RET_680_692	AQAFPVSYSSSGA	[687]	1000	P07949	"Macrophage-stimulating protein receptor precursor (EC 2.7.10.1) (MSPreceptor) (p185-Ron) (CD136 antigen) (CDw136) [Contains: Macrophage-stimulating protein receptor alpha chain; Macrophage-stimulatingprotein receptor beta chain]."	0	0
+7	8	RON_1346_1358	SALLGDHYVQLPA	[1353]	1000	Q04912	Signal transducer and activator of transcription 5A.	0	0
+7	9	STAT1_694_706	DGPKGTGYIKTEL	[701]	1000	P42224	Signal transducer and activator of transcription 1-alpha/beta(Transcription factor ISGF-3 components p91/p84).	0	0
+7	10	STAT3_698_710	DPGSAAPYLKTKF	[705]	1000	P40763	Signal transducer and activator of transcription 3 (Acute-phaseresponse factor).	0	0
+7	11	STAT4_686_698	TERGDKGYVPSVF	[693]	1000	Q14765	Proto-oncogene tyrosine-protein kinase receptor ret precursor(EC 2.7.10.1) (C-ret).	0	0
+7	12	STAT4_714_726	PSDLLPMSPSVYA	[725]	1000	Q14765	Signal transducer and activator of transcription 4.	0	0
+7	13	STA5A_687_699	LAKAVDGYVKPQI	[694]	1000	P42229	Signal transducer and activator of transcription 4.	0	0
+7	14	STAT6_634_646	MGKDGRGYVPATI	[641]	1000	P42226	Signal transducer and activator of transcription 6 (IL-4 Stat).	0	0
+8	1	RAF1_332_344	PRGQRDSSYYWEI	[340, 341]	1000	P04049	RAF proto-oncogene serine/threonine-protein kinase (EC 2.7.11.1) (Raf-1) (C-RAF) (cRaf).	0	0
+8	2	RASA1_453_465	TVDGKEIYNTIRR	[460]	1000	P20936	Ras GTPase-activating protein 1 (GTPase-activating protein) (GAP) (Rasp21 protein activator) (p120GAP) (RasGAP).	0	0
+8	3	TNNT1_2_14	SDTEEQEYEEEQP	[9]	1000	P13805	Troponin T, slow skeletal muscle (TnTs) (Slow skeletal muscle troponinT) (sTnT).	0	0
+8	4	TYRO3_679_691	KIYSGDYYRQGCA	[681, 685, 686]	1000	Q06418	Tyrosine-protein kinase receptor TYRO3 precursor (EC 2.7.10.1)(Tyrosine-protein kinase RSE) (Tyrosine-protein kinase SKY) (Tyrosine-protein kinase DTK) (Protein-tyrosine kinase byk).	0	0
+8	5	VGFR1_1040_1052	DFGLARDIYKNPD	[1048]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+8	6	VGFR1_1046_1058_Y1048F	DIFKNPDYVRKGD	[1053]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+8	7	VGFR1_1049_1061	KNPDYVRKGDTRL	[1053]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+8	8	VGFR1_1162_1174	VQQDGKDYIPINA	[1169]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+8	9	VGFR1_1206_1218	GSSDDVRYVNAFK	[1213]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+8	10	VGFR2_1046_1058	DFGLARDIYKDPD	[1054]	1000	P35968	Vascular endothelial growth factor receptor 2 precursor (EC 2.7.10.1)(VEGFR-2) (Kinase insert domain receptor) (Protein-tyrosine kinasereceptor Flk-1) (CD309 antigen).	0	0
+8	11	VGFR2_1207_1219_C1208S	VSDPKFHYDNTAG	[1214]	1000	P35968	Vascular endothelial growth factor receptor 2 precursor (EC 2.7.10.1)(VEGFR-2) (Kinase insert domain receptor) (Protein-tyrosine kinasereceptor Flk-1) (CD309 antigen).	0	0
+8	12	VGFR2_944_956	RFRQGKDYVGAIP	[951]	1000	P35968	Vascular endothelial growth factor receptor 2 precursor (EC 2.7.10.1)(VEGFR-2) (Kinase insert domain receptor) (Protein-tyrosine kinasereceptor Flk-1) (CD309 antigen).	0	0
+8	13	VGFR2_989_1001	EEAPEDLYKDFLT	[996]	1000	P35968	Vascular endothelial growth factor receptor 2 precursor (EC 2.7.10.1)(VEGFR-2) (Kinase insert domain receptor) (Protein-tyrosine kinasereceptor Flk-1) (CD309 antigen).	0	0
+8	14	VGFR3_1061_1073	DIYKDPDYVRKGS	[1063, 1068]	1000	P35916	Vascular endothelial growth factor receptor 3 precursor (EC 2.7.10.1)(VEGFR-3) (Tyrosine-protein kinase receptor FLT4).	0	0
+9	1	VINC_815_827	KSFLDSGYRILGA	[822]	1000	P18206	Vinculin (Metavinculin).	0	0
+9	2	ZAP70_485_497	ALGADDSYYTARS	[492, 493]	1000	P43403	Tyrosine-protein kinase ZAP-70 (EC 2.7.10.2) (70 kDa zeta-associatedprotein) (Syk-related tyrosine kinase).	0	0
+9	3	ZBT16_621_633	LRTHNGASPYQCT	[630]	1000	Q05516	Zinc finger and BTB domain-containing protein 16 (Zinc finger proteinPLZF) (Promyelocytic leukemia zinc finger protein) (Zinc fingerprotein 145).	0	0
+9	4	FGFR1_761_773	TSNQEYLDLSMPL	[766]	1000	P11362	Basic fibroblast growth factor receptor 1 precursor (EC 2.7.10.1)(FGFR-1) (bFGF-R) (Fms-like tyrosine kinase 2) (c-fgr) (CD331antigen).	0	0
+9	5	PGFRB_1014_1028	PNEGDNDYIIPLPDP	[1021]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+9	6	ERBB2_1241_1253	PTAENPEYLGLDV	[1248]	1000	P04626	Receptor tyrosine-protein kinase erbB-2 precursor (EC 2.7.10.1)(p185erbB2) (C-erbB-2) (NEU proto-oncogene) (Tyrosine kinase-type cellsurface receptor HER2) (MLN 19) (CD340 antigen).	0	0
+9	7	KSYK_518_530	ALRADENYYKAQT	[525, 526]	1000	P43405	Tyrosine-protein kinase SYK (EC 2.7.10.2) (Spleen tyrosine kinase).	0	0
+9	8	MK12_178_190	ADSEMTGYVVTRW	[185]	1000	P53778	Mitogen-activated protein kinase 12 (EC 2.7.11.24) (Extracellularsignal-regulated kinase 6) (ERK-6) (ERK5) (Stress-activated proteinkinase 3) (Mitogen-activated protein kinase p38 gamma) (MAP kinase p38gamma).	0	0
+9	9	MK14_173_185	RHTDDEMTGYVAT	[182]	1000	Q16539	Mitogen-activated protein kinase 14 (EC 2.7.11.24) (Mitogen-activatedprotein kinase p38 alpha) (MAP kinase p38 alpha) (Cytokine suppressiveanti-inflammatory drug-binding protein) (CSAID-binding protein) (CSBP)(MAX-interacting protein 2) (MAP kinase MXI2) (SAPK2A).	0	0
+9	10	PGFRB_572_584	VSSDGHEYIYVDP	[579, 581]	1000	P09619	Beta-type platelet-derived growth factor receptor precursor(EC 2.7.10.1) (PDGF-R-beta) (CD140b antigen).	0	0
+9	11	TEC_512_524	RYFLDDQYTSSSG	[513, 519]	1000	P42680	Tyrosine-protein kinase Tec (EC 2.7.10.2).	0	0
+9	12	VGFR1_1235_1247	ATSMFDDYQGDSS	[1242]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+9	13	VGFR2_1168_1180	AQQDGKDYIVLPI	[1175]	1000	P35968	Vascular endothelial growth factor receptor 2 precursor (EC 2.7.10.1)(VEGFR-2) (Kinase insert domain receptor) (Protein-tyrosine kinasereceptor Flk-1) (CD309 antigen).	0	0
+9	14	ANXA1_14_26	IENEEQEYVQTVK	[21]	1000	P04083	Annexin A1 (Annexin-1) (Annexin I) (Lipocortin I) (Calpactin II)(Chromobindin-9) (p35) (Phospholipase A2 inhibitory protein).	0	0
+10	1	EGFR_1165_1177	ISLDNPDYQQDFF	[1172]	1000	P00533	Epidermal growth factor receptor precursor (EC 2.7.10.1) (Receptortyrosine-protein kinase ErbB-1).	0	0
+10	2	EPOR_419_431	ASAASFEYTILDP	[426]	1000	P19235	Erythropoietin receptor precursor (EPO-R).	0	0
+10	3	ERBB4_1277_1289	IVAENPEYLSEFS	[1284]	1000	Q15303	Receptor tyrosine-protein kinase erbB-4 precursor (EC 2.7.10.1)(p180erbB4) (Tyrosine kinase-type cell surface receptor HER4).	0	0
+10	4	FGFR2_762_774	TLTTNEEYLDLSQ	[769]	1000	P21802	Fibroblast growth factor receptor 2 precursor (EC 2.7.10.1) (FGFR-2)(Keratinocyte growth factor receptor 2) (CD332 antigen).	0	0
+10	5	FGFR3_753_765	TVTSTDEYLDLSA	[760]	1000	P22607	Fibroblast growth factor receptor 3 precursor (EC 2.7.10.1) (FGFR-3)(CD333 antigen).	0	0
+10	6	P85A_600_612	NENTEDQYSLVED	[607]	1000	P27986	Phosphatidylinositol 3-kinase regulatory subunit alpha (PI3-kinase p85subunit alpha) (PtdIns-3-kinase p85-alpha) (PI3K).	0	0
+10	7	PDPK1_369_381	DEDCYGNYDNLLS	[373, 376]	1000	O15530	3-phosphoinositide-dependent protein kinase 1 (EC 2.7.11.1) (hPDK1).	0	0
+10	8	AKT1_170_182	KATGRYYAMKILK	[175, 176]	1000	P31749	RAC-alpha serine/threonine-protein kinase (EC:2.7.11.1)(PKB, RAC)	0	0
+10	9	AKT1_309_321_C310S	FSGTPEYLAPEVL	[315]	1000	P31749	RAC-alpha serine/threonine-protein kinase (EC:2.7.11.1)(PKB, RAC)	0	0
+10	10	AKT1_320_332	VLEDNDYGRAVDW	[326]	1000	P31749	RAC-alpha serine/threonine-protein kinase (EC:2.7.11.1)(PKB, RAC)	0	0
+10	11	ARAF_297_307	RDSGYYWEVPP	[301, 302]	1000	P10398	Serine/threonine-protein kinase A-Raf (EC:2.7.11.1),(ARAF1, PKS, PKS2)	0	0
+10	12	BTLA_252_262	KPGIVYASLNH	[257]	1000	Q7Z6A9	B- and T-lymphocyte attenuator,B- and T-lymphocyte-associated protein,CD272	0	0
+10	13	CD28_185_197	RLLHSDYMNMTPR	[191]	1000	 P10747	T-cell-specific surface glycoprotein CD28, TP44, CD28	0	0
+10	14	CD28_203_215	RKHYQPYAPPRDF	[206, 209]	1000	 P10747	T-cell-specific surface glycoprotein CD28, TP44, CD28	0	0
+11	1	CD3E_182_194	PVPNPDYEPIRKG	[188]	1000	P07766	T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e 	0	0
+11	2	CD3E_193_205	KGQRDLYSGLNQR	[199]	1000	P07766	T-cell surface glycoprotein CD3 epsilon chain, T-cell surface antigen T3/Leu-4 epsilon chain, CD3e 	0	0
+11	3	CD3Z_135_147	KGHDGLYQGLSTA	[142]  	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+11	4	CD3Z_147_159	TATKDTYDALHMQ	[153]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+11	5	CD70_9_21_C17S	SVRRRPYGSVLRA	[15]	1000	P32970	CD70 antigen, CD27 ligand , Tumor necrosis factor ligand superfamily member 7	0	0
+11	6	CDK1_9_21	KIGEGTYGVVYKG	[15, 19]	1000	P06493	Cyclin-dependent kinase 1 (EC:2.7.11.22, EC:2.7.11.23), Cell division protein kinase 1,  Cell division control protein 2 homolog,  (p34 protein kinase)(CDK1)	0	0
+11	7	CDK4_11_23	EIGVGAYGTVYKA	[17, 21]	1000	P11802	Cyclin-dependent kinase 4 (EC:2.7.11.22) ,Cell division protein kinase 4 (PSK-J3)	0	0
+11	8	ERBB3_1283_1295	PASEQGYEEMRAF	[1289]	1000	 P21860	Receptor tyrosine-protein kinase erbB-3 (EC:2.7.10.1), Proto-oncogene-like protein c-ErbB-3 , Tyrosine kinase-type cell surface receptor HER3	0	0
+11	9	FYN_525_537	TATEPQYQPGENL	[531]	1000	P06241	Tyrosine-protein kinase Fyn (EC:2.7.10.2), Proto-oncogene Syn, Proto-oncogene c-Fyn, Src-like kinase	0	0
+11	10	GAB2_638_648	DEKVDYVQVDK	[643]	1000	Q9UQC2	GRB2-associated-binding protein 2, GRB2-associated binder 2, Growth factor receptor bound protein 2-associated protein 2	0	0
+11	11	GSK3B_210_222_C218S	GEPNVSYISSRYY	[216, 221, 222]	1000	P49841 	Glycogen synthase kinase-3 beta (EC:2.7.11.26), Serine/threonine-protein kinase GSK3B (EC:2.7.11.1)	0	0
+11	12	IRS2_626_638	HPYPEDYGDIEIG	[628, 632]	1000	Q9Y4H2 	Insulin receptor substrate 2	0	0
+11	13	JAK1_214_226	DISYKRYIPETLN	[217, 220]	1000	P23458	Tyrosine-protein kinase JAK1 (EC 2.7.10.2) (Janus kinase 1) (JAK-1).	0	0
+11	14	JAK2_1001_1013	LPQDKEYYKVKEP	[1007, 1008]	1000	O60674	Tyrosine-protein kinase JAK2 (EC 2.7.10.2) (Janus kinase 2) (JAK-2).	0	0
+12	1	JAK3_974_986	LPLDKDYYVVREP	[980, 981]	1000	P52333  	Tyrosine-protein kinase JAK3 (EC:2.7.10.2) (Janus kinase 3) (JAK-3).	0	0
+12	2	KIT_930_942_C942S	ESTNHIYSNLANS	[936]	1000	 P10721 	Mast/stem cell growth factor receptor Kit (EC:2.7.10.1), CD117	0	0
+12	3	LYN_391_403	VIEDNEYTAREGA	[397]	1000	P07948 	Tyrosine-protein kinase Lyn (EC:2.7.10.2)	0	0
+12	4	LYN_501_512	YTATEGQYQQQP	[501, 508]	1000	P07948 	Tyrosine-protein kinase Lyn (EC:2.7.10.2)	0	0
+12	5	MAPK3_198_210_C203S	ALQTPSYTPYYVA	[204, 207, 208]	1000	Q16644	MAP kinase-activated protein kinase 3 (EC:2.7.11.1)	0	0
+12	6	MET_1228_1240	DMYDKEYYSVHNK	[1230, 1234, 1235]	1000	P08581	Hepatocyte growth factor receptor precursor (EC 2.7.10.1) (HGFreceptor) (Scatter factor receptor) (SF receptor) (HGF/SF receptor)(Met proto-oncogene tyrosine kinase) (c-Met).	0	0
+12	7	MET_1360_1370_C1361S	KSVAPYPSLLS	[1365]	1000	P08581	Hepatocyte growth factor receptor precursor (EC 2.7.10.1) (HGFreceptor) (Scatter factor receptor) (SF receptor) (HGF/SF receptor)(Met proto-oncogene tyrosine kinase) (c-Met).	0	0
+12	8	MK01_200_209	LNSKGYTKSI	[205]	1000	P28482	Mitogen-activated protein kinase 1 (EC 2.7.11.24) (Extracellular signal-regulated kinase 2) (ERK-2) (Mitogen-activated protein kinase 2) (MAP kinase 2) (MAPK 2) (p42-MAPK) (ERT1).	0	0
+12	9	MK03_199_208	GFLTEYVATR	[204]	1000	P27361	Mitogen-activated protein kinase 3 (EC:2.7.11.24), (Extracellular signal-regulated kinase 1) (ERK-1)( Mitogen-activated protein kinase 3) (MAP kinase 3)( MAPK 3) (p44-MAPK) (ERT2)	0	0
+12	10	MK08_181_191	MMTPYVVTRYY	[185, 190, 191]	1000	P45983	Mitogen-activated protein kinase 8 (EC 2.7.11.24) (MAP kinase 8)(MAPK 8)	0	0
+12	11	MK12_180_189_M182B	SEBTGYVVTR	[185]	1000	P53778	Mitogen-activated protein kinase 12 (EC 2.7.11.24) (Extracellularsignal-regulated kinase 6) (ERK-6) (ERK5) (Stress-activated proteinkinase 3) (Mitogen-activated protein kinase p38 gamma) (MAP kinase p38gamma).	0	0
+12	12	MK14_177_187	DEMTGYVATRW	[182]	1000	Q16539	Mitogen-activated protein kinase 14 (EC 2.7.11.24) (Mitogen-activatedprotein kinase p38 alpha) (MAP kinase p38 alpha) (Cytokine suppressiveanti-inflammatory drug-binding protein) (CSAID-binding protein) (CSBP)(MAX-interacting protein 2) (MAP kinase MXI2) (SAPK2A).	0	0
+12	13	PDCD1_221_229_FS219_220KK	KKVDYGELDFQ	[223]	1000	Q15116	Programmed cell death protein 1, (Protein PD-1) (CD279)	0	0
+12	14	PECA1_708_718	DTETVYSEVRK	[713]	1000	P16284	Platelet endothelial cell adhesion molecule precursor (PECAM-1)(EndoCAM) (GPIIA') (CD31 antigen).	0	0
+13	1	PLCG1_777_789	GRNPGFYVEANPM	[783]	1000	P19174	1-phosphatidylinositol-4,5-bisphosphate phosphodiesterase gamma-1(EC 3.1.4.11) (Phosphoinositide phospholipase C) (PLC-gamma-1)(Phospholipase C-gamma-1) (PLC-II) (PLC-148).	0	0
+13	2	PLCG2_1211_1223	NNQLFLYDTHQNL	[1217]	1000	P16885	1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase gamma-2 (EC:3.1.4.11) (Phosphoinositide phospholipase C-gamma-2) (PLC-IV) (Phospholipase C-gamma-2)(PLC-gamma-2)	0	0
+13	3	PTN11_541_551	RKGHEYTNIKY	[546, 551]	1000	Q06124	Tyrosine-protein phosphatase non-receptor type 11 (EC 3.1.3.48)(Protein-tyrosine phosphatase 2C) (PTP-2C) (PTP-1D) (SH-PTP3) (SH-PTP2) (SHP-2) (Shp2).	0	0
+13	4	PTN11_57_67	QNTGDYYDLYG	[62, 63, 66]	1000	Q06124	Tyrosine-protein phosphatase non-receptor type 11 (EC 3.1.3.48)(Protein-tyrosine phosphatase 2C) (PTP-2C) (PTP-1D) (SH-PTP3) (SH-PTP2) (SHP-2) (Shp2).	0	0
+13	5	PTN6_531_541	GQESEYGNITY	[536, 541]	1000	P29350	Tyrosine-protein phosphatase non-receptor type 6 (EC:3.1.3.48)	0	0
+13	6	PTN6_558_570	KHKEDVYENLHTK	[564]	1000	P29350	Tyrosine-protein phosphatase non-receptor type 6 (EC:3.1.3.48)	0	0
+13	7	SHC1_309_321	ELRFKQYLRNPPK	[315]	1000	P29353	SHC-transforming protein 1	0	0
+13	8	SRC_524_536	TSTEPQYQPGENL	[530]	1000	P12931	Proto-oncogene tyrosine-protein kinase Src (EC:2.7.10.2) (Proto-oncogene c-Src)(pp60c-src)( p60-Src)	0	0
+13	9	STAT2_684_696	LQERRKYLKHRLI	[690]	1000	P52630 	Signal transducer and activator of transcription 2 (p113)	0	0
+13	10	TIE2_986_998	SRGQEVYVKKTMG	[992]	1000	 Q02763	Angiopoietin-1 receptor (EC:2.7.10.1)	0	0
+13	11	TYK2_1048_1060	VPEGHEYYRVRED	[1054, 1055]	1000	 P29597	Non-receptor tyrosine-protein kinase TYK2 (EC:2.7.10.2)	0	0
+13	12	VGFR1_1320_1332_C1320K/C1321K	KKSPPPDYNSVVL	[1327]	1000	P17948	Vascular endothelial growth factor receptor 1 precursor (EC 2.7.10.1)(VEGFR-1) (Vascular permeability factor receptor) (Tyrosine-proteinkinase receptor FLT) (Flt-1) (Tyrosine-protein kinase FRT) (Fms-liketyrosine kinase 1).	0	0
+13	13	VISTA_260_270	RHPLSYVAQRQ	[265]	1000	Q9H7M9	V-type immunoglobulin domain-containing suppressor of T-cell activation	0	0
+13	14	YES_420_432	LIEDNEYTARQGA	[426] 	1000	P07947	Tyrosine-protein kinase Yes (EC:2.7.10.2)(Proto-oncogene c-Yes)(p61-Yes)	0	0
+14	1	CD79A_181_193	EYEDENLYEGLNL	[182, 188]	1000	P11912	B-cell antigen receptor complex-associated protein alpha-chainprecursor (Ig-alpha) (MB-1 membrane glycoprotein) (Surface IgM-associated protein) (Membrane-bound immunoglobulin-associated protein)(CD79a antigen).	0	0
+14	2	CD3Z_77_89	LGRREEYDVLDKR	[83]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+14	3	CD3Z_105_117	NPQEGLYNELQKD	[111]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+14	4	CD3Z_117_129	DKMAEAYSEIGMK	[123]	1000	P20963	T-cell surface glycoprotein CD3 zeta chain precursor (T-cell receptorT3 zeta chain) (CD247 antigen).	0	0
+14	5	MUSK_548_560	LHPNPMYQRMPLL	[554]	1000	O15146	Muscle, skeletal receptor tyrosine-protein kinase (EC:2.7.10.1)	0	0
+14	6	ODBA_340_352_D340K	KDSSAYRSVDEVN	[345]	1000	P12694	2-oxoisovalerate dehydrogenase subunit alpha, mitochondrial (EC:1.2.4.4) (BCKDE1A)	0	0
+14	7	GAB1_622_632	DKQVEYLDLDL	[627]	1000	Q13480	GRB2-associated-binding protein 1, GRB2-associated binder 1, Growth factor receptor bound protein 2-associated protein 1	0	0
+14	8	HAVR2_257_267	GIRSEENIYTI	[265]	1000	Q8TDQ0	Hepatitis A virus cellular receptor 2, T-cell immunoglobulin and mucin domain-containing protein 3,T-cell membrane protein 3	0	0
+14	9	IRS1_890_902	PKSPGEYVNIEFG	[896]	1000	P35568	Insulin receptor substrate 1	0	0
+14	10	ZAP70_313_325	SVYESPYSDPEEL	[315, 319]	1000	P43403	Tyrosine-protein kinase ZAP-70 (EC 2.7.10.2) (70 kDa zeta-associatedprotein) (Syk-related tyrosine kinase).	0	0
+14	11	MPZL1_236_246	QGPVIYAQLDH	[241]	1000	O95297	Myelin protein zero-like protein 1	0	0
+14	12	PLCG2_1191_1203_C1200S	ESEEELYSSSRQL 	[1197]	1000	P16885	1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase gamma-2 (EC:3.1.4.11) (Phosphoinositide phospholipase C-gamma-2) (PLC-IV) (Phospholipase C-gamma-2)(PLC-gamma-2)	0	0
+14	13	PTN11_580_590	SARVYENVGLM	[584]	1000	Q06124	Tyrosine-protein phosphatase non-receptor type 11 (EC 3.1.3.48)(Protein-tyrosine phosphatase 2C) (PTP-2C) (PTP-1D) (SH-PTP3) (SH-PTP2) (SHP-2) (Shp2).	0	0
+14	14	ENOG_37_49	SGASTGIYEALEL	[44]	1000	P09104	Gamma-enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase)(Neural enolase) (Neuron-specific enolase) (NSE) (Enolase 2).	0	0
