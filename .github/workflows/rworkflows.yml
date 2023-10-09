@@ -1,5 +1,6 @@
 name: rworkflows
 on:
+  workflow_dispatch:
   push:
     branches:
     - master
@@ -12,7 +13,6 @@ on:
     - main
     - devel
     - RELEASE_**
-  workflow_dispatch:
 jobs:
   rworkflows:
     permissions:
@@ -32,13 +32,9 @@ jobs:
         - os: macOS-latest
           bioc: release
           r: auto
-          cont: ~
-          rspm: ~
         - os: windows-latest
           bioc: release
           r: auto
-          cont: ~
-          rspm: ~
     steps:
     - uses: neurogenomics/rworkflows@master
       with:
