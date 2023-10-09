@@ -1,5 +1,5 @@
 name: rworkflows
-'on':
+on:
   push:
     branches:
     - master
@@ -12,6 +12,7 @@ name: rworkflows
     - main
     - devel
     - RELEASE_**
+  workflow_dispatch:
 jobs:
   rworkflows:
     permissions:
