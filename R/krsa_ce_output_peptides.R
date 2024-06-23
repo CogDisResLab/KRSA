@@ -16,10 +16,8 @@
 #'
 
 krsa_ce_output_peptides <- function(peptide_table, metric, file_name) {
-
-  peptide_table %>%
-    dplyr::select(Peptide, {{ metric }}) %>%
-    dplyr::rename(Score = {{ metric }}) %>%
-    readr::write_delim(file=file_name)
-
+    peptide_table %>%
+        dplyr::select(Peptide, {{ metric }}) %>%
+        dplyr::rename(Score = {{ metric }}) %>%
+        readr::write_delim(file = file_name)
 }

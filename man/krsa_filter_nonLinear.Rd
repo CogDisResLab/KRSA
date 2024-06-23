@@ -25,7 +25,7 @@ This function takes in the pw data, r2 threshold, and samples and group names (o
 TRUE
 }
 \seealso{
-Other QC functions: 
+Other QC functions:
 \code{\link{krsa_filter_lowPeps}()},
 \code{\link{krsa_filter_ref_pep}()},
 \code{\link{krsa_qc_steps}()}

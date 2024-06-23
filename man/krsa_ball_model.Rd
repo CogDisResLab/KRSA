@@ -27,7 +27,7 @@ This function takes in a Z score table and produces a kinase ball model
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},
 \code{\link{krsa_cv_plot}()},

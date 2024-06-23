@@ -21,7 +21,7 @@ This function takes in raw data and chip type and returns end point data at max 
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},

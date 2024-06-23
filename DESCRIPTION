@@ -1,14 +1,18 @@
 Package: KRSA
-Type: Package
 Title: KRSA: Kinome Random Sampling Analyzer
-Version: 1.0.0
-Author: Khaled Alganem
-Maintainer: Khaled Alganem <khaled.a.alganem@gmail.com>
-Description: KRSA: Kinome Random Sampling Analyzer
-    This package aims to pre-process and analyze PamChip array data. From reading bionavigator crosstab view files to generating network models on kinome data.  
+Version: 1.99.0
+Date: 2023-10-10
+Authors@R:
+    c(person(c("Ali", "Sajid"), "Imami", , "Ali.Sajid.Imami@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3684-3539")),
+    person("Khaled", "Alganem", "khaled.a.alganem@gmail.com" ,role = "aut", comment = c(ORCID = "0000-0003-4419-3708")))
+Description: The goal of this package is to analyze the PamChip data and identify the changes in the active kinome.
+        The package can preprocess the PamChip data output from BioNavigator and use Random Sampling and Permutation Analysis
+        to identify upstream kinases. Additionally, this package provides a set of useful visualizations for the PamChip data.
 License: MIT + file LICENSE
+URL: https://github.com/CogDisResLab/KRSA
 Encoding: UTF-8
-Imports: 
+Imports:
     magrittr,
     tibble,
     readr,
@@ -27,15 +31,18 @@ Imports:
     ggsignif,
     httr,
     jsonlite
-Depends: 
-    R (>= 3.5.0)
-LazyData: true
-RoxygenNote: 7.2.1
-Suggests: 
+Depends:
+    R (>= 4.3.0)
+Suggests:
     knitr,
     rmarkdown,
     markdown,
     tidyverse,
     gt,
-    furrr
-VignetteBuilder: knitr
+    furrr,
+    biocthis,
+    usethis
+BugReports: https://support.bioconductor.org/tag/KRSA
+biocViews: Software
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3

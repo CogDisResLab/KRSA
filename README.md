@@ -28,7 +28,7 @@ devtools::install_github(build_vignettes = T)
 
 R (>= 3.5.0) version
 
-For Windows users:  
+For Windows users:
 installment of Rtools
 (<https://cran.r-project.org/bin/windows/Rtools/>).
 

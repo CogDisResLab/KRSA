@@ -23,7 +23,7 @@ This function takes in the chipCov map, Z score table, and chip type to produce 
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_curve_plot}()},
 \code{\link{krsa_cv_plot}()},

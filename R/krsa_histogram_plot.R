@@ -30,4 +30,3 @@ krsa_histogram_plot <- function(data,data2,kinases) {
     ggplot2::theme_bw() +
     ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5))
 }
-

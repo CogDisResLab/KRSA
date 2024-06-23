@@ -1,10 +1,10 @@
 ---
 title: |
-  ![](images/ut_collegeofmedicine-logo.png){width=2in}  
+  ![](images/ut_collegeofmedicine-logo.png){width=2in}
   KRSA Report
 author: "The Cognitive Disorders Research Laboratory (CDRL)"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: 
+output:
   pdf_document: default
 ---
 
@@ -23,7 +23,7 @@ library(knitr)
 library(tidyverse)
 
 library(gt) # can be used to view tables
-library(furrr) # can be used for parallel computing 
+library(furrr) # can be used for parallel computing
 ```
 
 \newpage
@@ -78,7 +78,7 @@ data %>% mutate(Group = SampleName, SampleName = paste0(SampleName,"_" ,Barcode)
 krsa_extractEndPointMaxExp(data, chipType) -> data_pw_200
 
 # extract end level signal values end level @ all exposure times
-krsa_extractEndPoint(data, chipType) -> data_pw 
+krsa_extractEndPoint(data, chipType) -> data_pw
 
 
 ```
@@ -99,7 +99,7 @@ krsa_scaleModel(data_pw,unique(data_pw$Peptide)) -> data_modeled
 # Filter out peptides with low signals
 krsa_filter_lowPeps(data_pw_200, 5) -> ppPassAll
 
-  
+
 # Filter out peptides weak linear fit
 krsa_filter_nonLinear(data_modeled$scaled %>% filter(Peptide %in% ppPassAll), 0.9) -> ppPassR2
 
@@ -231,13 +231,13 @@ krsa_heatmap(data_modeled$normalized, sigPeps$meanLFC$`0.2`, groups = comparison
 krsa_violin_plot(data_modeled$scaled, sigPeps$meanLFC$`0.2`, "Barcode", groups = comparisons$Comp1)
 
 # generate a grouped violin/boxplot plot using the selected groups and peptides with more options, like a statistical test. check krsa_violin_plot_grouped() arguments for more options
-krsa_violin_plot_grouped(data_modeled$scaled, sigPeps$meanLFC$`0.2`, comparisons, 
+krsa_violin_plot_grouped(data_modeled$scaled, sigPeps$meanLFC$`0.2`, comparisons,
                          dots = F,
                          groups = comparisons$Comp1, avg_line = T)
 
 
-krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC$`0.2`, comparisons, 
-                         test = F, 
+krsa_violin_plot_grouped(data_modeled$grouped, sigPeps$meanLFC$`0.2`, comparisons,
+                         test = F,
                          groups = comparisons$Comp1, avg_line = T)
 
 ```
@@ -318,29 +318,29 @@ future_map(sigPeps_total, krsa) -> mutiple_krsa_outputs
 df <- data.frame(matrix(unlist(mutiple_krsa_outputs), ncol = max(lengths(mutiple_krsa_outputs)), byrow = TRUE))
 df <- setNames(do.call(rbind.data.frame, mutiple_krsa_outputs), names(mutiple_krsa_outputs$meanLFC.0.2))
 
-df %>% rownames_to_column("method") %>% select(Kinase, Z, method) %>% 
-  mutate(method = str_extract(method, "\\w+\\.\\w+\\.\\w+")) %>% 
-  mutate(method = gsub("(^\\w+)[\\.]", "\\1>", method)) %>% 
+df %>% rownames_to_column("method") %>% select(Kinase, Z, method) %>%
+  mutate(method = str_extract(method, "\\w+\\.\\w+\\.\\w+")) %>%
+  mutate(method = gsub("(^\\w+)[\\.]", "\\1>", method)) %>%
   mutate_if(is.numeric, round, 2) -> df
 
-df %>% 
+df %>%
   pivot_wider(names_from = method, values_from = Z) -> df2
-  
+
 # Generates a table of the Z scores across the different sets of peptides
-# df2 %>% 
+# df2 %>%
 #   gt() %>% tab_spanner_delim(delim = ">")
 
 # Creates an average Z score table using the across chip analysis
-df %>% 
-  filter(grepl("mean", method)) %>% 
+df %>%
+  filter(grepl("mean", method)) %>%
   select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable
 
 # save file
 AvgZTable %>% write_delim("output/Z_Scores_tables/acrossChip_KRSA_Table_comp1.txt", delim = "\t")
 
 # Creates an average Z score table using the within chip analysis
-df %>% 
-  filter(!grepl("mean", method)) %>% 
+df %>%
+  filter(!grepl("mean", method)) %>%
   select(Kinase, Z, method) %>% group_by(Kinase) %>% mutate(AvgZ = mean(Z)) -> AvgZTable2
 
 # save file
@@ -391,7 +391,7 @@ To view the coverage of kinases across the full list of peptides on the chip, we
 
 ```{r covPlot, echo=F, fig.align="center", fig.height=10,fig.width=8, cache=TRUE}
 
-# generates a kinase coverage plot 
+# generates a kinase coverage plot
 krsa_coverage_plot(chipCov, AvgZTable2, chipType)
 
 ```

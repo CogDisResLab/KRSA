@@ -36,7 +36,7 @@ This function takes in pw data max exposure, modeled pw data, signal threshold, 
 TRUE
 }
 \seealso{
-Other core functions: 
+Other core functions:
 \code{\link{krsa_group_diff}()},
 \code{\link{krsa_read}()},
 \code{\link{krsa_scaleModel}()},

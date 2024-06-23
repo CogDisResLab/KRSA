@@ -21,7 +21,7 @@ Take in Z score table and extract top kinases based on a Z score cutoff
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},
