@@ -47,4 +47,3 @@ process_output <- function(x) {
   x
 
 }
-

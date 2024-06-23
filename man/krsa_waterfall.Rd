@@ -25,7 +25,7 @@ Takes in the LFC table and a LFC cuttoff and generates a waterfall plot using a 
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},

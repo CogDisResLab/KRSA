@@ -25,7 +25,7 @@ This function takes in the pw data (max exposure), signal threshold, and samples
 TRUE
 }
 \seealso{
-Other QC functions: 
+Other QC functions:
 \code{\link{krsa_filter_nonLinear}()},
 \code{\link{krsa_filter_ref_pep}()},
 \code{\link{krsa_qc_steps}()}

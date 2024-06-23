@@ -20,7 +20,7 @@ saved txt file to be used in creedenzymatic
 Takes in the Z score table and output kinase with their scores
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_enrichr}()},

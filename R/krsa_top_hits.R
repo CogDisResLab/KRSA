@@ -23,5 +23,3 @@ krsa_top_hits <- function(zTable,z_thr) {
     dplyr::pull(Kinase) %>%
     unique()
 }
-
-

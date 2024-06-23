@@ -36,7 +36,7 @@ This function takes in the modeled pw data, groups, peptides, and an option to p
 TRUE
 }
 \seealso{
-Other core functions: 
+Other core functions:
 \code{\link{krsa_quick_filter}()},
 \code{\link{krsa_read}()},
 \code{\link{krsa_scaleModel}()},

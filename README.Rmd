@@ -25,11 +25,11 @@ The KRSA Vignette is now available in R (using browseVignettes("KRSA")). To have
 devtools::install_github(build_vignettes = T)
 ```
 
-### Installation Requirements 
-R (>= 3.5.0) version  
+### Installation Requirements
+R (>= 3.5.0) version
 
-For Windows users:  
-installment of Rtools (https://cran.r-project.org/bin/windows/Rtools/). 
+For Windows users:
+installment of Rtools (https://cran.r-project.org/bin/windows/Rtools/).
 
 
 ## KRSA <img src="man/figures/logo.png" align="right" height="280"/>

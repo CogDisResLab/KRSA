@@ -23,7 +23,7 @@ This function takes in Z score table, and count matrix (an output from krsa()) a
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},

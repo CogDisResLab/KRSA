@@ -25,7 +25,7 @@ This function takes number of iterations, coverage file, kinase-substrate mappin
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},

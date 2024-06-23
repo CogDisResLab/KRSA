@@ -25,7 +25,7 @@ This function takes in the grouped modeled pw data, peptides and produces a phea
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},

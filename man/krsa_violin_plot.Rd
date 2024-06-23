@@ -39,7 +39,7 @@ Takes in the scaled dataset from krsa_scaleModel() and plot violin figures using
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},

@@ -497,7 +497,9 @@ BhyB
 bh֨Kv
 bI
 bindingprotein
+bioc
 bioconductor
+biocthis
 biocViews
 bionavigator
 bioNavigator
@@ -911,6 +913,8 @@ CNy
 cNz
 cO
 CoB
+codemeta
+codeRepository
 COF
 Cofilin
 cogdisreslab
@@ -921,7 +925,9 @@ COJ
 Comparsion
 Complementcomponent
 complexkinase
+ComputerLanguage
 concat
+contIntegration
 coould
 copyButton
 Cortactin
@@ -1185,6 +1191,7 @@ DESP
 DEtDI
 deUr
 Dev
+developmentStatus
 deY
 df
 dF
@@ -1305,6 +1312,7 @@ dO
 docsearch
 Docsearch
 DOd
+doi
 DOMContentLoaded
 Doq
 dotplot
@@ -1960,6 +1968,7 @@ fAL
 FAL
 fam
 fAm
+familyName
 faR
 FAr
 fAu
@@ -2049,6 +2058,7 @@ FIGRRQSLIEDAR
 FIH
 Fij
 fik
+fileSize
 findOrFilter
 fingerprotein
 FinName
@@ -2439,6 +2449,7 @@ GIpR
 GIRSEENIYTI
 github
 gIU
+givenName
 GIVYAVSSDRFRS
 gIz
 GiƦ
@@ -3273,6 +3284,7 @@ ISGF
 ISLDNPDYQQDFF
 isoform
 isozyme
+issueTracker
 isSupported
 ISSVPTPSPLGPL
 Isu
@@ -4354,6 +4366,7 @@ LIEDARK
 LIEDNEYTARQGA
 lIF
 Lifecycle
+lifecycle
 ligand
 ligase
 liHW
@@ -5990,6 +6003,7 @@ pRIi
 PRJI
 PRKDC
 pRNN
+programmingLanguage
 Proline
 Promyelocytic
 proteinkinase
@@ -6629,6 +6643,8 @@ Rdx
 rdɸm
 rE
 Reactome
+readme
+README
 readr
 REB
 ReC
@@ -6644,6 +6660,7 @@ REN
 Reo
 repo
 Repo
+repostatus
 repressorfactor
 rES
 ret
@@ -6805,6 +6822,7 @@ RSGSRRGSFDATG
 Rsh
 RSK
 rst
+rstats
 RSW
 rT
 rTF
@@ -6818,6 +6836,7 @@ rU
 RUc
 ruJ
 rUN
+runtimePlatform
 RUâ
 rv
 rV
@@ -6963,6 +6982,7 @@ SaJ
 Sajid
 SAJy
 SALLGDHYVQLPA
+sameAs
 SamplingAvg
 SAPK
 SaQ
@@ -7138,6 +7158,10 @@ SnV
 SNz
 SNͬ
 sO
+SoftwareApplication
+softwareRequirements
+SoftwareSourceCode
+softwareSuggestions
 soJN
 Somatomedin
 soU
@@ -7147,6 +7171,7 @@ sOY
 Soۼ
 sp
 sP
+spdx
 specificform
 specificityphosphatase
 Sphingosine
@@ -7293,6 +7318,7 @@ SYK
 synthase
 sYQ
 syr
+SystemRequirements
 syX
 sYz
 sz
@@ -8018,6 +8044,7 @@ urv
 URx
 uS
 userListId
+usethis
 USI
 USjG
 UsQ
@@ -9270,6 +9297,7 @@ yA
 yae
 YAKd
 Yakƈ
+yaml
 YAN
 yaO
 YAO
@@ -9409,6 +9437,7 @@ yMf
 YMF
 yMi
 yMj
+yml
 Ymov
 Ymq
 yMV
