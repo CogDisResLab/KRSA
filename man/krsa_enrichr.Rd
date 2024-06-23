@@ -29,7 +29,7 @@ This function takes in a list of PamChip peptide IDs or genes and geneset librar
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},

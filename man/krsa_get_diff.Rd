@@ -25,7 +25,7 @@ This function takes in the LFC table, column name, and an LFC cutoff to extracts
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{enrichr_lib_call}()},
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},

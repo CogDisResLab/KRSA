@@ -22,7 +22,7 @@ TRUE
 
 }
 \seealso{
-Other QC functions: 
+Other QC functions:
 \code{\link{krsa_filter_lowPeps}()},
 \code{\link{krsa_filter_nonLinear}()},
 \code{\link{krsa_filter_ref_pep}()}

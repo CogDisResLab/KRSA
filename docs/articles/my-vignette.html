@@ -47,7 +47,7 @@
 <li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
-     
+
   </a>
 </li>
 <li>
@@ -56,7 +56,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -74,21 +74,21 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><script src="my-vignette_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>KRSA Vignette</h1>
-            
-      
-      
+
+
+
       <div class="hidden name"><code>my-vignette.Rmd</code></div>
 
     </div>
 
-    
-    
+
+
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">KRSA</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span>
@@ -501,29 +501,29 @@
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">mutiple_krsa_outputs</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lengths.html">lengths</a></span><span class="op">(</span><span class="va">mutiple_krsa_outputs</span><span class="op">)</span><span class="op">)</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind.data.frame</span>, <span class="va">mutiple_krsa_outputs</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">mutiple_krsa_outputs</span><span class="op">$</span><span class="va">meanLFC.0.2</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">df</span> <span class="op">%&gt;%</span> <span class="fu">rownames_to_column</span><span class="op">(</span><span class="st">"method"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Kinase</span>, <span class="va">Z</span>, <span class="va">method</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>method <span class="op">=</span> <span class="fu">str_extract</span><span class="op">(</span><span class="va">method</span>, <span class="st">"\\w+\\.\\w+\\.\\w+"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">mutate</span><span class="op">(</span>method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"(^\\w+)[\\.]"</span>, <span class="st">"\\1&gt;"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">df</span> <span class="op">%&gt;%</span> <span class="fu">rownames_to_column</span><span class="op">(</span><span class="st">"method"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">Kinase</span>, <span class="va">Z</span>, <span class="va">method</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>method <span class="op">=</span> <span class="fu">str_extract</span><span class="op">(</span><span class="va">method</span>, <span class="st">"\\w+\\.\\w+\\.\\w+"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"(^\\w+)[\\.]"</span>, <span class="st">"\\1&gt;"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">mutate_if</span><span class="op">(</span><span class="va">is.numeric</span>, <span class="va">round</span>, <span class="fl">2</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">df</span>
 
-<span class="va">df</span> <span class="op">%&gt;%</span> 
+<span class="va">df</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">method</span>, values_from <span class="op">=</span> <span class="va">Z</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">df2</span>
-  
+
 <span class="co"># Generates a table of the Z scores across the different sets of peptides</span>
 <span class="co"># df2 %&gt;% </span>
 <span class="co">#   gt() %&gt;% tab_spanner_delim(delim = "&gt;")</span>
 
 <span class="co"># Creates an average Z score table using the across chip analysis</span>
-<span class="va">df</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">df</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">select</span><span class="op">(</span><span class="va">Kinase</span>, <span class="va">Z</span>, <span class="va">method</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">Kinase</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>AvgZ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Z</span><span class="op">)</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">AvgZTable</span>
 
 <span class="co"># save file</span>
 <span class="co">#AvgZTable %&gt;% write_delim("acrossChip_KRSA_Table_comp1.txt", delim = "\t")</span>
 
 <span class="co"># Creates an average Z score table using the within chip analysis</span>
-<span class="va">df</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">df</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="va">method</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">select</span><span class="op">(</span><span class="va">Kinase</span>, <span class="va">Z</span>, <span class="va">method</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">Kinase</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>AvgZ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Z</span><span class="op">)</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">AvgZTable2</span>
 
 <span class="co"># save file</span>
@@ -620,7 +620,7 @@
       </footer>
 </div>
 
-  
+
 
 
   </body>

@@ -21,7 +21,7 @@ This function takes in the geneset library name from Enrichr and userListId (id 
 TRUE
 }
 \seealso{
-Other helper functions: 
+Other helper functions:
 \code{\link{krsa_ce_output_kinases}()},
 \code{\link{krsa_ce_output_peptides}()},
 \code{\link{krsa_enrichr}()},

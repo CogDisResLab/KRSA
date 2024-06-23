@@ -43,6 +43,3 @@ krsa_zscores_plot <- function(Ztable) {
     ) +
     ggplot2::theme_bw()
 }
-
-
-

@@ -19,7 +19,7 @@ This function takes in a list of peptides and filter out the ref peptides
 TRUE
 }
 \seealso{
-Other QC functions: 
+Other QC functions:
 \code{\link{krsa_filter_lowPeps}()},
 \code{\link{krsa_filter_nonLinear}()},
 \code{\link{krsa_qc_steps}()}

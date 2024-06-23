@@ -13,10 +13,8 @@
 #'
 
 krsa_ce_output_kinases <- function(krsa_table, file_name) {
-
-  krsa_table %>%
-    dplyr::select(Kinase, Z) %>%
-    dplyr::rename(Score = Z) %>%
-    readr::write_delim(file=file_name)
-
+    krsa_table %>%
+        dplyr::select(Kinase, Z) %>%
+        dplyr::rename(Score = Z) %>%
+        readr::write_delim(file = file_name)
 }

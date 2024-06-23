@@ -19,7 +19,7 @@ Takes in the Z score table and generates a waterfall plot using a ggplot.
 TRUE
 }
 \seealso{
-Other plots: 
+Other plots:
 \code{\link{krsa_ball_model}()},
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},

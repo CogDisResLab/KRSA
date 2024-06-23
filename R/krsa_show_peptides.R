@@ -25,5 +25,3 @@ pluckPeptides <- function(x) {
   dplyr::tibble(NumberOfPeptides = length(x)
   )
 }
-
-
