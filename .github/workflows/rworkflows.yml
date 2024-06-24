@@ -36,6 +36,8 @@ jobs:
           bioc: release
           r: auto
     steps:
+    - run: apt-get update && apt-get install -y rsync qpdf
+      if: runner.os == 'Linux'
     - uses: neurogenomics/rworkflows@master
       with:
         run_bioccheck: ${{ false }}
