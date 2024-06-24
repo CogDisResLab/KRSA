@@ -1,6 +1,7 @@
 #' Parse bionavigator crosstab files
 #'
-#' Main function that parses bionavigator crosstab view files. Takes in path to file and type (either Signal or SignalSaturation)
+#' Main function that parses bionavigator crosstab view files. Takes in path
+#' to file and type (either Signal or SignalSaturation)
 #'
 #' @param file_path path to BN crosstab file
 #' @param type Name of the value (either Signal or SignalSaturation)
@@ -11,7 +12,10 @@
 #'
 #' @examples
 #' TRUE
-parse_BN_crosstabFile <- function(file_path, type = c("Signal", "SignalSaturation")) {
+parse_BN_crosstabFile <- function(file_path, type = c(
+                                      "Signal",
+                                      "SignalSaturation"
+                                  )) {
     # Parse a BN crosstab file
     # Created 2020-02-14
     # Last Updated 2020-02-14
@@ -52,7 +56,10 @@ parse_BN_crosstabFile <- function(file_path, type = c("Signal", "SignalSaturatio
     }
 
     tidydata %>%
-        dplyr::rename(SampleName = `Sample name`, ExposureTime = `Exposure time`) -> tidydata
+        dplyr::rename(
+            SampleName = `Sample name`,
+            ExposureTime = `Exposure time`
+        ) -> tidydata
 
     return(tidydata)
 }

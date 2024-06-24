@@ -15,7 +15,8 @@ krsa_extractEndPoint(df, type = c("STK", "PTK"))
 end point signals df
 }
 \description{
-This function takes in raw data and chip type and returns end point data (last cycle)
+This function takes in raw data and chip type and returns
+end point data (last cycle)
 }
 \examples{
 TRUE

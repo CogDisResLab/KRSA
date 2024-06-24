@@ -53,3 +53,4 @@ Config/testthat/edition: 3
 Config/testthat/parallel: TRUE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+LazyData: false
