@@ -16,15 +16,13 @@
 #'
 #' @examples
 #' TRUE
+krsa_sampling <- function(x, CovFile, map, sum_num) {
+    CovFile %>%
+        dplyr::group_by(Kin) %>%
+        dplyr::summarise(
+            counts = sum(Substrates %in% sample(map$Substrates, sum_num))
+        ) %>%
+        dplyr::mutate(itr = x) -> res
 
-
-krsa_sampling <- function(x,CovFile,map,sum_num) {
-  CovFile %>%
-    dplyr::group_by(Kin) %>%
-    dplyr::summarise(
-      counts = sum(Substrates %in% sample(map$Substrates,sum_num))
-    ) %>%
-    dplyr::mutate(itr = x) -> res
-
-  return(res)
+    return(res)
 }

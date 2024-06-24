@@ -13,37 +13,30 @@
 #'
 #' @examples
 #' TRUE
-
 krsa_read <- function(signal_file, signal_saturation) {
-  # Read Files and return tidy tbl
-  # Created 2020-02-14
-  # Last Updated 2020-02-14
+    # Read Files and return tidy tbl
+    # Created 2020-02-14
+    # Last Updated 2020-02-14
 
 
-  sig_df <- parse_BN_crosstabFile(signal_file, "Signal")
+    sig_df <- parse_BN_crosstabFile(signal_file, "Signal")
 
-  if(missing(signal_saturation)) {
+    if (missing(signal_saturation)) {
+        sig_df
+    } else {
+        sig_sat <- parse_BN_crosstabFile(signal_saturation, "SignalSaturation")
 
-    sig_df
+        if (identical(dim(sig_df), dim(sig_sat))) {
+            rowsIDs <- nrow(sig_df)
 
-  } else {
+            sig_df %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_df
+            sig_sat %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_sat
 
-    sig_sat <- parse_BN_crosstabFile(signal_saturation, "SignalSaturation")
+            combined_tidy <- dplyr::left_join(sig_df, dplyr::select(sig_sat, ID, SignalSaturation), by = "ID")
 
-    if(identical(dim(sig_df), dim(sig_sat))) {
-      rowsIDs <- nrow(sig_df)
-
-      sig_df %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_df
-      sig_sat %>% dplyr::mutate(ID = rep(1:rowsIDs)) -> sig_sat
-
-      combined_tidy <- dplyr::left_join(sig_df, dplyr::select(sig_sat, ID, SignalSaturation), by = "ID")
-
-      dplyr::select(combined_tidy, -ID)
+            dplyr::select(combined_tidy, -ID)
+        } else {
+            stop("Dims are not equal")
+        }
     }
-
-    else {stop("Dims are not equal")}
-
-  }
-
-
 }

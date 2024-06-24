@@ -16,19 +16,20 @@
 #'
 #' @examples
 #' TRUE
+krsa_filter_lowPeps <- function(data, threshold, samples = NULL, groups = NULL) {
+    data %>%
+        {
+            if (!is.null(samples)) dplyr::filter(., SampleName %in% samples) else .
+        } %>%
+        {
+            if (!is.null(groups)) dplyr::filter(., Group %in% groups) else .
+        } %>%
+        dplyr::select(-Group) %>%
+        tidyr::pivot_wider(names_from = SampleName, values_from = Signal) %>%
+        dplyr::filter_at(vars(-Peptide), dplyr::all_vars(. >= threshold)) %>%
+        dplyr::pull(Peptide) -> p
 
-krsa_filter_lowPeps <- function(data, threshold,samples = NULL, groups = NULL) {
+    message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
 
-  data %>%
-    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
-    dplyr::select(-Group) %>%
-    tidyr::pivot_wider(names_from = SampleName, values_from = Signal) %>%
-    dplyr::filter_at( vars(-Peptide) , dplyr::all_vars(. >= threshold)) %>%
-    dplyr::pull(Peptide) -> p
-
-  message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
-
-  p
-
+    p
 }

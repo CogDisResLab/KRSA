@@ -14,9 +14,7 @@
 #'
 #' @examples
 #' TRUE
-
-
 krsa_get_diff_byChip <- function(data, col, lfc_thr) {
-  x<- split(data, data$Barcode)
-  purrr::map(x, krsa_get_diff, {{ col }}, lfc_thr)
+    x <- split(data, data$Barcode)
+    purrr::map(x, krsa_get_diff, {{ col }}, lfc_thr)
 }

@@ -13,13 +13,11 @@
 #'
 #' @examples
 #' TRUE
-
-
-krsa_top_hits <- function(zTable,z_thr) {
-  zTable %>%
-    dplyr::select(Kinase, AvgZ) %>%
-    dplyr::distinct() %>%
-    dplyr::filter(abs(AvgZ) >= z_thr) %>%
-    dplyr::pull(Kinase) %>%
-    unique()
+krsa_top_hits <- function(zTable, z_thr) {
+    zTable %>%
+        dplyr::select(Kinase, AvgZ) %>%
+        dplyr::distinct() %>%
+        dplyr::filter(abs(AvgZ) >= z_thr) %>%
+        dplyr::pull(Kinase) %>%
+        unique()
 }
