@@ -5,9 +5,9 @@
 ^\.github$
 ^\.travis\.yml$
 ^_pkgdown\.yml$
+^codemeta\.json$
 ^data-raw
 ^docs$
 ^pkgdown$
 ^renv$
 ^renv\.lock$
-^codemeta\.json$

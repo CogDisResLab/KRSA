@@ -41,7 +41,8 @@ Suggests:
     gt,
     furrr,
     biocthis,
-    usethis
+    usethis,
+    gganimate
 BugReports: https://support.bioconductor.org/tag/KRSA
 biocViews: Software
 Roxygen: list(markdown = TRUE)
