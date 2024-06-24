@@ -5,7 +5,7 @@ Date: 2023-10-10
 Authors@R:
     c(person(c("Ali", "Sajid"), "Imami", , "Ali.Sajid.Imami@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3684-3539")),
-    person("Khaled", "Alganem", "khaled.a.alganem@gmail.com" ,role = "aut", comment = c(ORCID = "0000-0003-4419-3708")))
+    person(c("Khaled"), "Alganem", ,"khaled.a.alganem@gmail.com" ,role = "aut", comment = c(ORCID = "0000-0003-4419-3708")))
 Description: The goal of this package is to analyze the PamChip data and identify the changes in the active kinome.
         The package can preprocess the PamChip data output from BioNavigator and use Random Sampling and Permutation Analysis
         to identify upstream kinases. Additionally, this package provides a set of useful visualizations for the PamChip data.
@@ -32,7 +32,7 @@ Imports:
     httr,
     jsonlite
 Depends:
-    R (>= 4.3.0)
+    R (>= 4.4.0)
 Suggests:
     knitr,
     rmarkdown,
@@ -43,7 +43,14 @@ Suggests:
     biocthis,
     usethis,
     gganimate
-BugReports: https://support.bioconductor.org/tag/KRSA
+BugReports: https://github.com/CogDisResLab/KRSA/issues
 biocViews: Software
+VignetteBuilder: knitr
+X-schema.org-applicationCategory: Proteomics
+X-schema.org-keywords: Kinase, Phosphatases, PamChip, Kinome,
+    Random Sampling, Permutation Analysis
+X-schema.org-isPartOf: https://cdrlprojects.org/
+Config/testthat/edition: 3
+Config/testthat/parallel: TRUE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
