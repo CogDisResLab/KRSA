@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/CogDisResLab/KRSA",
   "issueTracker": "https://github.com/CogDisResLab/KRSA/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.99.3",
+  "version": "1.99.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
