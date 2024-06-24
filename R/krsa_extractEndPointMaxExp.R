@@ -1,6 +1,7 @@
 #' Extracts end point data at max exposure (last cycle)
 #'
-#' This function takes in raw data and chip type and returns end point data at max exposure (last cycle)
+#' This function takes in raw data and chip type and returns end point
+#' data at max exposure (last cycle)
 #'
 #' @param df krsa raw tidy data
 #' @param type chip type
@@ -14,13 +15,11 @@
 #'
 #' @examples
 #' TRUE
-
 krsa_extractEndPointMaxExp <- function(df, type = c("STK", "PTK")) {
-
-  df %>% dplyr::filter(
-    if (type == "STK") {Cycle == 124} else {Cycle == 94},
-                ExposureTime == max(ExposureTime)) %>%
-    dplyr::select(SampleName, Peptide ,Signal, Group)
-
-
+    df %>%
+        dplyr::filter(
+            Cycle == max(Cycle),
+            ExposureTime == max(ExposureTime)
+        ) %>%
+        dplyr::select(SampleName, Peptide, Signal, Group)
 }
