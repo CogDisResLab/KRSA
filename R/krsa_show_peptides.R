@@ -13,15 +13,12 @@
 #'
 #' @examples
 #' TRUE
-
-
 krsa_show_peptides <- function(sigPeps_list) {
-  purrr::map_df(sigPeps_list, pluckPeptides) %>%
-    dplyr::mutate(Method = names(sigPeps_list)) %>%
-    dplyr::select(2,1)
+    purrr::map_df(sigPeps_list, pluckPeptides) %>%
+        dplyr::mutate(Method = names(sigPeps_list)) %>%
+        dplyr::select(2, 1)
 }
 
 pluckPeptides <- function(x) {
-  dplyr::tibble(NumberOfPeptides = length(x)
-  )
+    dplyr::tibble(NumberOfPeptides = length(x))
 }

@@ -17,32 +17,32 @@
 #'
 #' @examples
 #' TRUE
-
-
 krsa <- function(peptides, itr = 2000, seed = 123, return_count = F, map_file = KRSA_file, cov_file = chipCov) {
-  message("Running KRSA ...")
-  set.seed(seed)
+    message("Running KRSA ...")
+    set.seed(seed)
 
-  purrr::map_df(1:itr,krsa_sampling,cov_file ,map_file,length(peptides)) -> temp
+    purrr::map_df(1:itr, krsa_sampling, cov_file, map_file, length(peptides)) -> temp
 
-  temp %>%
-    dplyr::group_by(Kin) %>%
-    dplyr::summarise(SamplingAvg = mean(counts), SD= stats::sd(counts)) -> temp2
+    temp %>%
+        dplyr::group_by(Kin) %>%
+        dplyr::summarise(SamplingAvg = mean(counts), SD = stats::sd(counts)) -> temp2
 
-  cov_file %>%
-    dplyr::group_by(Kin) %>%
-    dplyr::summarise(
-      Observed = sum(Substrates %in% peptides)
-    ) -> temp3
+    cov_file %>%
+        dplyr::group_by(Kin) %>%
+        dplyr::summarise(
+            Observed = sum(Substrates %in% peptides)
+        ) -> temp3
 
-  dplyr::left_join(temp2, temp3) %>%
-    dplyr::mutate(Z = (Observed-SamplingAvg)/SD) %>%
-    dplyr::arrange(dplyr::desc(abs(Z))) %>%
-    dplyr::filter(!Kin %in% c("BARK1", "VRK2")) %>%
-    dplyr::select(Kin, Observed, SamplingAvg, SD, Z) %>%
-    dplyr::rename(Kinase = Kin) -> fin
+    dplyr::left_join(temp2, temp3) %>%
+        dplyr::mutate(Z = (Observed - SamplingAvg) / SD) %>%
+        dplyr::arrange(dplyr::desc(abs(Z))) %>%
+        dplyr::filter(!Kin %in% c("BARK1", "VRK2")) %>%
+        dplyr::select(Kin, Observed, SamplingAvg, SD, Z) %>%
+        dplyr::rename(Kinase = Kin) -> fin
 
-  if(return_count == T) {return(list(count_mtx = temp, KRSA_Table = fin))}
-  else {fin}
-
+    if (return_count == T) {
+        return(list(count_mtx = temp, KRSA_Table = fin))
+    } else {
+        fin
+    }
 }
