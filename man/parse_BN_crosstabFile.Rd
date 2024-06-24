@@ -15,7 +15,8 @@ parse_BN_crosstabFile(file_path, type = c("Signal", "SignalSaturation"))
 tbl_df
 }
 \description{
-Main function that parses bionavigator crosstab view files. Takes in path to file and type (either Signal or SignalSaturation)
+Main function that parses bionavigator crosstab view files. Takes in path
+to file and type (either Signal or SignalSaturation)
 }
 \examples{
 TRUE

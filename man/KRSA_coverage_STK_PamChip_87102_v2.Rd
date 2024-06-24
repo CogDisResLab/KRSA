@@ -3,7 +3,8 @@
 \docType{data}
 \name{KRSA_coverage_STK_PamChip_87102_v2}
 \alias{KRSA_coverage_STK_PamChip_87102_v2}
-\title{KRSA kinase coverage file for PamChip 87102 STK (v2 mapping, removed PDK kinase)}
+\title{KRSA kinase coverage file for PamChip 87102 STK (v2 mapping,
+removed PDK kinase)}
 \format{
 A data frame with 2423 rows and 2 variables:
 \describe{
@@ -15,6 +16,7 @@ A data frame with 2423 rows and 2 variables:
 KRSA_coverage_STK_PamChip_87102_v2
 }
 \description{
-A data frame of the built-in KRSA kinase coverage file for PamChip 87102 STK (v2 mapping)
+A data frame of the built-in KRSA kinase coverage file for
+PamChip 87102 STK (v2 mapping)
 }
 \keyword{datasets}

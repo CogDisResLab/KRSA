@@ -15,6 +15,7 @@ A data frame with 592 rows and 2 variables:
 ballModel_edges
 }
 \description{
-A data frame of the known Protein-Protein Interactions based on PhosphositePlus database
+A data frame of the known Protein-Protein Interactions based on
+PhosphositePlus database
 }
 \keyword{datasets}

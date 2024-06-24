@@ -8,13 +8,15 @@
 A data frame with 179 rows and 2 variables:
 \describe{
 \item{FinName}{Kinase Family Name}
-\item{count}{Number of collapsed kinases under that kinase family, it's not used in package}
+\item{count}{Number of collapsed kinases under that kinase family,
+it's not used in package}
 }
 }
 \usage{
 ballModel_nodes
 }
 \description{
-A data frame of the known Protein-Protein Interactions based on PhosphositePlus database
+A data frame of the known Protein-Protein Interactions based on
+PhosphositePlus database
 }
 \keyword{datasets}
