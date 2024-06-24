@@ -15,7 +15,8 @@ krsa_extractEndPointMaxExp(df, type = c("STK", "PTK"))
 end point data at max exposure df
 }
 \description{
-This function takes in raw data and chip type and returns end point data at max exposure (last cycle)
+This function takes in raw data and chip type and returns end point
+data at max exposure (last cycle)
 }
 \examples{
 TRUE
