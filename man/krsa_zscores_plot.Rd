@@ -24,12 +24,12 @@ Other plots:
 \code{\link{krsa_coverage_plot}()},
 \code{\link{krsa_curve_plot}()},
 \code{\link{krsa_cv_plot}()},
-\code{\link{krsa_heatmap_grouped}()},
 \code{\link{krsa_heatmap}()},
+\code{\link{krsa_heatmap_grouped}()},
 \code{\link{krsa_histogram_plot}()},
 \code{\link{krsa_reverse_krsa_plot}()},
-\code{\link{krsa_violin_plot_grouped}()},
 \code{\link{krsa_violin_plot}()},
+\code{\link{krsa_violin_plot_grouped}()},
 \code{\link{krsa_waterfall}()}
 }
 \concept{plots}

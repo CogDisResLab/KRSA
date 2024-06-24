@@ -7,8 +7,8 @@
 \format{
 A data frame with 592 rows and 2 variables:
 \describe{
-  \item{Source}{Kinase Family Name Source}
-  \item{Target}{Kinase Family Name Target}
+\item{Source}{Kinase Family Name Source}
+\item{Target}{Kinase Family Name Target}
 }
 }
 \usage{

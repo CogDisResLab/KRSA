@@ -218,6 +218,7 @@ apA
 APA
 ApF
 api
+applicationCategory
 aps
 ApSE
 APSRDPHYQDPHS
@@ -786,6 +787,7 @@ CDK
 CDN
 cdrl
 CDRL
+cdrlprojects
 Cds
 CDt
 CDV
@@ -3295,6 +3297,7 @@ ISGF
 ISLDNPDYQQDFF
 isoform
 isozyme
+isPartOf
 issueTracker
 isSupported
 ISSVPTPSPLGPL
@@ -5845,6 +5848,7 @@ pemphigus
 peP
 PERI
 Peripherin
+PermutationAnalysis
 PEX
 pey
 pEی
@@ -6025,6 +6029,7 @@ Promyelocytic
 proteinkinase
 proteinPLZF
 proteintype
+Proteomics
 proto
 Proto
 pRP
@@ -6615,6 +6620,7 @@ Raf
 RAFTK
 RaH
 RAK
+RandomSampling
 rANZ
 rapamycin
 Rapamycin
@@ -7493,6 +7499,7 @@ TEk
 telangiectasia
 tePo
 TERGDKGYVPSVF
+testthat
 textContent
 tf
 tF
@@ -8347,6 +8354,7 @@ viewBox
 vIG
 Vigilin
 VIGLN
+VignetteBuilder
 ViJ
 Vik
 VINC

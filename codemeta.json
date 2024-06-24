@@ -5,7 +5,7 @@
   "description": "The goal of this package is to analyze the PamChip data and identify the changes in the active kinome. The package can preprocess the PamChip data output from BioNavigator and use Random Sampling and Permutation Analysis to identify upstream kinases. Additionally, this package provides a set of useful visualizations for the PamChip data.",
   "name": "KRSA: KRSA: Kinome Random Sampling Analyzer",
   "codeRepository": "https://github.com/CogDisResLab/KRSA",
-  "issueTracker": "https://support.bioconductor.org/tag/KRSA",
+  "issueTracker": "https://github.com/CogDisResLab/KRSA/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "1.99.0",
   "programmingLanguage": {
@@ -24,8 +24,9 @@
     },
     {
       "@type": "Person",
-      "givenName": ["Khaled", "khaled.a.alganem@gmail.com"],
+      "givenName": "Khaled",
       "familyName": "Alganem",
+      "email": "khaled.a.alganem@gmail.com",
       "@id": "https://orcid.org/0000-0003-4419-3708"
     }
   ],
@@ -355,13 +356,15 @@
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 4.3.0"
+      "version": ">= 4.4.0"
     },
     "SystemRequirements": null
   },
-  "fileSize": "4989.86KB",
+  "applicationCategory": "Proteomics",
+  "isPartOf": "https://cdrlprojects.org/",
+  "keywords": ["Kinase", "Phosphatases", "PamChip", "Kinome", "RandomSampling", "PermutationAnalysis", "rstats", "r-package", "r"],
+  "fileSize": "4987.039KB",
   "readme": "https://github.com/CogDisResLab/KRSA/blob/devel/README.md",
   "contIntegration": ["https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml", "https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml"],
-  "developmentStatus": ["https://www.tidyverse.org/lifecycle/#experimental", "https://www.repostatus.org/#active"],
-  "keywords": ["rstats", "r-package", "r"]
+  "developmentStatus": ["https://www.tidyverse.org/lifecycle/#experimental", "https://www.repostatus.org/#active"]
 }

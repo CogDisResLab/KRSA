@@ -7,8 +7,8 @@
 \format{
 A data frame with 192 rows and 2 variables:
 \describe{
-  \item{Substrates}{Peptide IDs}
-  \item{Kinases}{mapped kinases separated by spaces}
+\item{Substrates}{Peptide IDs}
+\item{Kinases}{mapped kinases separated by spaces}
 }
 }
 \usage{

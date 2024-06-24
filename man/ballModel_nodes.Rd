@@ -7,8 +7,8 @@
 \format{
 A data frame with 179 rows and 2 variables:
 \describe{
-  \item{FinName}{Kinase Family Name}
-  \item{count}{Number of collapsed kinases under that kinase family, it's not used in package}
+\item{FinName}{Kinase Family Name}
+\item{count}{Number of collapsed kinases under that kinase family, it's not used in package}
 }
 }
 \usage{
