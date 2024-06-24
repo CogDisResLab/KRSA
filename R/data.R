@@ -1,6 +1,7 @@
 #' KRSA kinase-substrate mapping file for PamChip 86402 PTK (v1 mapping)
 #'
-#' A data frame of the built-in KRSA kinase-substrate mapping file for PamChip 86402 PTK (v1 mapping)
+#' A data frame of the built-in KRSA kinase-substrate mapping file
+#' for PamChip 86402 PTK (v1 mapping)
 #'
 #' @format A data frame with 192 rows and 2 variables:
 #' \describe{
@@ -13,7 +14,8 @@
 
 #' KRSA kinase-substrate mapping file for PamChip 87102 STK (v1 mapping)
 #'
-#' A data frame of the built-in KRSA kinase-substrate mapping file for PamChip 87102 STK (v1 mapping)
+#' A data frame of the built-in KRSA kinase-substrate mapping file
+#' for PamChip 87102 STK (v1 mapping)
 #'
 #' @format A data frame with 141 rows and 2 variables:
 #' \describe{

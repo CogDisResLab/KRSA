@@ -15,21 +15,22 @@
 #'
 #' @examples
 #' TRUE
+krsa_filter_nonLinear <- function(data, threshold, samples = NULL, groups = NULL) {
+    data %>%
+        {
+            if (!is.null(samples)) dplyr::filter(., SampleName %in% samples) else .
+        } %>%
+        {
+            if (!is.null(groups)) dplyr::filter(., Group %in% groups) else .
+        } %>%
+        dplyr::select(SampleName, Peptide, r.seq) %>%
+        tidyr::spread(SampleName, r.seq) %>%
+        dplyr::filter_at(vars(-Peptide), dplyr::all_vars(. >= threshold)) %>%
+        dplyr::pull(Peptide) -> p
 
-krsa_filter_nonLinear <- function(data, threshold,samples = NULL, groups = NULL) {
-
-  data %>%
-    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
-    dplyr::select(SampleName, Peptide, r.seq) %>%
-    tidyr::spread(SampleName, r.seq) %>%
-    dplyr::filter_at( vars(-Peptide) , dplyr::all_vars(. >= threshold)) %>%
-    dplyr::pull(Peptide) -> p
 
 
+    message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
 
-  message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
-
-  p
-
+    p
 }

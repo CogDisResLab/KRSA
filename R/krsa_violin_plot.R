@@ -19,25 +19,29 @@
 #'
 #' @examples
 #' TRUE
+krsa_violin_plot <- function(data, peptides, facet_factor, facet = T, samples = NULL, groups = NULL, show_legend = F) {
+    data %>%
+        dplyr::filter(Peptide %in% peptides) %>%
+        {
+            if (!is.null(samples)) dplyr::filter(., SampleName %in% samples) else .
+        } %>%
+        {
+            if (!is.null(groups)) dplyr::filter(., Group %in% groups) else .
+        } %>%
+        ggplot2::ggplot(ggplot2::aes(if (facet_factor == "Group") SampleName else Group, slope)) +
+        ggplot2::geom_violin(ggplot2::aes(fill = Group), show.legend = show_legend) +
+        ggplot2::geom_point(size = 1.5) +
+        ggplot2::geom_line(ggplot2::aes(group = Peptide), alpha = 1 / 2) +
+        ggplot2::labs(
+            x = "",
+            y = "Signal Intensity"
+        ) +
+        ggplot2::theme(axis.text.x = ggplot2::element_text(size = 6)) +
+        ggplot2::theme_bw() -> gg
 
-krsa_violin_plot <- function(data, peptides,facet_factor,facet = T,samples = NULL, groups = NULL, show_legend = F) {
-
-  data %>%
-    dplyr::filter(Peptide %in% peptides) %>%
-    {if(!is.null(samples)) dplyr::filter(.,SampleName %in% samples) else .} %>%
-    {if(!is.null(groups)) dplyr::filter(.,Group %in% groups) else .} %>%
-    ggplot2::ggplot(ggplot2::aes(if(facet_factor == "Group") SampleName else Group, slope)) +
-    ggplot2::geom_violin(ggplot2::aes(fill = Group), show.legend = show_legend) +
-    ggplot2::geom_point(size = 1.5)+
-    ggplot2::geom_line(ggplot2::aes(group = Peptide), alpha = 1/2) +
-    ggplot2::labs(
-      x = "",
-      y = "Signal Intensity"
-    ) +
-    ggplot2::theme(axis.text.x = ggplot2::element_text(size = 6)) +
-    ggplot2::theme_bw() -> gg
-
-  if(facet == T) {gg + ggplot2::facet_wrap(facet_factor, scales = "free")}
-  else {gg}
-
+    if (facet == T) {
+        gg + ggplot2::facet_wrap(facet_factor, scales = "free")
+    } else {
+        gg
+    }
 }
