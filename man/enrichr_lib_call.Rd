@@ -15,7 +15,9 @@ enrichr_lib_call(lib, userListId)
 df tidy dataframe of all geneset terms in that library
 }
 \description{
-This function takes in the geneset library name from Enrichr and userListId (id created by enrichr api) sand retruns tidy dataframe of all geneset terms in that library
+This function takes in the geneset library name from Enrichr and
+userListId (id created by enrichr api) sand retruns tidy dataframe of
+all geneset terms in that library
 }
 \examples{
 TRUE

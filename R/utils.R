@@ -6,4 +6,4 @@ dplyr::`%>%`
 
 # Global Variables
 # ------------------------------------------------------------------------
-utils::globalVariables(c())
+utils::globalVariables()

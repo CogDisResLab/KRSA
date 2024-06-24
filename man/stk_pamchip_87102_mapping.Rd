@@ -13,6 +13,7 @@ A data frame with 141 rows and 2 variables:
 stk_pamchip_87102_mapping
 }
 \description{
-A data frame of CDRL Complete mapping CDRL Complete mapping of peptides to HGNC symbols (STK PamChip 87102)
+A data frame of CDRL Complete mapping CDRL Complete mapping of peptides
+to HGNC symbols (STK PamChip 87102)
 }
 \keyword{datasets}
