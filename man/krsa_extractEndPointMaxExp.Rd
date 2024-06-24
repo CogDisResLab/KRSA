@@ -27,8 +27,8 @@ Other helper functions:
 \code{\link{krsa_ce_output_peptides}()},
 \code{\link{krsa_enrichr}()},
 \code{\link{krsa_extractEndPoint}()},
-\code{\link{krsa_get_diff_byChip}()},
 \code{\link{krsa_get_diff}()},
+\code{\link{krsa_get_diff_byChip}()},
 \code{\link{krsa_sampling}()},
 \code{\link{krsa_show_peptides}()},
 \code{\link{krsa_top_hits}()}
