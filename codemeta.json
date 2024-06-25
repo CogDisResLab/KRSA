@@ -7,7 +7,7 @@
   "codeRepository": "https://github.com/CogDisResLab/KRSA",
   "issueTracker": "https://github.com/CogDisResLab/KRSA/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.99.2",
+  "version": "1.99.10",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -363,7 +363,7 @@
   "applicationCategory": "Proteomics",
   "isPartOf": "https://cdrlprojects.org/",
   "keywords": ["Kinase", "Phosphatases", "PamChip", "Kinome", "RandomSampling", "PermutationAnalysis", "rstats", "r-package", "r"],
-  "fileSize": "4987.039KB",
+  "fileSize": "4196.061KB",
   "readme": "https://github.com/CogDisResLab/KRSA/blob/devel/README.md",
   "contIntegration": ["https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml", "https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml"],
   "developmentStatus": ["https://www.tidyverse.org/lifecycle/#experimental", "https://www.repostatus.org/#active"]

@@ -15,26 +15,21 @@
 #'
 #' @examples
 #' TRUE
-
-
-
-krsa_enrichr_plot <- function(enrichr_df, terms_to_plot = 10,size = 2.5) {
-
-  enrichr_df %>%
-    dplyr::group_by(lib) %>%
-    dplyr::slice_head(n = terms_to_plot) %>%
-    ggplot2::ggplot(ggplot2::aes(x = -log(pvalue), y = stats::reorder(term, -base::log(pvalue)))) +
-    ggplot2::geom_col(ggplot2::aes(fill =-base::log(pvalue)), show.legend = F) +
-    ggplot2::geom_text(
-      ggplot2::aes(label = term),
-      size = size,
-      ## make labels left-aligned
-      hjust = 1, nudge_x = .5
-    ) +
-    ggplot2::theme_minimal() +
-    ggplot2::scale_fill_gradient(low = "#713939", high = "#ff6666") +
-    ggplot2::theme(axis.text.y = ggplot2::element_blank()) +
-    ggplot2::labs(y = "") +
-    ggplot2::facet_wrap(~lib, scales = "free", ncol = 2)
-
+krsa_enrichr_plot <- function(enrichr_df, terms_to_plot = 10, size = 2.5) {
+    enrichr_df %>%
+        dplyr::group_by(lib) %>%
+        dplyr::slice_head(n = terms_to_plot) %>%
+        ggplot2::ggplot(ggplot2::aes(x = -log(pvalue), y = stats::reorder(term, -base::log(pvalue)))) +
+        ggplot2::geom_col(ggplot2::aes(fill = -base::log(pvalue)), show.legend = F) +
+        ggplot2::geom_text(
+            ggplot2::aes(label = term),
+            size = size,
+            ## make labels left-aligned
+            hjust = 1, nudge_x = .5
+        ) +
+        ggplot2::theme_minimal() +
+        ggplot2::scale_fill_gradient(low = "#713939", high = "#ff6666") +
+        ggplot2::theme(axis.text.y = ggplot2::element_blank()) +
+        ggplot2::labs(y = "") +
+        ggplot2::facet_wrap(~lib, scales = "free", ncol = 2)
 }

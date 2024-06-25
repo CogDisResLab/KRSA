@@ -12,9 +12,10 @@ A data frame with 192 rows and 2 variables:
 }
 }
 \usage{
-KRSA_Mapping_PTK_PamChip_86402_v1
+data("KRSA_Mapping_PTK_PamChip_86402_v1")
 }
 \description{
-A data frame of the built-in KRSA kinase-substrate mapping file for PamChip 86402 PTK (v1 mapping)
+A data frame of the built-in KRSA kinase-substrate mapping file
+for PamChip 86402 PTK (v1 mapping)
 }
 \keyword{datasets}

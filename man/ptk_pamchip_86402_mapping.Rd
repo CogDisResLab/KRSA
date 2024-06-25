@@ -10,9 +10,10 @@ A data frame with 193 rows and 2 variables:
 }
 }
 \usage{
-ptk_pamchip_86402_mapping
+data("ptk_pamchip_86402_mapping")
 }
 \description{
-A data frame of CDRL Complete mapping CDRL Complete mapping of peptides to HGNC symbols (PTK PamChip 86402)
+A data frame of CDRL Complete mapping CDRL Complete mapping of peptides to
+HGNC symbols (PTK PamChip 86402)
 }
 \keyword{datasets}

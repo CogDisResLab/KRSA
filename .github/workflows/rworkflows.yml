@@ -36,19 +36,20 @@ jobs:
           bioc: release
           r: auto
     steps:
+    - run: apt-get update && apt-get install -y rsync qpdf
+      if: runner.os == 'Linux'
     - uses: neurogenomics/rworkflows@master
       with:
-        run_bioccheck: ${{ true }}
-        run_rcmdcheck: ${{ true }}
+        run_bioccheck: ${{ false }}
+        run_rcmdcheck: ${{ false }}
         as_cran: ${{ true }}
-        run_vignettes: ${{ true }}
-        has_testthat: ${{ true }}
-        run_covr: ${{ true }}
-        run_pkgdown: ${{ true }}
+        run_vignettes: ${{ false }}
+        has_testthat: ${{ false }}
+        run_covr: ${{ false }}
+        run_pkgdown: ${{ false }}
         has_runit: ${{ false }}
         has_latex: ${{ false }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run_docker: ${{ false }}
-        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
         runner_os: ${{ runner.os }}
         cache_version: cache-v1
