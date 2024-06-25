@@ -13,7 +13,7 @@ it's not used in package}
 }
 }
 \usage{
-ballModel_nodes
+data("ballModel_nodes")
 }
 \description{
 A data frame of the known Protein-Protein Interactions based on
