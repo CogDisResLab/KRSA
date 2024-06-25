@@ -10,7 +10,7 @@ A data frame with 141 rows and 2 variables:
 }
 }
 \usage{
-stk_pamchip_87102_mapping
+data("stk_pamchip_87102_mapping")
 }
 \description{
 A data frame of CDRL Complete mapping CDRL Complete mapping of peptides
