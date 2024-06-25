@@ -8,6 +8,7 @@
 #'   \item{Substrates}{Peptide IDs}
 #'   \item{Kinases}{mapped kinases separated by spaces}
 #' }
+#' @usage data("KRSA_Mapping_PTK_PamChip_86402_v1")
 #'
 "KRSA_Mapping_PTK_PamChip_86402_v1"
 
@@ -22,6 +23,7 @@
 #'   \item{Substrates}{Peptide IDs}
 #'   \item{Kinases}{mapped kinases separated by spaces}
 #' }
+#' @usage data("KRSA_Mapping_STK_PamChip_87102_v1")
 #'
 "KRSA_Mapping_STK_PamChip_87102_v1"
 
@@ -35,6 +37,7 @@
 #'   \item{Kin}{Kinase Family Name}
 #'   \item{Substrates}{Peptides IDs}
 #' }
+#' @usage data("KRSA_coverage_PTK_PamChip_86402_v1")
 #'
 "KRSA_coverage_PTK_PamChip_86402_v1"
 
@@ -48,6 +51,7 @@
 #'   \item{Kin}{Kinase Family Name}
 #'   \item{Substrates}{Peptides IDs}
 #' }
+#' @usage data("KRSA_coverage_STK_PamChip_87102_v1")
 #'
 "KRSA_coverage_STK_PamChip_87102_v1"
 
@@ -62,6 +66,7 @@
 #'   \item{Kin}{Kinase Family Name}
 #'   \item{Substrates}{Peptides IDs}
 #' }
+#' @usage data("KRSA_coverage_STK_PamChip_87102_v2")
 #'
 "KRSA_coverage_STK_PamChip_87102_v2"
 
@@ -77,6 +82,7 @@
 #'   \item{count}{Number of collapsed kinases under that kinase family,
 #' it's not used in package}
 #' }
+#' @usage data("ballModel_nodes")
 #'
 "ballModel_nodes"
 
@@ -91,6 +97,7 @@
 #'   \item{Source}{Kinase Family Name Source}
 #'   \item{Target}{Kinase Family Name Target}
 #' }
+#' @usage data("ballModel_edges")
 #'
 "ballModel_edges"
 
@@ -102,6 +109,7 @@
 #' @format A data frame with 141 rows and 2 variables:
 #' \describe{
 #' }
+#' @usage data("stk_pamchip_87102_mapping")
 #'
 "stk_pamchip_87102_mapping"
 
@@ -113,5 +121,6 @@
 #' @format A data frame with 193 rows and 2 variables:
 #' \describe{
 #' }
+#' @usage data("ptk_pamchip_86402_mapping")
 #'
 "ptk_pamchip_86402_mapping"

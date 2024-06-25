@@ -12,7 +12,7 @@ A data frame with 1278 rows and 2 variables:
 }
 }
 \usage{
-KRSA_coverage_PTK_PamChip_86402_v1
+data("KRSA_coverage_PTK_PamChip_86402_v1")
 }
 \description{
 A data frame of the built-in KRSA kinase coverage file for PamChip
