@@ -24,6 +24,8 @@
     "packageRules": [
         {
             "automerge": true,
+            "groupName": "Repository Maintenance",
+            "group-slug": "repository-maintenance",
             "matchManagers": [
                 "pre-commit",
                 "github-actions"
