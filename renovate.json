@@ -25,7 +25,7 @@
         {
             "automerge": true,
             "groupName": "Repository Maintenance",
-            "group-slug": "repository-maintenance",
+            "groupSlug": "repository-maintenance",
             "matchManagers": [
                 "pre-commit",
                 "github-actions"
