@@ -22,7 +22,7 @@ jobs:
       isPush: ${{ github.event_name == 'push' }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
       - uses: r-lib/actions/setup-r@v1
         id: install-r
