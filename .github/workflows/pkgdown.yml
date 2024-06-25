@@ -22,14 +22,14 @@ jobs:
       isPush: ${{ github.event_name == 'push' }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
-      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-r@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
         id: install-r
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-pandoc@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
 
-      - uses: r-lib/actions/setup-tinytex@v1
+      - uses: r-lib/actions/setup-tinytex@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
 
       - name: Install pak and query dependencies
         run: |
@@ -38,7 +38,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Cache R packages
-        uses: actions/cache@v2
+        uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace # v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ubuntu-18.04-${{ steps.install-r.outputs.installed-r-version }}-1-${{ hashFiles('.github/r-depends.rds') }}
