@@ -8,6 +8,8 @@ template:
       bootswatch: lumen
       # footer: KRSA is a project developed and maintained by the graduate students and scientists at the <a href="https://cdrl-ut.org/" target="_blank" rel="noopener noreferrer">Cognitive Disorders Research Lab</a> at the University of Toledo, OH, USA.
 
+development:
+  mode: auto
 
 navbar:
   components:
