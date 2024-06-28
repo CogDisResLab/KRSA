@@ -8,7 +8,10 @@ output:
 
 <!-- badges: start -->
 
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![R-CMD-check](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml) [![pkgdown](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml) [![Repo Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Build Status](https://github.com/CogDisResLab/KRSA/actions/workflows/rworkflows.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/rworkflows.yml)
+[![pkgdown](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml)
+[![Repo Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: end -->
 

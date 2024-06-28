@@ -2,7 +2,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![R-CMD-check](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/R-CMD-check.yaml)
+[![Build
+Status](https://github.com/CogDisResLab/KRSA/actions/workflows/rworkflows.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/rworkflows.yml)
 [![pkgdown](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/CogDisResLab/KRSA/actions/workflows/pkgdown.yml)
 [![Repo
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -26,10 +27,9 @@ devtools::install_github(build_vignettes = T)
 
 ### Installation Requirements
 
-R (>= 3.5.0) version
+R (\>= 3.5.0) version
 
-For Windows users:
-installment of Rtools
+For Windows users: installment of Rtools
 (<https://cran.r-project.org/bin/windows/Rtools/>).
 
 ## KRSA <img src="man/figures/logo.png" align="right" height="280"/>
@@ -61,7 +61,10 @@ KRSA manuscript is available here:
 
 ## Workflow
 
-![KRSA Workflow](man/figures/workflow.png)
+<figure>
+<img src="man/figures/workflow.png" alt="KRSA Workflow" />
+<figcaption aria-hidden="true">KRSA Workflow</figcaption>
+</figure>
 
 ## Random Sampling Approach
 

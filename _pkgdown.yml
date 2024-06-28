@@ -1,27 +1,23 @@
-url: https://cogdisreslab.github.io/KRSA/index.html
+url: https://cogdisreslab.github.io/KRSA/
 
 template:
+  bootstrap: 5
   params:
-    bootswatch: simplex
-    footer: KRSA is dveloped by Khaled Alganem as a member of the <a href="https://cdrl-ut.org/" target="_blank" rel="noopener noreferrer">CDRL</a>
-
-
-development:
-  mode: release
-
-figure:
-  fig.width: 12
-  fig.height: 12
+    bslib:
+      preset: bootswatch
+      bootswatch: lumen
+      # footer: KRSA is a project developed and maintained by the graduate students and scientists at the <a href="https://cdrl-ut.org/" target="_blank" rel="noopener noreferrer">Cognitive Disorders Research Lab</a> at the University of Toledo, OH, USA.
 
 
 navbar:
   components:
-     github:
-       icon: "fab fa-github"
-       href: https://github.com/CogDisResLab/KRSA
+      github:
+        icon: "fab fa-github"
+        href: https://github.com/CogDisResLab/KRSA
 
 reference:
   - title: Core Functions
+    desc: Core functions for the KRSA package
     contents:
     - krsa
     - krsa_group_diff
@@ -29,6 +25,7 @@ reference:
     - krsa_read
     - krsa_scaleModel
   - title: Plotting Functions
+    desc: Functions that generate plots for the KRSA package
     contents:
     - krsa_ball_model
     - krsa_sampling
@@ -48,6 +45,7 @@ reference:
     - parse_BN_crosstabFile
     - krsa_enrichr_plot
   - title: Helper Functions
+    desc: Helper functions for the KRSA package
     contents:
     - krsa_extractEndPoint
     - krsa_extractEndPointMaxExp
@@ -58,12 +56,14 @@ reference:
     - krsa_enrichr
     - enrichr_lib_call
   - title: QC Functions
+    desc: Quality control functions for the KRSA package
     contents:
     - krsa_filter_lowPeps
     - krsa_filter_nonLinear
     - krsa_filter_ref_pep
     - krsa_qc_steps
   - title: Data and curated files
+    desc: Data and curated files for the KRSA package
     contents:
     - KRSA_Mapping_PTK_PamChip_86402_v1
     - KRSA_Mapping_STK_PamChip_87102_v1
