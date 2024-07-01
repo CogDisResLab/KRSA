@@ -1,6 +1,6 @@
 Package: KRSA
 Title: KRSA: Kinome Random Sampling Analyzer
-Version: 1.99.27.0
+Version: 1.99.28.0
 Authors@R:
     c(person(c("Ali", "Sajid"), "Imami", , "Ali.Sajid.Imami@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3684-3539")),
