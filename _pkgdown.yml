@@ -2,11 +2,14 @@ url: https://cogdisreslab.github.io/KRSA/
 
 template:
   bootstrap: 5
+  includes:
+    after_body: >
+      <script data-goatcounter="https://cdrl.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
   params:
     bslib:
       preset: bootswatch
       bootswatch: lumen
-      # footer: KRSA is a project developed and maintained by the graduate students and scientists at the <a href="https://cdrl-ut.org/" target="_blank" rel="noopener noreferrer">Cognitive Disorders Research Lab</a> at the University of Toledo, OH, USA.
 
 development:
   mode: auto
