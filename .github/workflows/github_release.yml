@@ -65,6 +65,11 @@ jobs:
         run: R CMD build .
       - name: Rename Package
         run: echo "NEWNAME=$(./utilities/rename-package.R *.tar.gz)" >> "$GITHUB_ENV"
+      - name: Attest builds
+        id: attest_build
+        uses: actions/attest-build-provenance@bdd51370e0416ac948727f861e03c2f05d32d78e # v1.3.2
+        with:
+          subject-path: ${{ env.NEWNAME }}
       - name: debug
         run: |
           echo "R version: ${{ steps.r.outputs.installed-r-version }}"
@@ -74,4 +79,4 @@ jobs:
         env:
           RELEASE_TAG: ${{ needs.create-release.outputs.tag_version }}
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }}
+        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }} ${{ steps.attest-build .outputs.bundle-path}}#Build-Attestation-${{steps-outputs.installed-r-version}}.jsonl
