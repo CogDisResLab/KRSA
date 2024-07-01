@@ -1,4 +1,4 @@
-name: rworkflows
+name: R Build Check with rworkflows
 on:
   workflow_dispatch:
   push:
