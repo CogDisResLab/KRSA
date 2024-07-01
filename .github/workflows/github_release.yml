@@ -77,8 +77,10 @@ jobs:
           echo "R version: ${{ steps.r.outputs.installed-r-version }}"
           echo "Current Tag: ${{ needs.create-release.outputs.tag_version }}"
           echo "Release File Name: ${{ env.NEWNAME }}"
+      - name: Move the attestation file
+        run: mv ${{ steps.attest-build.outputs.bundle-path}} ${{ env.NEWNAME }}_Attestation.jsonl
       - name: Upload Release Artifact
         env:
           RELEASE_TAG: ${{ needs.create-release.outputs.tag_version }}
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }} ${{ steps.attest-build .outputs.bundle-path}}#Build-Attestation-${{steps.outputs.installed-r-version}}.jsonl
+        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }} ${{ env.NEWNAME }}_Attestation.jsonl
