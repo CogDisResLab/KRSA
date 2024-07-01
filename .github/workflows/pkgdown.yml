@@ -1,73 +1,37 @@
+name: Build pkgdown site
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - master
-      - main
-
-name: pkgdown
+    - master
+    - main
+    - devel
+    - RELEASE_**
 
 jobs:
   pkgdown:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.fork == false
-    runs-on: ubuntu-18.04
-    env:
-      RSPM: https://packagemanager.rstudio.com/cran/__linux__/bionic/latest
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      isPush: ${{ github.event_name == 'push' }}
-
+    runs-on: ubuntu-latest
+    name: Build pkgdown site
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
-
-      - uses: r-lib/actions/setup-r@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
-        id: install-r
-
-      - uses: r-lib/actions/setup-pandoc@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
-
-      - uses: r-lib/actions/setup-tinytex@f5b3dfbf1942ce68283de21bf65cce051e3a2c4d # v1
-
-      - name: Install pak and query dependencies
-        run: |
-          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-          saveRDS(pak::pkg_deps("local::.", dependencies = TRUE), ".github/r-depends.rds")
-        shell: Rscript {0}
-
-      - name: Cache R packages
-        uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace # v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup R
+        uses: r-lib/actions/setup-r@929c772977a3a13c8733b363bf5a2f685c25dd91 # v2.9.0
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ubuntu-18.04-${{ steps.install-r.outputs.installed-r-version }}-1-${{ hashFiles('.github/r-depends.rds') }}
-          restore-keys: ubuntu-18.04-${{ steps.install-r.outputs.installed-r-version }}-1-
-
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        run: |
-          pak::local_system_requirements(execute = TRUE)
-          pak::pkg_system_requirements("pkgdown", execute = TRUE)
-        shell: Rscript {0}
-
+          r-version: renv
       - name: Install dependencies
-        run: |
-          pak::local_install_dev_deps(upgrade = TRUE)
-          pak::pkg_install("pkgdown")
-        shell: Rscript {0}
-
-      - name: Install package
-        run: R CMD INSTALL .
-
-      - name: Build and deploy pkgdown site
-        if: contains(env.isPush, 'true')
-        run: |
-          git config --local user.name "$GITHUB_ACTOR"
-          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
-      - name: Create website
-        if: contains(env.isPush, 'false')
-        run: |
-          pkgdown::build_site()
-        shell: Rscript {0}
+        uses: r-lib/actions/setup-renv@929c772977a3a13c8733b363bf5a2f685c25dd91 # v2.9.0
+      - name: Build pkgdown site
+        run: Rscript -e 'pkgdown::build_site_github_pages(install = TRUE)'
+      - name: Deploy pkgdown site
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: docs/
+      - name: Deploy pkgdown site
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
