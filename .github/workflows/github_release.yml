@@ -15,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
-      attestations: write
     outputs:
       tag_version: ${{ steps.create_release.outputs.tag_version }}
     steps:
@@ -39,6 +37,8 @@ jobs:
     needs: [create-release]
     permissions:
       contents: write
+      id-token: write
+      attestations: write
     strategy:
       fail-fast: false
       matrix:
