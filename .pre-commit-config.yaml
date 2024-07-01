@@ -59,6 +59,7 @@ repos:
         args:
         -   --fix=no
     -   id: trailing-whitespace
+        exclude: '.*\.(xls|tsv|txt)$'
     - id: no-commit-to-branch
       args:
         - --branch
@@ -90,9 +91,9 @@ repos:
     -   id: forbid-crlf
     -   id: remove-crlf
     -   id: forbid-tabs
-        exclude: '.*\.[xls|tsv]$'
+        exclude: '.*\.(xls|tsv|txt)$'
     -   id: remove-tabs
-        exclude: '.*\.[xls|tsv]$'
+        exclude: '.*\.(xls|tsv|txt)$'
 -   repo: local
     hooks:
     -   id: style_files
