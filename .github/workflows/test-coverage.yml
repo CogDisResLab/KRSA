@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - devel
+      - issue*/*
+      - feat/*
   pull_request:
     branches:
       - devel
