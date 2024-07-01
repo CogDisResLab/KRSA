@@ -1,9 +1,13 @@
 name: Test Coverage
 on:
   push:
-    branches: [main, master, devel]
+    branches:
+      - devel
+      - issue*/*
+      - feat/*
   pull_request:
-    branches: [main, master, devel]
+    branches:
+      - devel
 
 jobs:
   test-coverage:
