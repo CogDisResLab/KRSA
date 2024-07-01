@@ -79,4 +79,4 @@ jobs:
         env:
           RELEASE_TAG: ${{ needs.create-release.outputs.tag_version }}
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }} ${{ steps.attest-build .outputs.bundle-path}}#Build-Attestation-${{steps-outputs.installed-r-version}}.jsonl
+        run: gh release upload ${{ env.RELEASE_TAG }} ${{ env.NEWNAME }} ${{ steps.attest-build .outputs.bundle-path}}#Build-Attestation-${{steps.outputs.installed-r-version}}.jsonl
