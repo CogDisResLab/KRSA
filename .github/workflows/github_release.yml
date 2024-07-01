@@ -79,7 +79,7 @@ jobs:
           echo "Release File Name: ${{ env.NEWNAME }}"
           echo "Bundle Path: ${{ steps.attest_build.outputs.bundle-path}}"
       - name: Move the attestation file
-        run: mv ${{ steps.attest-build.outputs.bundle-path}} ${{ env.NEWNAME }}_Attestation.jsonl
+        run: mv ${{ steps.attest_build.outputs.bundle-path}} ${{ env.NEWNAME }}_Attestation.jsonl
       - name: Upload Release Artifact
         env:
           RELEASE_TAG: ${{ needs.create-release.outputs.tag_version }}
