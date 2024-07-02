@@ -12,7 +12,7 @@ template:
       bootswatch: lumen
 
 development:
-  mode: production
+  mode: release
 
 navbar:
   components:
