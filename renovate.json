@@ -35,7 +35,7 @@
             ]
         }
     ],
-    "platformCommit": true,
+    "platformCommit": "enabled",
     "schedule": [
         "after 10pm every weekday",
         "every weekend",
