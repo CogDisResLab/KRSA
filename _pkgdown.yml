@@ -2,6 +2,7 @@ url: https://cogdisreslab.github.io/KRSA/
 
 template:
   bootstrap: 5
+  light-switch: true
   includes:
     after_body: >
       <script data-goatcounter="https://cdrl.goatcounter.com/count"
@@ -15,10 +16,23 @@ development:
   mode: release
 
 navbar:
+  structure:
+    right: [search, github, lab, paper]
+    left: [intro, reference, articles, tutorials, news, about]
   components:
       github:
         icon: "fab fa-github"
         href: https://github.com/CogDisResLab/KRSA
+      lab:
+        icon: "fas fa-flask"
+        href: https://cdrl-ut.org/
+      paper:
+        icon: "fas fa-file-alt"
+        href: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260440
+      about:
+        text: About Us
+        href: https://cdrl-ut.org/about/
+
 
 reference:
   - title: Core Functions
