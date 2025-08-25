@@ -1,22 +1,25 @@
-name: R Build Check with rworkflows
+name: Continuous Integration / R Workflows
 on:
   workflow_dispatch:
   push:
-    branches:
-    - devel
-    - issue*/*
-    - feat/*
+    branches-ignore:
+    - master
+    - main
     - RELEASE_**
+    - graphite-**
   pull_request:
     branches:
+    - master
+    - main
     - devel
     - RELEASE_**
-    - issue*/*
-    - feat/*
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   rworkflows:
-    permissions:
-      contents: write
     runs-on: ${{ matrix.config.os }}
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
     container: ${{ matrix.config.cont }}
@@ -28,28 +31,26 @@ jobs:
           bioc: devel
           r: auto
           cont: bioconductor/bioconductor_docker:devel
-          rspm: https://packagemanager.rstudio.com/cran/__linux__/latest/release
+          rspm: https://packagemanager.rstudio.com/cran/__linux__/focal/release
         - os: macOS-latest
-          bioc: release
+          bioc: devel
           r: auto
         - os: windows-latest
-          bioc: release
+          bioc: devel
           r: auto
     steps:
-    - run: apt-get update && apt-get install -y rsync qpdf
-      if: runner.os == 'Linux'
     - uses: neurogenomics/rworkflows@master
       with:
-        run_bioccheck: ${{ false }}
-        run_rcmdcheck: ${{ false }}
+        run_bioccheck: ${{ true }}
+        run_rcmdcheck: ${{ true }}
         as_cran: ${{ true }}
-        run_vignettes: ${{ false }}
-        has_testthat: ${{ false }}
+        run_vignettes: ${{ true }}
+        has_testthat: ${{ true }}
         run_covr: ${{ false }}
         run_pkgdown: ${{ false }}
         has_runit: ${{ false }}
         has_latex: ${{ false }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
         run_docker: ${{ false }}
         runner_os: ${{ runner.os }}
         cache_version: cache-v1

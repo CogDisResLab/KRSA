@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,r,archive,archives,compressed,compression,compressedarchive,windows,linux,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,r,archive,archives,compressed,compression,compressedarchive,windows,linux,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/r,macos,archive,archives,compressedarchive,linux,git
+# Edit at https://www.toptal.com/developers/gitignore?templates=r,macos,archive,archives,compressedarchive,linux,git
 
 ### Archive ###
 
@@ -64,12 +64,6 @@
 *.dmg
 *.egg
 *.txz
-
-### Compressed ###
-*.pkg
-*.sit
-*.sitx
-*.zipx
 
 ### CompressedArchive ###
 
@@ -157,7 +151,9 @@
 # An archive format designed for the Apple II series of computers. The canonical implementation is ShrinkIt, which can operate on disk images as well as files. Preferred compression algorithm is a combination of RLE and 12-bit LZW. Archives can be manipulated with the command-line NuLib tool, or the Windows-based CiderPress.
 *.shk
 # A compression format common on Apple Macintosh computers. The free StuffIt Expander is available for Windows and OS X.
+*.sit
 # The replacement for the .sit format that supports more compression methods, UNIX file permissions, long file names, very large files, more encryption options, data specific compressors (JPEG, Zip, PDF, 24-bit image, MP3). The free StuffIt Expander is available for Windows and OS X.
+*.sitx
 # A royalty-free compressing format
 *.sqx
 # The "tarball" format combines tar archives with a file-based compression scheme (usually gzip). Commonly used for source and binary distribution on Unix-like platforms, widely available elsewhere.
@@ -188,6 +184,7 @@
 # Yamazaki zipper archive. Compression format used in DeepFreezer archiver utility created by Yamazaki Satoshi. Read and write support exists in TUGZip, IZArc and ZipZag
 *.yz1
 # The most widely used compression format on Microsoft Windows. Commonly used on Macintosh and Unix systems as well.
+*.zipx
 # application/x-zoo     zoo     Multiple    Multiple    Yes
 *.zoo
 # Journaling (append-only) archive format with rollback capability. Supports deduplication and incremental update based on last-modified dates. Multi-threaded. Compresses in LZ77, BWT, and context mixing formats. Open source.
@@ -196,40 +193,20 @@
 *.zz
 
 
-### Compression ###
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
 
-### From https://en.wikipedia.org/wiki/List_of_archive_formats
-
-## Compression only
-# An open source, patent- and royalty-free compression format. The compression algorithm is a Burrows-Wheeler transform followed by a move-to-front transform and finally Huffman coding
-# Old compressor for QNX4 OS. The compression algorithm is a modified LZSS, with an adaptive Huffman coding.
-*.F
-# GNU Zip, the primary compression format used by Unix-like systems. The compression algorithm is DEFLATE.
-# An alternate LZMA algorithm implementation, with support for checksums and ident bytes.
-*.lz
-# The LZMA compression algorithm as used by 7-Zip
-# An implementation of the LZO data compression algorithm
-*.lzo
-# A compression program designed to do particularly well on very large files containing long distance redundancy.
-*.rz
-# Windows compress/decompress- Linux and Mac OS X decompress only   A compression program designed to do high compression on SF2 files (SoundFont)
-*.sfark
-# A compression format invented by Google and open-sourced in 2011. Snappy aims for very high speeds, reasonable compression, and maximum stability rather than maximum compression or compatibility with any other compression library.
-*.sz
-# Squeeze: A program which compressed files. A file which was "squeezed" had the middle initial of the name changed to "Q", so that a squeezed text file would end with .TQT, a squeezed executable would end with .CQM or .EQE. Typically used with .LBR archives, either by storing the squeezed files in the archive, or by storing the files decompressed and then compressing the archive, which would have a name ending in ".LQR".
-*.?Q?
-# A compression program written by Steven Greenberg implementing the LZW algorithm. For several years in the CP/M world when no implementation was available of ARC, CRUNCHed files stored in .LBR archives were very popular. CRUNCH's implementation of LZW had a somewhat unique feature of modifying and occasionally clearing the code table in memory when it became full, resulting in a few percent better compression on many files.
-*.?Z?
-# A compression format using LZMA2 to yield very high compression ratios.
-# The traditional Huffman coding compression format.
-*.z
-# The traditional LZW compression format.
-*.Z
-# Joke compression program, actually increasing file size
-*.infl
-# Compression format(s) used by some DOS and Windows install programs. MS-DOS includes expand.exe to decompress its install files. The compressed files are created with a matching compress.exe command. The compression algorithm is LZSS.
-*.??_
-
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
 
 ### Linux ###
 *~
@@ -302,6 +279,7 @@ Temporary Items
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
@@ -334,45 +312,34 @@ rsconnect/
 # R package: bookdown caching files
 /*_files/
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+# R package docs
+inst/doc
 
-# Local History for Visual Studio Code
-.history/
+# Personal R profile
+.Rprofile
 
-# Built Visual Studio Code Extensions
-*.vsix
+# Random HTML files
+*.html
 
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
+# End of https://www.toptal.com/developers/gitignore/api/r,macos,archive,archives,compressedarchive,linux,git
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
+# Additional ignores
 
-# Dump file
-*.stackdump
+/doc/
+/Meta/
+**/*.log
+test.tsv
 
-# Folder config file
-[Dd]esktop.ini
+# Ignore overrides
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+!inst/extdata/*
 
-# Windows Installer files
-*.msix
+*.bak
+*.pdf
+*.jats
 
-# Windows shortcuts
-*.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,r,archive,archives,compressed,compression,compressedarchive,windows,linux,visualstudiocode
+.vscode/
+
+
+tests/*.json
