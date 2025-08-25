@@ -25,15 +25,15 @@ parse_BN_crosstabFile <- function(file_path, type = c(
     )
 
     meta_rows <- which(df[, 1] == "")
-    epmty_col <- which(df[meta_rows[1], ] == "")
+    empty_col <- which(df[meta_rows[1], ] == "")
 
-    meta_info <- df[meta_rows, (epmty_col[length(epmty_col)] + 1):ncol(df)]
+    meta_info <- df[meta_rows, (empty_col[length(empty_col)] + 1):ncol(df)]
 
     rows_end <- nrow(df)
     rows_start <- meta_rows[(length(meta_rows))] + 2
 
     data <- df[rows_start:rows_end, ]
-    data <- data[, c(1, (epmty_col[length(epmty_col)] + 2):ncol(data))]
+    data <- data[, c(1, (empty_col[length(empty_col)] + 2):ncol(data))]
 
     df2 <- data.frame(t(data[-1]), stringsAsFactors = F)
     colnames(df2) <- data[, 1]
