@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup R
-        uses: r-lib/actions/setup-r@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590 # v2.11.4
+        uses: r-lib/actions/setup-r@465b7d8e732ca3921382b1674c59bada9cbf3399 # v2.13.0
         with:
           r-version: renv
       - name: Install system dependencies
@@ -33,7 +33,7 @@ jobs:
           libudunits2-dev libharfbuzz-dev libfribidi-dev \
           pandoc
       - name: Install dependencies
-        uses: r-lib/actions/setup-renv@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590 # v2.11.4
+        uses: r-lib/actions/setup-renv@465b7d8e732ca3921382b1674c59bada9cbf3399 # v2.13.0
       - name: Build pkgdown site
         run: Rscript -e 'pkgdown::build_site_github_pages(install = TRUE)'
       - name: Deploy pkgdown site
@@ -41,6 +41,6 @@ jobs:
         with:
           path: docs/
       - name: Deploy pkgdown site
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
