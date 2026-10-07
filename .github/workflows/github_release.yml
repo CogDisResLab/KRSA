@@ -56,13 +56,13 @@ jobs:
           libudunits2-dev libharfbuzz-dev libfribidi-dev \
           pandoc
       - name: Setup R
-        uses: r-lib/actions/setup-r@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590 # v2.11.4
+        uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           r-version: ${{ matrix.r_version }}
           use-public-rspm: true
         id: r
       - name: Install dependencies
-        uses: r-lib/actions/setup-renv@6f6e5bc62fba3a704f74e7ad7ef7676c5c6a2590 # v2.11.4
+        uses: r-lib/actions/setup-renv@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
       - name: Build Package
         run: R CMD build .
       - name: Rename Package
