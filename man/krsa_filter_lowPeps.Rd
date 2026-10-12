@@ -26,8 +26,8 @@ TRUE
 }
 \seealso{
 Other QC functions:
-\code{\link{krsa_filter_nonLinear}()},
-\code{\link{krsa_filter_ref_pep}()},
-\code{\link{krsa_qc_steps}()}
+\code{\link[=krsa_filter_nonLinear]{krsa_filter_nonLinear()}},
+\code{\link[=krsa_filter_ref_pep]{krsa_filter_ref_pep()}},
+\code{\link[=krsa_qc_steps]{krsa_qc_steps()}}
 }
 \concept{QC functions}
