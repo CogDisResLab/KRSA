@@ -3,7 +3,7 @@
 exclude: '.*\.(csv|tsv|xls)$'
 repos:
   - repo: https://github.com/lorenzwalthert/precommit
-    rev: v0.4.3.9009
+    rev: v0.4.3.9030
     hooks:
       - id: use-tidy-description
       - id: codemeta-description-updated
@@ -67,7 +67,7 @@ repos:
           - --branch
           - RELEASE.*
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - args:
           - build
@@ -86,7 +86,7 @@ repos:
         stages:
           - commit-msg
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: forbid-crlf
       - id: remove-crlf
@@ -111,6 +111,7 @@ repos:
         entry: Cannot commit .Rhistory, .RData, .Rds or .rds.
         language: fail
         files: '\.(Rhistory|RData|Rds|rds)$'
+        exclude: "data(-raw)?/"
       - id: bump-version
         name: Bump version
         entry: >
@@ -123,7 +124,7 @@ repos:
       - id: codemeta-json-updated
         name: Update codemeta.json
         entry: >
-          Rscript --vanilla -e "codemetar::write_codemeta()"
+          Rscript -e "codemetar::write_codemeta()"
         language: system
         files: DESCRIPTION
         stages:

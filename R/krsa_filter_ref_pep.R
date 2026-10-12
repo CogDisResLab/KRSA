@@ -21,7 +21,6 @@ krsa_filter_ref_pep <- function(peptides) {
     )] -> new_pep
 
 
-
     message(paste("Filtered out", length(peptides) - length(new_pep), "Peptides"))
 
     new_pep

@@ -29,7 +29,6 @@ krsa_filter_nonLinear <- function(data, threshold, samples = NULL, groups = NULL
         dplyr::pull(Peptide) -> p
 
 
-
     message(paste("Filtered out", length(data$Peptide %>% unique()) - length(p), "Peptides"))
 
     p
