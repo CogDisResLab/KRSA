@@ -21,15 +21,15 @@ Takes in the Z score table and output kinase with their scores
 }
 \seealso{
 Other helper functions:
-\code{\link{enrichr_lib_call}()},
-\code{\link{krsa_ce_output_kinases}()},
-\code{\link{krsa_enrichr}()},
-\code{\link{krsa_extractEndPoint}()},
-\code{\link{krsa_extractEndPointMaxExp}()},
-\code{\link{krsa_get_diff}()},
-\code{\link{krsa_get_diff_byChip}()},
-\code{\link{krsa_sampling}()},
-\code{\link{krsa_show_peptides}()},
-\code{\link{krsa_top_hits}()}
+\code{\link[=enrichr_lib_call]{enrichr_lib_call()}},
+\code{\link[=krsa_ce_output_kinases]{krsa_ce_output_kinases()}},
+\code{\link[=krsa_enrichr]{krsa_enrichr()}},
+\code{\link[=krsa_extractEndPoint]{krsa_extractEndPoint()}},
+\code{\link[=krsa_extractEndPointMaxExp]{krsa_extractEndPointMaxExp()}},
+\code{\link[=krsa_get_diff]{krsa_get_diff()}},
+\code{\link[=krsa_get_diff_byChip]{krsa_get_diff_byChip()}},
+\code{\link[=krsa_sampling]{krsa_sampling()}},
+\code{\link[=krsa_show_peptides]{krsa_show_peptides()}},
+\code{\link[=krsa_top_hits]{krsa_top_hits()}}
 }
 \concept{helper functions}

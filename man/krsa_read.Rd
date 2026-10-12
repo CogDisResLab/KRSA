@@ -22,9 +22,9 @@ TRUE
 }
 \seealso{
 Other core functions:
-\code{\link{krsa}()},
-\code{\link{krsa_group_diff}()},
-\code{\link{krsa_quick_filter}()},
-\code{\link{krsa_scaleModel}()}
+\code{\link[=krsa]{krsa()}},
+\code{\link[=krsa_group_diff]{krsa_group_diff()}},
+\code{\link[=krsa_quick_filter]{krsa_quick_filter()}},
+\code{\link[=krsa_scaleModel]{krsa_scaleModel()}}
 }
 \concept{core functions}
