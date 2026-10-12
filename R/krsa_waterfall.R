@@ -30,7 +30,6 @@ krsa_waterfall <- function(data, lfc_thr, byChip = T, sd_thr = Inf) {
     ggplot2::ggplot(data) -> gg
 
 
-
     if (byChip == T) {
         gg <- gg +
             ggplot2::geom_point(ggplot2::aes(LFC, stats::reorder(Peptide, LFC)), color = data$colFC, size = 0.75) +
@@ -41,8 +40,6 @@ krsa_waterfall <- function(data, lfc_thr, byChip = T, sd_thr = Inf) {
             ggplot2::geom_segment(ggplot2::aes(x = 0, xend = LFC, y = stats::reorder(Peptide, LFC), yend = stats::reorder(Peptide, LFC)), color = "grey") +
             ggplot2::geom_point(ggplot2::aes(LFC, stats::reorder(Peptide, LFC)), color = data$colFC, size = 2)
     }
-
-
 
 
     gg +

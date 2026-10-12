@@ -14,6 +14,10 @@ KRSA_uka_mapping_PTK_PamChip_86402_v1 <- readr::read_csv("data-raw/uka_pep2kinas
 
 KRSA_uka_mapping_STK_PamChip_87102_v1 <- readr::read_csv("data-raw/uka_pep2kinase_STK.csv")
 
+KRSA_Mapping_STK_PamChip_87202_v1 <- readRDS("data-raw/KRSA_Mapping_STK_PamChip_87202_v1.rds")
+
+KRSA_coverage_STK_PamChip_87202_v1 <- readRDS("data-raw/KRSA_coverage_STK_PamChip_87202_v1.rds")
+
 # removed pdk
 KRSA_coverage_STK_PamChip_87102_v1 %>% dplyr::filter(Kin != "PDK") -> KRSA_coverage_STK_PamChip_87102_v2
 
