@@ -129,7 +129,7 @@
 #'
 #' A data frame of the Chip layout for PTK PamChip 86402
 #'
-#' @format A data frame with 204 rows and 6 columns
+#' @format A data frame with 204 rows and 10 columns
 #' \describe{
 #' }
 #' @usage data("KRSA_layout_PTK_PamChip_86402_v1")
@@ -140,11 +140,21 @@
 #'
 #' A data frame of the Chip layout for STK PamChip 87102
 #'
-#' @format A data frame with 152 rows and 6 columns
+#' @format A data frame with 152 rows and 11 columns
 #' \describe{
 #' }
 #' @usage data("KRSA_layout_STK_PamChip_87102_v1")
 "KRSA_layout_STK_PamChip_87102_v1"
+
+#' Official layout of the STK PamChip 87202
+#'
+#' A data frame of the Chip layout for STK PamChip 87202
+#'
+#' @format A data frame with 152 rows and 11 columns
+#' \describe{
+#' }
+#' @usage data("KRSA_layout_STK_PamChip_87202_v1")
+"KRSA_layout_STK_PamChip_87202_v1"
 
 #' Official mapping of the PTK PamChip 86402 from PamGene
 #'
