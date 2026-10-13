@@ -5,7 +5,7 @@
 \alias{KRSA_layout_PTK_PamChip_86402_v1}
 \title{Official layout of the PTK PamChip 86402}
 \format{
-A data frame with 204 rows and 6 columns
+A data frame with 204 rows and 10 columns
 \describe{
 }
 }
