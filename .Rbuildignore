@@ -1,4 +1,5 @@
 ^.*\.Rproj$
+^KRSA-sloc\.html$
 ^LICENSE\.md$
 ^README.Rmd
 ^\.Rproj\.user$
@@ -7,11 +8,16 @@
 ^\.lintr$
 ^\.pre-commit-config\.yaml$
 ^\.travis\.yml$
+^\.vscode$
 ^_pkgdown\.yml$
+^bump-version\.sh$
 ^codemeta\.json$
+^create-github-release\.sh$
+^create-tag\.sh$
 ^data-raw
 ^docs$
 ^pkgdown$
+^rename-package\.R$
 ^renovate\.json$
 ^renv$
 ^renv\.lock$
