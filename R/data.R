@@ -124,3 +124,46 @@
 #' @usage data("ptk_pamchip_86402_mapping")
 #'
 "ptk_pamchip_86402_mapping"
+
+#' Official layout of the PTK PamChip 86402
+#'
+#' A data frame of the Chip layout for PTK PamChip 86402
+#'
+#' @format A data frame with 204 rows and 6 columns
+#' \describe{
+#' }
+#' @usage data("KRSA_layout_PTK_PamChip_86402_v1")
+"KRSA_layout_PTK_PamChip_86402_v1"
+
+
+#' Official layout of the STK PamChip 87102
+#'
+#' A data frame of the Chip layout for STK PamChip 87102
+#'
+#' @format A data frame with 152 rows and 6 columns
+#' \describe{
+#' }
+#' @usage data("KRSA_layout_STK_PamChip_87102_v1")
+"KRSA_layout_STK_PamChip_87102_v1"
+
+#' Official mapping of the PTK PamChip 86402 from PamGene
+#'
+#' A data frame of the PamGene mapping of Substrates
+#' to kinases.
+#'
+#' @format A data frame with 1438 rows and 11 columns
+#' \describe{
+#' }
+#' @usage data("KRSA_uka_mapping_PTK_PamChip_86402_v1")
+"KRSA_uka_mapping_PTK_PamChip_86402_v1"
+
+#' Official mapping of the STK PamChip 87102 from PamGene
+#'
+#' A data frame of the PamGene mapping of Substrates
+#' to kinases.
+#'
+#' @format A data frame with 2106 rows and 11 columns
+#' \describe{
+#' }
+#' @usage data("KRSA_uka_mapping_STK_PamChip_87102_v1")
+"KRSA_uka_mapping_STK_PamChip_87102_v1"
